@@ -34,42 +34,42 @@ ENTRYPOINT [ "starport", "chain", "serve" ]
 FROM --platform=linux/amd64 build-dependencies AS build-binary
 COPY ./ ./
 
-ENV IXOD_HOME="/home/ixo/"
-RUN mkdir -p ${IXOD_HOME}/iid
+ENV FURYD_HOME="/home/fury/"
+RUN mkdir -p ${FURYD_HOME}/iid
 
 RUN go mod tidy && go mod vendor
 RUN make install
 
-# RUN tar -xzf /dist/app/ixo-blockchain_linux_amd64.tar.gz -C /dist/app/
+# RUN tar -xzf /dist/app/fury-blockchain_linux_amd64.tar.gz -C /dist/app/
 
 # FROM ubuntu:latest AS setup-genisis
 # COPY ./.infra/dockerfiles/setups/setup-genisis.sh /setup/setup-genisis.sh
 # RUN /setup/setup-genisis.sh
 
-# RUN curl https://raw.githubusercontent.com/ixofoundation/genesis/master/pandora-4/genesis.json
+# RUN curl https://raw.githubusercontent.com/furyfoundation/genesis/master/pandora-4/genesis.json
 
-ENTRYPOINT ["ixod", "start"]
+ENTRYPOINT ["fury", "start"]
 
 ##
 ## Build Distrubutiable Blockchain
 ##
 FROM --platform=linux/amd64 ubuntu:latest as distributable
 
-COPY --from=build-binary /go/bin/ixod /app/ixod
+COPY --from=build-binary /go/bin/fury /app/fury
 COPY --from=build-binary /go/pkg/mod/github.com/!cosm!wasm/wasmvm@v1.1.1/internal/api/ /go/pkg/mod/github.com/!cosm!wasm/wasmvm@v1.1.1/internal/api/
 COPY ./.infra/dockerfiles/setups/setup-devnet.sh /root/setup-devnet.sh
 
 ENV HOME=/root/
-RUN rm -rf /root/.ixod/ && chmod +x /root/setup-devnet.sh
+RUN rm -rf /root/.fury/ && chmod +x /root/setup-devnet.sh
 
-ONBUILD LABEL world.ixo.blockchain.image.authors="ixo"
+ONBUILD LABEL world.fury.blockchain.image.authors="fury"
 
 ONBUILD WORKDIR /app
 
 ONBUILD EXPOSE 1317
 ONBUILD EXPOSE 26657
 
-# ONBUILD ENTRYPOINT ["/app/ixod", "start", "--rpc.laddr", "tcp://0.0.0.0:26657"]
+# ONBUILD ENTRYPOINT ["/app/fury", "start", "--rpc.laddr", "tcp://0.0.0.0:26657"]
 
 FROM distributable AS dist-devel
 # RUN echo "Fetch genisis file"

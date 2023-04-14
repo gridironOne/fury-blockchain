@@ -2,8 +2,8 @@ package claims
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/ixofoundation/ixo-blockchain/x/claims/keeper"
-	"github.com/ixofoundation/ixo-blockchain/x/claims/types"
+	"github.com/furyfoundation/fury-blockchain/x/claims/keeper"
+	"github.com/furyfoundation/fury-blockchain/x/claims/types"
 	abci "github.com/tendermint/tendermint/abci/types"
 )
 

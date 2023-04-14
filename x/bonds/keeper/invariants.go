@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/ixofoundation/ixo-blockchain/x/bonds/types"
+	"github.com/furyfoundation/fury-blockchain/x/bonds/types"
 )
 
 // RegisterInvariants registers all supply invariants
@@ -150,7 +150,7 @@ func AvailableReserveInvariant(k Keeper) sdk.Invariant {
 			availableReserveSum = availableReserveSum.Add(bond.CurrentOutcomePaymentReserve...)
 		}
 
-		// TODO check why invariant breaks on ixo testnet
+		// TODO check why invariant breaks on fury testnet
 		// broken := !availableReserveSum.IsEqual(actualAvailableReserve)
 		broken := false
 		return sdk.FormatInvariant(types.ModuleName, "available-reserve",

@@ -9,7 +9,7 @@ import (
 
 var (
 	KeyCollectionSequence   = []byte("CollectionSequence")
-	KeyIxoAccount           = []byte("IxoAccount")
+	KeyFuryAccount           = []byte("FuryAccount")
 	KeyNetworkFeePercentage = []byte("NetworkFeePercentage")
 	KeyNodeFeePercentage    = []byte("NodeFeePercentage")
 )
@@ -22,11 +22,11 @@ func ParamKeyTable() paramtypes.KeyTable {
 }
 
 // NewParams creates a new Params instance
-func NewParams(collectionSequence uint64, ixoAccount string,
+func NewParams(collectionSequence uint64, furyAccount string,
 	networkFeePercentage, nodeFeePercentage sdk.Dec) Params {
 	return Params{
 		CollectionSequence:   collectionSequence,
-		IxoAccount:           ixoAccount,
+		FuryAccount:           furyAccount,
 		NetworkFeePercentage: networkFeePercentage,
 		NodeFeePercentage:    nodeFeePercentage,
 	}
@@ -34,23 +34,23 @@ func NewParams(collectionSequence uint64, ixoAccount string,
 
 // DefaultParams returns a default set of parameters
 func DefaultParams() Params {
-	defaultIxoAccount := "ixo1kqmtxkggcqa9u34lnr6shy0euvclgatw4f9zz5"
+	defaultFuryAccount := "fury1kqmtxkggcqa9u34lnr6shy0euvclgatw4f9zz5"
 	tenPercentFee := sdk.NewDec(10)
 
-	return NewParams(1, defaultIxoAccount, tenPercentFee, tenPercentFee)
+	return NewParams(1, defaultFuryAccount, tenPercentFee, tenPercentFee)
 }
 
 // ParamSetPairs get the params.ParamSet
 func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 	return paramtypes.ParamSetPairs{
 		paramtypes.ParamSetPair{Key: KeyCollectionSequence, Value: &p.CollectionSequence, ValidatorFn: validateCollectionSequence},
-		paramtypes.ParamSetPair{Key: KeyIxoAccount, Value: &p.IxoAccount, ValidatorFn: validateIxoAccount},
+		paramtypes.ParamSetPair{Key: KeyFuryAccount, Value: &p.FuryAccount, ValidatorFn: validateFuryAccount},
 		paramtypes.ParamSetPair{Key: KeyNetworkFeePercentage, Value: &p.NetworkFeePercentage, ValidatorFn: validateFeePercentage},
 		paramtypes.ParamSetPair{Key: KeyNodeFeePercentage, Value: &p.NodeFeePercentage, ValidatorFn: validateFeePercentage},
 	}
 }
 
-func validateIxoAccount(i interface{}) error {
+func validateFuryAccount(i interface{}) error {
 	v, ok := i.(string)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
@@ -94,7 +94,7 @@ func (p Params) Validate() error {
 	if err != nil {
 		return err
 	}
-	err = validateIxoAccount(p.IxoAccount)
+	err = validateFuryAccount(p.FuryAccount)
 	if err != nil {
 		return err
 	}

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/ixofoundation/ixo-blockchain/x/bonds/types"
+	"github.com/furyfoundation/fury-blockchain/x/bonds/types"
 	"github.com/tendermint/go-amino"
 )
 

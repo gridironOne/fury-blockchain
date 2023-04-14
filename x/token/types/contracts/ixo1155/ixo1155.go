@@ -1,4 +1,4 @@
-package ixo1155
+package fury1155
 
 import (
 	"bytes"

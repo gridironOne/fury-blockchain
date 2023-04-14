@@ -8,10 +8,10 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/types"
-	nft "github.com/ixofoundation/ixo-blockchain/x/entity/types/contracts"
-	iidkeeper "github.com/ixofoundation/ixo-blockchain/x/iid/keeper"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/x/entity/types"
+	nft "github.com/furyfoundation/fury-blockchain/x/entity/types/contracts"
+	iidkeeper "github.com/furyfoundation/fury-blockchain/x/iid/keeper"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 type msgServer struct {
@@ -58,7 +58,7 @@ func (s msgServer) CreateEntity(goCtx context.Context, msg *types.MsgCreateEntit
 	}
 
 	generatedId := md5.Sum([]byte(fmt.Sprintf("%s/%d", nftContractAddressParam, params.CreateSequence)))
-	entityId := fmt.Sprintf("did:ixo:entity:%x", generatedId)
+	entityId := fmt.Sprintf("did:fury:entity:%x", generatedId)
 
 	// check that the did is not already taken
 	_, found = s.Keeper.IidKeeper.GetDidDocument(ctx, []byte(entityId))
@@ -127,7 +127,7 @@ func (s msgServer) CreateEntity(goCtx context.Context, msg *types.MsgCreateEntit
 		return nil, err
 	}
 
-	_, err = s.Keeper.WasmKeeper.Execute(ctx, nftContractAddress, minterAddress, finalMessage, sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())))
+	_, err = s.Keeper.WasmKeeper.Execute(ctx, nftContractAddress, minterAddress, finalMessage, sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())))
 	if err != nil {
 		return nil, err
 	}
@@ -268,7 +268,7 @@ func (s msgServer) TransferEntity(goCtx context.Context, msg *types.MsgTransferE
 		return nil, err
 	}
 
-	_, err = s.Keeper.WasmKeeper.Execute(ctx, nftContractAddress, controllerAddress, finalMessage, sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())))
+	_, err = s.Keeper.WasmKeeper.Execute(ctx, nftContractAddress, controllerAddress, finalMessage, sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())))
 	if err != nil {
 		return nil, err
 	}

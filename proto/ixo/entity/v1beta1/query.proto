@@ -1,36 +1,36 @@
 syntax = "proto3";
-package ixo.entity.v1beta1;
+package fury.entity.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "ixo/entity/v1beta1/entity.proto";
-import "ixo/iid/v1beta1/iid.proto";
+import "fury/entity/v1beta1/entity.proto";
+import "fury/iid/v1beta1/iid.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/entity/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/entity/types";
 
 // Query defines the gRPC querier service.
 service Query {
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/ixo/entity/params";
+    option (google.api.http).get = "/fury/entity/params";
   }
   rpc Entity(QueryEntityRequest) returns (QueryEntityResponse) {
-    option (google.api.http).get = "/ixo/entity/{id}";
+    option (google.api.http).get = "/fury/entity/{id}";
   }
   rpc EntityMetaData(QueryEntityMetadataRequest)
       returns (QueryEntityMetadataResponse) {
-    option (google.api.http).get = "/ixo/entity/{id}/metadata";
+    option (google.api.http).get = "/fury/entity/{id}/metadata";
   }
   rpc EntityIidDocument(QueryEntityIidDocumentRequest)
       returns (QueryEntityIidDocumentResponse) {
-    option (google.api.http).get = "/ixo/entity/{id}/iiddocument";
+    option (google.api.http).get = "/fury/entity/{id}/iiddocument";
   }
   rpc EntityVerified(QueryEntityVerifiedRequest)
       returns (QueryEntityVerifiedResponse) {
-    option (google.api.http).get = "/ixo/entity/{id}/verified";
+    option (google.api.http).get = "/fury/entity/{id}/verified";
   }
   rpc EntityList(QueryEntityListRequest) returns (QueryEntityListResponse) {
-    option (google.api.http).get = "/ixo/entity";
+    option (google.api.http).get = "/fury/entity";
   }
 }
 
@@ -45,7 +45,7 @@ message QueryEntityRequest { string id = 1; }
 
 message QueryEntityResponse {
   Entity entity = 1 [ (gogoproto.nullable) = false ];
-  ixo.iid.v1beta1.IidDocument iidDocument = 2 [ (gogoproto.nullable) = false ];
+  fury.iid.v1beta1.IidDocument iidDocument = 2 [ (gogoproto.nullable) = false ];
 }
 
 message QueryEntityMetadataRequest { string id = 1; }
@@ -57,7 +57,7 @@ message QueryEntityMetadataResponse {
 message QueryEntityIidDocumentRequest { string id = 1; }
 
 message QueryEntityIidDocumentResponse {
-  ixo.iid.v1beta1.IidDocument iidDocument = 1 [ (gogoproto.nullable) = false ];
+  fury.iid.v1beta1.IidDocument iidDocument = 1 [ (gogoproto.nullable) = false ];
 }
 
 message QueryEntityVerifiedRequest { string id = 1; }

@@ -5,12 +5,12 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types/contracts/ixo1155"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/types/contracts/fury1155"
 )
 
 var (
-	KeyIxo1155ContractCode = []byte("Ixo1155ContractCode")
+	KeyFury1155ContractCode = []byte("Fury1155ContractCode")
 )
 
 func validateContractCode(i interface{}) error {
@@ -63,22 +63,22 @@ func ParamKeyTable() paramstypes.KeyTable {
 	return paramstypes.NewKeyTable().RegisterParamSet(&Params{})
 }
 
-func NewParams(ixo1155ContractCode uint64) Params {
+func NewParams(fury1155ContractCode uint64) Params {
 	return Params{
-		Ixo1155ContractCode: ixo1155ContractCode,
+		Fury1155ContractCode: fury1155ContractCode,
 	}
 }
 
 func DefaultParams() Params {
 	return Params{
-		Ixo1155ContractCode: 0,
+		Fury1155ContractCode: 0,
 	}
 }
 
 // Implements params.ParamSet
 func (p *Params) ParamSetPairs() paramstypes.ParamSetPairs {
 	return paramstypes.ParamSetPairs{
-		paramstypes.ParamSetPair{Key: KeyIxo1155ContractCode, Value: &p.Ixo1155ContractCode, ValidatorFn: validateContractCode},
+		paramstypes.ParamSetPair{Key: KeyFury1155ContractCode, Value: &p.Fury1155ContractCode, ValidatorFn: validateContractCode},
 	}
 }
 
@@ -92,7 +92,7 @@ type MintBatchData struct {
 	TokenData  []*TokenData
 }
 
-func (batch *MintBatchData) GetWasmMintBatch() ixo1155.Batch {
+func (batch *MintBatchData) GetWasmMintBatch() fury1155.Batch {
 	return []string{batch.Id, batch.Amount.String(), batch.Uri}
 }
 
@@ -103,7 +103,7 @@ func (batch *MintBatchData) GetTokenMintedEventBatch() *TokenBatch {
 	}
 }
 
-func (batch *TokenBatch) GetWasmTransferBatch() ixo1155.Batch {
+func (batch *TokenBatch) GetWasmTransferBatch() fury1155.Batch {
 	return []string{batch.Id, batch.Amount.String(), ""}
 }
 func Map[T, V any](ts []T, fn func(T) V) []V {

@@ -11,9 +11,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/client/tx"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	bondsclient "github.com/ixofoundation/ixo-blockchain/x/bonds/client"
-	"github.com/ixofoundation/ixo-blockchain/x/bonds/types"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	bondsclient "github.com/furyfoundation/fury-blockchain/x/bonds/client"
+	"github.com/furyfoundation/fury-blockchain/x/bonds/types"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 func NewTxCmd() *cobra.Command {
@@ -226,7 +226,7 @@ func NewCmdEditBond() *cobra.Command {
 func NewCmdSetNextAlpha() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "set-next-alpha [new-alpha] [bond-did] [editor-did]",
-		Example: "set-next-alpha 0.5 U7GK8p8rVhJMKhBVRCJJ8c <editor-ixo-did>",
+		Example: "set-next-alpha 0.5 U7GK8p8rVhJMKhBVRCJJ8c <editor-fury-did>",
 		Short:   "Edit a bond's alpha parameter",
 		Args:    cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -258,7 +258,7 @@ func NewCmdSetNextAlpha() *cobra.Command {
 func NewCmdUpdateBondState() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "update-bond-state [new-state] [bond-did] [editor-did]",
-		Example: "update-bond-state SETTLE U7GK8p8rVhJMKhBVRCJJ8c <editor-ixo-did>",
+		Example: "update-bond-state SETTLE U7GK8p8rVhJMKhBVRCJJ8c <editor-fury-did>",
 		Short:   "Edit a bond's current state",
 		Args:    cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -285,8 +285,8 @@ func NewCmdBuy() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "buy [bond-token-with-amount] [max-prices] [bond-did] [buyer-did]",
 		Example: "" +
-			"buy 10abc 1000res1 U7GK8p8rVhJMKhBVRCJJ8c <buyer-ixo-did>\n" +
-			"buy 10abc 1000res1,1000res2 U7GK8p8rVhJMKhBVRCJJ8c <buyer-ixo-did>",
+			"buy 10abc 1000res1 U7GK8p8rVhJMKhBVRCJJ8c <buyer-fury-did>\n" +
+			"buy 10abc 1000res1,1000res2 U7GK8p8rVhJMKhBVRCJJ8c <buyer-fury-did>",
 		Short: "Buy from a bond",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -320,7 +320,7 @@ func NewCmdBuy() *cobra.Command {
 func NewCmdSell() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "sell [bond-token-with-amount] [bond-did] [seller-did]",
-		Example: "sell 10abc U7GK8p8rVhJMKhBVRCJJ8c <seller-ixo-did>",
+		Example: "sell 10abc U7GK8p8rVhJMKhBVRCJJ8c <seller-fury-did>",
 		Short:   "Sell from a bond",
 		Args:    cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -349,8 +349,8 @@ func NewCmdSwap() *cobra.Command {
 	cmd := &cobra.Command{
 		Use: "swap [from-amount] [from-token] [to-token] [bond-did] [swapper-did]",
 		Example: "" +
-			"swap 100 res1 res2 U7GK8p8rVhJMKhBVRCJJ8c <swapper-ixo-did>\n" +
-			"swap 100 res2 res1 U7GK8p8rVhJMKhBVRCJJ8c <swapper-ixo-did>",
+			"swap 100 res1 res2 U7GK8p8rVhJMKhBVRCJJ8c <swapper-fury-did>\n" +
+			"swap 100 res2 res1 U7GK8p8rVhJMKhBVRCJJ8c <swapper-fury-did>",
 		Short: "Perform a swap between two tokens",
 		Args:  cobra.ExactArgs(5),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -379,7 +379,7 @@ func NewCmdSwap() *cobra.Command {
 func NewCmdMakeOutcomePayment() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "make-outcome-payment [bond-did] [amount] [sender-did]",
-		Example: "make-outcome-payment U7GK8p8rVhJMKhBVRCJJ8c 100 <sender-ixo-did>",
+		Example: "make-outcome-payment U7GK8p8rVhJMKhBVRCJJ8c 100 <sender-fury-did>",
 		Short:   "Make an outcome payment to a bond",
 		Args:    cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -406,7 +406,7 @@ func NewCmdMakeOutcomePayment() *cobra.Command {
 func NewCmdWithdrawShare() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "withdraw-share [bond-did] [recipient-did]",
-		Example: "withdraw-share U7GK8p8rVhJMKhBVRCJJ8c <recipient-ixo-did>",
+		Example: "withdraw-share U7GK8p8rVhJMKhBVRCJJ8c <recipient-fury-did>",
 		Short:   "Withdraw share from a bond that is in settlement state",
 		Args:    cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -428,7 +428,7 @@ func NewCmdWithdrawShare() *cobra.Command {
 func NewCmdWithdrawReserve() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:     "withdraw-reserve [bond-did] [amount] [withdrawer-did]",
-		Example: "withdraw-reserve U7GK8p8rVhJMKhBVRCJJ8c 1000res <withdrawer-ixo-did>",
+		Example: "withdraw-reserve U7GK8p8rVhJMKhBVRCJJ8c 1000res <withdrawer-fury-did>",
 		Short:   "Withdraw reserve from a bond",
 		Args:    cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) error {

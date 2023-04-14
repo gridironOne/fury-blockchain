@@ -5,7 +5,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 
-	"github.com/ixofoundation/ixo-blockchain/x/claims/types"
+	"github.com/furyfoundation/fury-blockchain/x/claims/types"
 )
 
 func (k Keeper) SetCollection(ctx sdk.Context, data types.Collection) {

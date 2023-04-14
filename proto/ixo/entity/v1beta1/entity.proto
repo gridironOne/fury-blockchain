@@ -1,11 +1,11 @@
 syntax = "proto3";
-package ixo.entity.v1beta1;
+package fury.entity.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "ixo/iid/v1beta1/iid.proto";
+import "fury/iid/v1beta1/iid.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/entity/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/entity/types";
 
 message Params {
   string nftContractAddress = 1;

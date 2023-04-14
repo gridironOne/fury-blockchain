@@ -1,16 +1,16 @@
 syntax = "proto3";
-package ixo.claims.v1beta1;
+package fury.claims.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "google/protobuf/duration.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/claims/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/claims/types";
 
 message Params {
   uint64 collection_sequence = 1;
-  string ixo_account = 2;
+  string fury_account = 2;
   string network_fee_percentage = 3 [
     (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
     (gogoproto.nullable) = false

@@ -1,11 +1,11 @@
 syntax = "proto3";
-package ixo.claims.v1beta1;
+package fury.claims.v1beta1;
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/claims/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/claims/types";
 
 import "gogoproto/gogo.proto";
-import "ixo/claims/v1beta1/claims.proto";
-import "ixo/claims/v1beta1/authz.proto";
+import "fury/claims/v1beta1/claims.proto";
+import "fury/claims/v1beta1/authz.proto";
 
 // CollectionCreatedEvent is an event triggered on a Collection creation
 message CollectionCreatedEvent { Collection collection = 1; }

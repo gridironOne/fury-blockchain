@@ -1,10 +1,10 @@
 syntax = "proto3";
-package ixo.bonds.v1beta1;
+package fury.bonds.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/bonds/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/bonds/types";
 
 // FunctionParam is a key-value pair used for specifying a specific bond
 // parameter.
@@ -44,12 +44,12 @@ message Bond {
   string description = 3 [ (gogoproto.moretags) = "yaml:\"description\"" ];
   string creator_did = 4 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"creator_did\""
   ];
   string controller_did = 5 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"controller_did\""
   ];
   string function_type = 6 [ (gogoproto.moretags) = "yaml:\"function_type\"" ];
@@ -129,7 +129,7 @@ message Bond {
   string bond_did = 27 [ (gogoproto.moretags) = "yaml:\"bond_did\"" ];
   string oracle_did = 28 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"oracle_did\""
   ];
 }
@@ -139,7 +139,7 @@ message Bond {
 message BaseOrder {
   string account_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"account_did\""
   ];
   cosmos.base.v1beta1.Coin amount = 2 [

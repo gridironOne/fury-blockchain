@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/ixofoundation/ixo-blockchain/x/token/keeper"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/keeper"
+	"github.com/furyfoundation/fury-blockchain/x/token/types"
 )
 
 const (
@@ -30,7 +30,7 @@ func handleTokenParameterChangeProposal(ctx sdk.Context, k keeper.Keeper, p *typ
 	var xx types.Params
 	k.ParamSpace.GetParamSetIfExists(ctx, &xx)
 
-	xx.Ixo1155ContractCode = p.Ixo1155ContractCode
+	xx.Fury1155ContractCode = p.Fury1155ContractCode
 
 	k.ParamSpace.SetParamSet(ctx, &xx)
 

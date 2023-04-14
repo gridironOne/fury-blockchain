@@ -1,7 +1,7 @@
-# This module represents buf.build/ixofoundation/ixo-blockchain
+# This module represents buf.build/furyfoundation/fury-blockchain
 version: v1
 
-name: buf.build/ixofoundation/ixo-blockchain
+name: buf.build/furyfoundation/fury-blockchain
 
 deps:
   # Update these dependencies when our chain goes to Cosmos SDK v0.47.x

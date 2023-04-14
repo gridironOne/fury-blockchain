@@ -6,9 +6,9 @@ import (
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/types"
-	nft "github.com/ixofoundation/ixo-blockchain/x/entity/types/contracts"
-	iidTypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/x/entity/types"
+	nft "github.com/furyfoundation/fury-blockchain/x/entity/types/contracts"
+	iidTypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 func (k Keeper) SetEntity(ctx sdk.Context, key []byte, meta types.Entity) {

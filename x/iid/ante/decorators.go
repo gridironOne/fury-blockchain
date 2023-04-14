@@ -4,7 +4,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/x/auth/signing"
-	iidkeeper "github.com/ixofoundation/ixo-blockchain/x/iid/keeper"
+	iidkeeper "github.com/furyfoundation/fury-blockchain/x/iid/keeper"
 )
 
 type IidResolutionDecorator struct {

@@ -4,8 +4,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/cosmos/cosmos-sdk/x/authz"
-	ixo "github.com/ixofoundation/ixo-blockchain/lib/ixo"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	fury "github.com/furyfoundation/fury-blockchain/lib/fury"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 var (
@@ -166,7 +166,7 @@ func (a EvaluateClaimAuthorization) Accept(ctx sdk.Context, msg sdk.Msg) (authz.
 			continue
 		}
 		// If the msg fields dont correlate to granted constraint, add constraint back into list
-		if constraint.CollectionId != mEval.CollectionId && !ixo.Contains(constraint.ClaimIds, mEval.ClaimId) {
+		if constraint.CollectionId != mEval.CollectionId && !fury.Contains(constraint.ClaimIds, mEval.ClaimId) {
 			unhandledConstraints = append(unhandledConstraints, constraint)
 			continue
 		}
@@ -353,7 +353,7 @@ func (a WithdrawPaymentAuthorization) Accept(ctx sdk.Context, msg sdk.Msg) (auth
 				valid := false
 				for i, cInput := range constraintInputs {
 					if cInput.Address == mInput.Address && mInput.Coins.IsEqual(cInput.Coins) {
-						constraintInputs = ixo.RemoveUnordered(constraintInputs, i)
+						constraintInputs = fury.RemoveUnordered(constraintInputs, i)
 						valid = true
 						break
 					}
@@ -370,7 +370,7 @@ func (a WithdrawPaymentAuthorization) Accept(ctx sdk.Context, msg sdk.Msg) (auth
 				valid := false
 				for i, cOutput := range constraintOutputs {
 					if cOutput.Address == mOutput.Address && mOutput.Coins.IsEqual(cOutput.Coins) {
-						constraintOutputs = ixo.RemoveUnordered(constraintOutputs, i)
+						constraintOutputs = fury.RemoveUnordered(constraintOutputs, i)
 						valid = true
 						break
 					}

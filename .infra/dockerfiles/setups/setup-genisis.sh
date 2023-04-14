@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Ixo Chain Installer"
+echo "Fury Chain Installer"
 echo -e "-------------------------\n\n"
 sleep 2
 
@@ -9,7 +9,7 @@ if [ "$USER" != "root" ]; then
         exit 0;
 fi
 
-echo "Starting IXO based install"
+echo "Starting FURY based install"
 sleep 1
 echo "Fetching Genisis Config"
 apt-get update -y
@@ -19,14 +19,14 @@ cd ~
 
 
 git clone 
-mkdir /home/ixo/.ixod
-mkdir /home/ixo/.ixod/config
+mkdir /home/fury/.fury
+mkdir /home/fury/.fury/config
 
-cp /root/genesis/pandora-4/genesis.json /home/ixo/.ixod/config/genesis.json
+cp /root/genesis/pandora-4/genesis.json /home/fury/.fury/config/genesis.json
 
-chown -R ixo:ixo /home/ixo/.$DAEMONNAME
-chown -R ixo:ixo /home/ixo/.$DAEMONNAME/config/
-chown -R ixo:ixo /home/ixo/.$DAEMONNAME/config/genesis.json
+chown -R fury:fury /home/fury/.$DAEMONNAME
+chown -R fury:fury /home/fury/.$DAEMONNAME/config/
+chown -R fury:fury /home/fury/.$DAEMONNAME/config/genesis.json
 
 
 su $USERNAME <<EOSU
@@ -35,9 +35,9 @@ EOSU
 
 sleep 5
 
-cp /root/genesis/pandora-4/genesis.json /home/ixo/.ixod/config/genesis.json
+cp /root/genesis/pandora-4/genesis.json /home/fury/.fury/config/genesis.json
 
-chown -R ixo:ixo /home/ixo/.$DAEMONNAME/config/genesis.json
+chown -R fury:fury /home/fury/.$DAEMONNAME/config/genesis.json
 
 
 echo "---"

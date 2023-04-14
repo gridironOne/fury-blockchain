@@ -3,351 +3,351 @@
 
 ## Table of Contents
 
-- [ixo/bonds/v1beta1/bonds.proto](#ixo/bonds/v1beta1/bonds.proto)
-    - [BaseOrder](#ixo.bonds.v1beta1.BaseOrder)
-    - [Batch](#ixo.bonds.v1beta1.Batch)
-    - [Bond](#ixo.bonds.v1beta1.Bond)
-    - [BondDetails](#ixo.bonds.v1beta1.BondDetails)
-    - [BuyOrder](#ixo.bonds.v1beta1.BuyOrder)
-    - [FunctionParam](#ixo.bonds.v1beta1.FunctionParam)
-    - [Params](#ixo.bonds.v1beta1.Params)
-    - [SellOrder](#ixo.bonds.v1beta1.SellOrder)
-    - [SwapOrder](#ixo.bonds.v1beta1.SwapOrder)
+- [fury/bonds/v1beta1/bonds.proto](#fury/bonds/v1beta1/bonds.proto)
+    - [BaseOrder](#fury.bonds.v1beta1.BaseOrder)
+    - [Batch](#fury.bonds.v1beta1.Batch)
+    - [Bond](#fury.bonds.v1beta1.Bond)
+    - [BondDetails](#fury.bonds.v1beta1.BondDetails)
+    - [BuyOrder](#fury.bonds.v1beta1.BuyOrder)
+    - [FunctionParam](#fury.bonds.v1beta1.FunctionParam)
+    - [Params](#fury.bonds.v1beta1.Params)
+    - [SellOrder](#fury.bonds.v1beta1.SellOrder)
+    - [SwapOrder](#fury.bonds.v1beta1.SwapOrder)
   
-- [ixo/bonds/v1beta1/genesis.proto](#ixo/bonds/v1beta1/genesis.proto)
-    - [GenesisState](#ixo.bonds.v1beta1.GenesisState)
+- [fury/bonds/v1beta1/genesis.proto](#fury/bonds/v1beta1/genesis.proto)
+    - [GenesisState](#fury.bonds.v1beta1.GenesisState)
   
-- [ixo/bonds/v1beta1/query.proto](#ixo/bonds/v1beta1/query.proto)
-    - [QueryAlphaMaximumsRequest](#ixo.bonds.v1beta1.QueryAlphaMaximumsRequest)
-    - [QueryAlphaMaximumsResponse](#ixo.bonds.v1beta1.QueryAlphaMaximumsResponse)
-    - [QueryAvailableReserveRequest](#ixo.bonds.v1beta1.QueryAvailableReserveRequest)
-    - [QueryAvailableReserveResponse](#ixo.bonds.v1beta1.QueryAvailableReserveResponse)
-    - [QueryBatchRequest](#ixo.bonds.v1beta1.QueryBatchRequest)
-    - [QueryBatchResponse](#ixo.bonds.v1beta1.QueryBatchResponse)
-    - [QueryBondRequest](#ixo.bonds.v1beta1.QueryBondRequest)
-    - [QueryBondResponse](#ixo.bonds.v1beta1.QueryBondResponse)
-    - [QueryBondsDetailedRequest](#ixo.bonds.v1beta1.QueryBondsDetailedRequest)
-    - [QueryBondsDetailedResponse](#ixo.bonds.v1beta1.QueryBondsDetailedResponse)
-    - [QueryBondsRequest](#ixo.bonds.v1beta1.QueryBondsRequest)
-    - [QueryBondsResponse](#ixo.bonds.v1beta1.QueryBondsResponse)
-    - [QueryBuyPriceRequest](#ixo.bonds.v1beta1.QueryBuyPriceRequest)
-    - [QueryBuyPriceResponse](#ixo.bonds.v1beta1.QueryBuyPriceResponse)
-    - [QueryCurrentPriceRequest](#ixo.bonds.v1beta1.QueryCurrentPriceRequest)
-    - [QueryCurrentPriceResponse](#ixo.bonds.v1beta1.QueryCurrentPriceResponse)
-    - [QueryCurrentReserveRequest](#ixo.bonds.v1beta1.QueryCurrentReserveRequest)
-    - [QueryCurrentReserveResponse](#ixo.bonds.v1beta1.QueryCurrentReserveResponse)
-    - [QueryCustomPriceRequest](#ixo.bonds.v1beta1.QueryCustomPriceRequest)
-    - [QueryCustomPriceResponse](#ixo.bonds.v1beta1.QueryCustomPriceResponse)
-    - [QueryLastBatchRequest](#ixo.bonds.v1beta1.QueryLastBatchRequest)
-    - [QueryLastBatchResponse](#ixo.bonds.v1beta1.QueryLastBatchResponse)
-    - [QueryParamsRequest](#ixo.bonds.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#ixo.bonds.v1beta1.QueryParamsResponse)
-    - [QuerySellReturnRequest](#ixo.bonds.v1beta1.QuerySellReturnRequest)
-    - [QuerySellReturnResponse](#ixo.bonds.v1beta1.QuerySellReturnResponse)
-    - [QuerySwapReturnRequest](#ixo.bonds.v1beta1.QuerySwapReturnRequest)
-    - [QuerySwapReturnResponse](#ixo.bonds.v1beta1.QuerySwapReturnResponse)
+- [fury/bonds/v1beta1/query.proto](#fury/bonds/v1beta1/query.proto)
+    - [QueryAlphaMaximumsRequest](#fury.bonds.v1beta1.QueryAlphaMaximumsRequest)
+    - [QueryAlphaMaximumsResponse](#fury.bonds.v1beta1.QueryAlphaMaximumsResponse)
+    - [QueryAvailableReserveRequest](#fury.bonds.v1beta1.QueryAvailableReserveRequest)
+    - [QueryAvailableReserveResponse](#fury.bonds.v1beta1.QueryAvailableReserveResponse)
+    - [QueryBatchRequest](#fury.bonds.v1beta1.QueryBatchRequest)
+    - [QueryBatchResponse](#fury.bonds.v1beta1.QueryBatchResponse)
+    - [QueryBondRequest](#fury.bonds.v1beta1.QueryBondRequest)
+    - [QueryBondResponse](#fury.bonds.v1beta1.QueryBondResponse)
+    - [QueryBondsDetailedRequest](#fury.bonds.v1beta1.QueryBondsDetailedRequest)
+    - [QueryBondsDetailedResponse](#fury.bonds.v1beta1.QueryBondsDetailedResponse)
+    - [QueryBondsRequest](#fury.bonds.v1beta1.QueryBondsRequest)
+    - [QueryBondsResponse](#fury.bonds.v1beta1.QueryBondsResponse)
+    - [QueryBuyPriceRequest](#fury.bonds.v1beta1.QueryBuyPriceRequest)
+    - [QueryBuyPriceResponse](#fury.bonds.v1beta1.QueryBuyPriceResponse)
+    - [QueryCurrentPriceRequest](#fury.bonds.v1beta1.QueryCurrentPriceRequest)
+    - [QueryCurrentPriceResponse](#fury.bonds.v1beta1.QueryCurrentPriceResponse)
+    - [QueryCurrentReserveRequest](#fury.bonds.v1beta1.QueryCurrentReserveRequest)
+    - [QueryCurrentReserveResponse](#fury.bonds.v1beta1.QueryCurrentReserveResponse)
+    - [QueryCustomPriceRequest](#fury.bonds.v1beta1.QueryCustomPriceRequest)
+    - [QueryCustomPriceResponse](#fury.bonds.v1beta1.QueryCustomPriceResponse)
+    - [QueryLastBatchRequest](#fury.bonds.v1beta1.QueryLastBatchRequest)
+    - [QueryLastBatchResponse](#fury.bonds.v1beta1.QueryLastBatchResponse)
+    - [QueryParamsRequest](#fury.bonds.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.bonds.v1beta1.QueryParamsResponse)
+    - [QuerySellReturnRequest](#fury.bonds.v1beta1.QuerySellReturnRequest)
+    - [QuerySellReturnResponse](#fury.bonds.v1beta1.QuerySellReturnResponse)
+    - [QuerySwapReturnRequest](#fury.bonds.v1beta1.QuerySwapReturnRequest)
+    - [QuerySwapReturnResponse](#fury.bonds.v1beta1.QuerySwapReturnResponse)
   
-    - [Query](#ixo.bonds.v1beta1.Query)
+    - [Query](#fury.bonds.v1beta1.Query)
   
-- [ixo/bonds/v1beta1/tx.proto](#ixo/bonds/v1beta1/tx.proto)
-    - [MsgBuy](#ixo.bonds.v1beta1.MsgBuy)
-    - [MsgBuyResponse](#ixo.bonds.v1beta1.MsgBuyResponse)
-    - [MsgCreateBond](#ixo.bonds.v1beta1.MsgCreateBond)
-    - [MsgCreateBondResponse](#ixo.bonds.v1beta1.MsgCreateBondResponse)
-    - [MsgEditBond](#ixo.bonds.v1beta1.MsgEditBond)
-    - [MsgEditBondResponse](#ixo.bonds.v1beta1.MsgEditBondResponse)
-    - [MsgMakeOutcomePayment](#ixo.bonds.v1beta1.MsgMakeOutcomePayment)
-    - [MsgMakeOutcomePaymentResponse](#ixo.bonds.v1beta1.MsgMakeOutcomePaymentResponse)
-    - [MsgSell](#ixo.bonds.v1beta1.MsgSell)
-    - [MsgSellResponse](#ixo.bonds.v1beta1.MsgSellResponse)
-    - [MsgSetNextAlpha](#ixo.bonds.v1beta1.MsgSetNextAlpha)
-    - [MsgSetNextAlphaResponse](#ixo.bonds.v1beta1.MsgSetNextAlphaResponse)
-    - [MsgSwap](#ixo.bonds.v1beta1.MsgSwap)
-    - [MsgSwapResponse](#ixo.bonds.v1beta1.MsgSwapResponse)
-    - [MsgUpdateBondState](#ixo.bonds.v1beta1.MsgUpdateBondState)
-    - [MsgUpdateBondStateResponse](#ixo.bonds.v1beta1.MsgUpdateBondStateResponse)
-    - [MsgWithdrawReserve](#ixo.bonds.v1beta1.MsgWithdrawReserve)
-    - [MsgWithdrawReserveResponse](#ixo.bonds.v1beta1.MsgWithdrawReserveResponse)
-    - [MsgWithdrawShare](#ixo.bonds.v1beta1.MsgWithdrawShare)
-    - [MsgWithdrawShareResponse](#ixo.bonds.v1beta1.MsgWithdrawShareResponse)
+- [fury/bonds/v1beta1/tx.proto](#fury/bonds/v1beta1/tx.proto)
+    - [MsgBuy](#fury.bonds.v1beta1.MsgBuy)
+    - [MsgBuyResponse](#fury.bonds.v1beta1.MsgBuyResponse)
+    - [MsgCreateBond](#fury.bonds.v1beta1.MsgCreateBond)
+    - [MsgCreateBondResponse](#fury.bonds.v1beta1.MsgCreateBondResponse)
+    - [MsgEditBond](#fury.bonds.v1beta1.MsgEditBond)
+    - [MsgEditBondResponse](#fury.bonds.v1beta1.MsgEditBondResponse)
+    - [MsgMakeOutcomePayment](#fury.bonds.v1beta1.MsgMakeOutcomePayment)
+    - [MsgMakeOutcomePaymentResponse](#fury.bonds.v1beta1.MsgMakeOutcomePaymentResponse)
+    - [MsgSell](#fury.bonds.v1beta1.MsgSell)
+    - [MsgSellResponse](#fury.bonds.v1beta1.MsgSellResponse)
+    - [MsgSetNextAlpha](#fury.bonds.v1beta1.MsgSetNextAlpha)
+    - [MsgSetNextAlphaResponse](#fury.bonds.v1beta1.MsgSetNextAlphaResponse)
+    - [MsgSwap](#fury.bonds.v1beta1.MsgSwap)
+    - [MsgSwapResponse](#fury.bonds.v1beta1.MsgSwapResponse)
+    - [MsgUpdateBondState](#fury.bonds.v1beta1.MsgUpdateBondState)
+    - [MsgUpdateBondStateResponse](#fury.bonds.v1beta1.MsgUpdateBondStateResponse)
+    - [MsgWithdrawReserve](#fury.bonds.v1beta1.MsgWithdrawReserve)
+    - [MsgWithdrawReserveResponse](#fury.bonds.v1beta1.MsgWithdrawReserveResponse)
+    - [MsgWithdrawShare](#fury.bonds.v1beta1.MsgWithdrawShare)
+    - [MsgWithdrawShareResponse](#fury.bonds.v1beta1.MsgWithdrawShareResponse)
   
-    - [Msg](#ixo.bonds.v1beta1.Msg)
+    - [Msg](#fury.bonds.v1beta1.Msg)
   
-- [ixo/claims/v1beta1/claims.proto](#ixo/claims/v1beta1/claims.proto)
-    - [Claim](#ixo.claims.v1beta1.Claim)
-    - [ClaimPayments](#ixo.claims.v1beta1.ClaimPayments)
-    - [Collection](#ixo.claims.v1beta1.Collection)
-    - [Contract1155Payment](#ixo.claims.v1beta1.Contract1155Payment)
-    - [Dispute](#ixo.claims.v1beta1.Dispute)
-    - [DisputeData](#ixo.claims.v1beta1.DisputeData)
-    - [Evaluation](#ixo.claims.v1beta1.Evaluation)
-    - [Params](#ixo.claims.v1beta1.Params)
-    - [Payment](#ixo.claims.v1beta1.Payment)
-    - [Payments](#ixo.claims.v1beta1.Payments)
+- [fury/claims/v1beta1/claims.proto](#fury/claims/v1beta1/claims.proto)
+    - [Claim](#fury.claims.v1beta1.Claim)
+    - [ClaimPayments](#fury.claims.v1beta1.ClaimPayments)
+    - [Collection](#fury.claims.v1beta1.Collection)
+    - [Contract1155Payment](#fury.claims.v1beta1.Contract1155Payment)
+    - [Dispute](#fury.claims.v1beta1.Dispute)
+    - [DisputeData](#fury.claims.v1beta1.DisputeData)
+    - [Evaluation](#fury.claims.v1beta1.Evaluation)
+    - [Params](#fury.claims.v1beta1.Params)
+    - [Payment](#fury.claims.v1beta1.Payment)
+    - [Payments](#fury.claims.v1beta1.Payments)
   
-    - [CollectionState](#ixo.claims.v1beta1.CollectionState)
-    - [EvaluationStatus](#ixo.claims.v1beta1.EvaluationStatus)
-    - [PaymentStatus](#ixo.claims.v1beta1.PaymentStatus)
-    - [PaymentType](#ixo.claims.v1beta1.PaymentType)
+    - [CollectionState](#fury.claims.v1beta1.CollectionState)
+    - [EvaluationStatus](#fury.claims.v1beta1.EvaluationStatus)
+    - [PaymentStatus](#fury.claims.v1beta1.PaymentStatus)
+    - [PaymentType](#fury.claims.v1beta1.PaymentType)
   
-- [ixo/claims/v1beta1/cosmos.proto](#ixo/claims/v1beta1/cosmos.proto)
-    - [Input](#ixo.claims.v1beta1.Input)
-    - [Output](#ixo.claims.v1beta1.Output)
+- [fury/claims/v1beta1/cosmos.proto](#fury/claims/v1beta1/cosmos.proto)
+    - [Input](#fury.claims.v1beta1.Input)
+    - [Output](#fury.claims.v1beta1.Output)
   
-- [ixo/claims/v1beta1/authz.proto](#ixo/claims/v1beta1/authz.proto)
-    - [EvaluateClaimAuthorization](#ixo.claims.v1beta1.EvaluateClaimAuthorization)
-    - [EvaluateClaimConstraints](#ixo.claims.v1beta1.EvaluateClaimConstraints)
-    - [SubmitClaimAuthorization](#ixo.claims.v1beta1.SubmitClaimAuthorization)
-    - [SubmitClaimConstraints](#ixo.claims.v1beta1.SubmitClaimConstraints)
-    - [WithdrawPaymentAuthorization](#ixo.claims.v1beta1.WithdrawPaymentAuthorization)
-    - [WithdrawPaymentConstraints](#ixo.claims.v1beta1.WithdrawPaymentConstraints)
+- [fury/claims/v1beta1/authz.proto](#fury/claims/v1beta1/authz.proto)
+    - [EvaluateClaimAuthorization](#fury.claims.v1beta1.EvaluateClaimAuthorization)
+    - [EvaluateClaimConstraints](#fury.claims.v1beta1.EvaluateClaimConstraints)
+    - [SubmitClaimAuthorization](#fury.claims.v1beta1.SubmitClaimAuthorization)
+    - [SubmitClaimConstraints](#fury.claims.v1beta1.SubmitClaimConstraints)
+    - [WithdrawPaymentAuthorization](#fury.claims.v1beta1.WithdrawPaymentAuthorization)
+    - [WithdrawPaymentConstraints](#fury.claims.v1beta1.WithdrawPaymentConstraints)
   
-- [ixo/claims/v1beta1/event.proto](#ixo/claims/v1beta1/event.proto)
-    - [ClaimDisputedEvent](#ixo.claims.v1beta1.ClaimDisputedEvent)
-    - [ClaimEvaluatedEvent](#ixo.claims.v1beta1.ClaimEvaluatedEvent)
-    - [ClaimSubmittedEvent](#ixo.claims.v1beta1.ClaimSubmittedEvent)
-    - [ClaimUpdatedEvent](#ixo.claims.v1beta1.ClaimUpdatedEvent)
-    - [CollectionCreatedEvent](#ixo.claims.v1beta1.CollectionCreatedEvent)
-    - [CollectionUpdatedEvent](#ixo.claims.v1beta1.CollectionUpdatedEvent)
-    - [PaymentWithdrawCreatedEvent](#ixo.claims.v1beta1.PaymentWithdrawCreatedEvent)
-    - [PaymentWithdrawnEvent](#ixo.claims.v1beta1.PaymentWithdrawnEvent)
+- [fury/claims/v1beta1/event.proto](#fury/claims/v1beta1/event.proto)
+    - [ClaimDisputedEvent](#fury.claims.v1beta1.ClaimDisputedEvent)
+    - [ClaimEvaluatedEvent](#fury.claims.v1beta1.ClaimEvaluatedEvent)
+    - [ClaimSubmittedEvent](#fury.claims.v1beta1.ClaimSubmittedEvent)
+    - [ClaimUpdatedEvent](#fury.claims.v1beta1.ClaimUpdatedEvent)
+    - [CollectionCreatedEvent](#fury.claims.v1beta1.CollectionCreatedEvent)
+    - [CollectionUpdatedEvent](#fury.claims.v1beta1.CollectionUpdatedEvent)
+    - [PaymentWithdrawCreatedEvent](#fury.claims.v1beta1.PaymentWithdrawCreatedEvent)
+    - [PaymentWithdrawnEvent](#fury.claims.v1beta1.PaymentWithdrawnEvent)
   
-- [ixo/claims/v1beta1/genesis.proto](#ixo/claims/v1beta1/genesis.proto)
-    - [GenesisState](#ixo.claims.v1beta1.GenesisState)
+- [fury/claims/v1beta1/genesis.proto](#fury/claims/v1beta1/genesis.proto)
+    - [GenesisState](#fury.claims.v1beta1.GenesisState)
   
-- [ixo/claims/v1beta1/query.proto](#ixo/claims/v1beta1/query.proto)
-    - [QueryClaimListRequest](#ixo.claims.v1beta1.QueryClaimListRequest)
-    - [QueryClaimListResponse](#ixo.claims.v1beta1.QueryClaimListResponse)
-    - [QueryClaimRequest](#ixo.claims.v1beta1.QueryClaimRequest)
-    - [QueryClaimResponse](#ixo.claims.v1beta1.QueryClaimResponse)
-    - [QueryCollectionListRequest](#ixo.claims.v1beta1.QueryCollectionListRequest)
-    - [QueryCollectionListResponse](#ixo.claims.v1beta1.QueryCollectionListResponse)
-    - [QueryCollectionRequest](#ixo.claims.v1beta1.QueryCollectionRequest)
-    - [QueryCollectionResponse](#ixo.claims.v1beta1.QueryCollectionResponse)
-    - [QueryDisputeListRequest](#ixo.claims.v1beta1.QueryDisputeListRequest)
-    - [QueryDisputeListResponse](#ixo.claims.v1beta1.QueryDisputeListResponse)
-    - [QueryDisputeRequest](#ixo.claims.v1beta1.QueryDisputeRequest)
-    - [QueryDisputeResponse](#ixo.claims.v1beta1.QueryDisputeResponse)
-    - [QueryParamsRequest](#ixo.claims.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#ixo.claims.v1beta1.QueryParamsResponse)
+- [fury/claims/v1beta1/query.proto](#fury/claims/v1beta1/query.proto)
+    - [QueryClaimListRequest](#fury.claims.v1beta1.QueryClaimListRequest)
+    - [QueryClaimListResponse](#fury.claims.v1beta1.QueryClaimListResponse)
+    - [QueryClaimRequest](#fury.claims.v1beta1.QueryClaimRequest)
+    - [QueryClaimResponse](#fury.claims.v1beta1.QueryClaimResponse)
+    - [QueryCollectionListRequest](#fury.claims.v1beta1.QueryCollectionListRequest)
+    - [QueryCollectionListResponse](#fury.claims.v1beta1.QueryCollectionListResponse)
+    - [QueryCollectionRequest](#fury.claims.v1beta1.QueryCollectionRequest)
+    - [QueryCollectionResponse](#fury.claims.v1beta1.QueryCollectionResponse)
+    - [QueryDisputeListRequest](#fury.claims.v1beta1.QueryDisputeListRequest)
+    - [QueryDisputeListResponse](#fury.claims.v1beta1.QueryDisputeListResponse)
+    - [QueryDisputeRequest](#fury.claims.v1beta1.QueryDisputeRequest)
+    - [QueryDisputeResponse](#fury.claims.v1beta1.QueryDisputeResponse)
+    - [QueryParamsRequest](#fury.claims.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.claims.v1beta1.QueryParamsResponse)
   
-    - [Query](#ixo.claims.v1beta1.Query)
+    - [Query](#fury.claims.v1beta1.Query)
   
-- [ixo/claims/v1beta1/tx.proto](#ixo/claims/v1beta1/tx.proto)
-    - [MsgCreateCollection](#ixo.claims.v1beta1.MsgCreateCollection)
-    - [MsgCreateCollectionResponse](#ixo.claims.v1beta1.MsgCreateCollectionResponse)
-    - [MsgDisputeClaim](#ixo.claims.v1beta1.MsgDisputeClaim)
-    - [MsgDisputeClaimResponse](#ixo.claims.v1beta1.MsgDisputeClaimResponse)
-    - [MsgEvaluateClaim](#ixo.claims.v1beta1.MsgEvaluateClaim)
-    - [MsgEvaluateClaimResponse](#ixo.claims.v1beta1.MsgEvaluateClaimResponse)
-    - [MsgSubmitClaim](#ixo.claims.v1beta1.MsgSubmitClaim)
-    - [MsgSubmitClaimResponse](#ixo.claims.v1beta1.MsgSubmitClaimResponse)
-    - [MsgWithdrawPayment](#ixo.claims.v1beta1.MsgWithdrawPayment)
-    - [MsgWithdrawPaymentResponse](#ixo.claims.v1beta1.MsgWithdrawPaymentResponse)
+- [fury/claims/v1beta1/tx.proto](#fury/claims/v1beta1/tx.proto)
+    - [MsgCreateCollection](#fury.claims.v1beta1.MsgCreateCollection)
+    - [MsgCreateCollectionResponse](#fury.claims.v1beta1.MsgCreateCollectionResponse)
+    - [MsgDisputeClaim](#fury.claims.v1beta1.MsgDisputeClaim)
+    - [MsgDisputeClaimResponse](#fury.claims.v1beta1.MsgDisputeClaimResponse)
+    - [MsgEvaluateClaim](#fury.claims.v1beta1.MsgEvaluateClaim)
+    - [MsgEvaluateClaimResponse](#fury.claims.v1beta1.MsgEvaluateClaimResponse)
+    - [MsgSubmitClaim](#fury.claims.v1beta1.MsgSubmitClaim)
+    - [MsgSubmitClaimResponse](#fury.claims.v1beta1.MsgSubmitClaimResponse)
+    - [MsgWithdrawPayment](#fury.claims.v1beta1.MsgWithdrawPayment)
+    - [MsgWithdrawPaymentResponse](#fury.claims.v1beta1.MsgWithdrawPaymentResponse)
   
-    - [Msg](#ixo.claims.v1beta1.Msg)
+    - [Msg](#fury.claims.v1beta1.Msg)
   
-- [ixo/entity/v1beta1/cosmos.proto](#ixo/entity/v1beta1/cosmos.proto)
-    - [Grant](#ixo.entity.v1beta1.Grant)
+- [fury/entity/v1beta1/cosmos.proto](#fury/entity/v1beta1/cosmos.proto)
+    - [Grant](#fury.entity.v1beta1.Grant)
   
-- [ixo/iid/v1beta1/types.proto](#ixo/iid/v1beta1/types.proto)
-    - [AccordedRight](#ixo.iid.v1beta1.AccordedRight)
-    - [Context](#ixo.iid.v1beta1.Context)
-    - [IidMetadata](#ixo.iid.v1beta1.IidMetadata)
-    - [LinkedClaim](#ixo.iid.v1beta1.LinkedClaim)
-    - [LinkedEntity](#ixo.iid.v1beta1.LinkedEntity)
-    - [LinkedResource](#ixo.iid.v1beta1.LinkedResource)
-    - [Service](#ixo.iid.v1beta1.Service)
-    - [VerificationMethod](#ixo.iid.v1beta1.VerificationMethod)
+- [fury/iid/v1beta1/types.proto](#fury/iid/v1beta1/types.proto)
+    - [AccordedRight](#fury.iid.v1beta1.AccordedRight)
+    - [Context](#fury.iid.v1beta1.Context)
+    - [IidMetadata](#fury.iid.v1beta1.IidMetadata)
+    - [LinkedClaim](#fury.iid.v1beta1.LinkedClaim)
+    - [LinkedEntity](#fury.iid.v1beta1.LinkedEntity)
+    - [LinkedResource](#fury.iid.v1beta1.LinkedResource)
+    - [Service](#fury.iid.v1beta1.Service)
+    - [VerificationMethod](#fury.iid.v1beta1.VerificationMethod)
   
-- [ixo/iid/v1beta1/iid.proto](#ixo/iid/v1beta1/iid.proto)
-    - [IidDocument](#ixo.iid.v1beta1.IidDocument)
+- [fury/iid/v1beta1/iid.proto](#fury/iid/v1beta1/iid.proto)
+    - [IidDocument](#fury.iid.v1beta1.IidDocument)
   
-- [ixo/entity/v1beta1/entity.proto](#ixo/entity/v1beta1/entity.proto)
-    - [Entity](#ixo.entity.v1beta1.Entity)
-    - [EntityAccount](#ixo.entity.v1beta1.EntityAccount)
-    - [EntityMetadata](#ixo.entity.v1beta1.EntityMetadata)
-    - [Params](#ixo.entity.v1beta1.Params)
+- [fury/entity/v1beta1/entity.proto](#fury/entity/v1beta1/entity.proto)
+    - [Entity](#fury.entity.v1beta1.Entity)
+    - [EntityAccount](#fury.entity.v1beta1.EntityAccount)
+    - [EntityMetadata](#fury.entity.v1beta1.EntityMetadata)
+    - [Params](#fury.entity.v1beta1.Params)
   
-- [ixo/entity/v1beta1/event.proto](#ixo/entity/v1beta1/event.proto)
-    - [EntityAccountAuthzCreatedEvent](#ixo.entity.v1beta1.EntityAccountAuthzCreatedEvent)
-    - [EntityAccountCreatedEvent](#ixo.entity.v1beta1.EntityAccountCreatedEvent)
-    - [EntityCreatedEvent](#ixo.entity.v1beta1.EntityCreatedEvent)
-    - [EntityTransferredEvent](#ixo.entity.v1beta1.EntityTransferredEvent)
-    - [EntityUpdatedEvent](#ixo.entity.v1beta1.EntityUpdatedEvent)
-    - [EntityVerifiedUpdatedEvent](#ixo.entity.v1beta1.EntityVerifiedUpdatedEvent)
+- [fury/entity/v1beta1/event.proto](#fury/entity/v1beta1/event.proto)
+    - [EntityAccountAuthzCreatedEvent](#fury.entity.v1beta1.EntityAccountAuthzCreatedEvent)
+    - [EntityAccountCreatedEvent](#fury.entity.v1beta1.EntityAccountCreatedEvent)
+    - [EntityCreatedEvent](#fury.entity.v1beta1.EntityCreatedEvent)
+    - [EntityTransferredEvent](#fury.entity.v1beta1.EntityTransferredEvent)
+    - [EntityUpdatedEvent](#fury.entity.v1beta1.EntityUpdatedEvent)
+    - [EntityVerifiedUpdatedEvent](#fury.entity.v1beta1.EntityVerifiedUpdatedEvent)
   
-- [ixo/entity/v1beta1/genesis.proto](#ixo/entity/v1beta1/genesis.proto)
-    - [GenesisState](#ixo.entity.v1beta1.GenesisState)
+- [fury/entity/v1beta1/genesis.proto](#fury/entity/v1beta1/genesis.proto)
+    - [GenesisState](#fury.entity.v1beta1.GenesisState)
   
-- [ixo/entity/v1beta1/proposal.proto](#ixo/entity/v1beta1/proposal.proto)
-    - [InitializeNftContract](#ixo.entity.v1beta1.InitializeNftContract)
+- [fury/entity/v1beta1/proposal.proto](#fury/entity/v1beta1/proposal.proto)
+    - [InitializeNftContract](#fury.entity.v1beta1.InitializeNftContract)
   
-- [ixo/entity/v1beta1/query.proto](#ixo/entity/v1beta1/query.proto)
-    - [QueryEntityIidDocumentRequest](#ixo.entity.v1beta1.QueryEntityIidDocumentRequest)
-    - [QueryEntityIidDocumentResponse](#ixo.entity.v1beta1.QueryEntityIidDocumentResponse)
-    - [QueryEntityListRequest](#ixo.entity.v1beta1.QueryEntityListRequest)
-    - [QueryEntityListResponse](#ixo.entity.v1beta1.QueryEntityListResponse)
-    - [QueryEntityMetadataRequest](#ixo.entity.v1beta1.QueryEntityMetadataRequest)
-    - [QueryEntityMetadataResponse](#ixo.entity.v1beta1.QueryEntityMetadataResponse)
-    - [QueryEntityRequest](#ixo.entity.v1beta1.QueryEntityRequest)
-    - [QueryEntityResponse](#ixo.entity.v1beta1.QueryEntityResponse)
-    - [QueryEntityVerifiedRequest](#ixo.entity.v1beta1.QueryEntityVerifiedRequest)
-    - [QueryEntityVerifiedResponse](#ixo.entity.v1beta1.QueryEntityVerifiedResponse)
-    - [QueryParamsRequest](#ixo.entity.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#ixo.entity.v1beta1.QueryParamsResponse)
+- [fury/entity/v1beta1/query.proto](#fury/entity/v1beta1/query.proto)
+    - [QueryEntityIidDocumentRequest](#fury.entity.v1beta1.QueryEntityIidDocumentRequest)
+    - [QueryEntityIidDocumentResponse](#fury.entity.v1beta1.QueryEntityIidDocumentResponse)
+    - [QueryEntityListRequest](#fury.entity.v1beta1.QueryEntityListRequest)
+    - [QueryEntityListResponse](#fury.entity.v1beta1.QueryEntityListResponse)
+    - [QueryEntityMetadataRequest](#fury.entity.v1beta1.QueryEntityMetadataRequest)
+    - [QueryEntityMetadataResponse](#fury.entity.v1beta1.QueryEntityMetadataResponse)
+    - [QueryEntityRequest](#fury.entity.v1beta1.QueryEntityRequest)
+    - [QueryEntityResponse](#fury.entity.v1beta1.QueryEntityResponse)
+    - [QueryEntityVerifiedRequest](#fury.entity.v1beta1.QueryEntityVerifiedRequest)
+    - [QueryEntityVerifiedResponse](#fury.entity.v1beta1.QueryEntityVerifiedResponse)
+    - [QueryParamsRequest](#fury.entity.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.entity.v1beta1.QueryParamsResponse)
   
-    - [Query](#ixo.entity.v1beta1.Query)
+    - [Query](#fury.entity.v1beta1.Query)
   
-- [ixo/iid/v1beta1/tx.proto](#ixo/iid/v1beta1/tx.proto)
-    - [MsgAddAccordedRight](#ixo.iid.v1beta1.MsgAddAccordedRight)
-    - [MsgAddAccordedRightResponse](#ixo.iid.v1beta1.MsgAddAccordedRightResponse)
-    - [MsgAddController](#ixo.iid.v1beta1.MsgAddController)
-    - [MsgAddControllerResponse](#ixo.iid.v1beta1.MsgAddControllerResponse)
-    - [MsgAddIidContext](#ixo.iid.v1beta1.MsgAddIidContext)
-    - [MsgAddIidContextResponse](#ixo.iid.v1beta1.MsgAddIidContextResponse)
-    - [MsgAddLinkedClaim](#ixo.iid.v1beta1.MsgAddLinkedClaim)
-    - [MsgAddLinkedClaimResponse](#ixo.iid.v1beta1.MsgAddLinkedClaimResponse)
-    - [MsgAddLinkedEntity](#ixo.iid.v1beta1.MsgAddLinkedEntity)
-    - [MsgAddLinkedEntityResponse](#ixo.iid.v1beta1.MsgAddLinkedEntityResponse)
-    - [MsgAddLinkedResource](#ixo.iid.v1beta1.MsgAddLinkedResource)
-    - [MsgAddLinkedResourceResponse](#ixo.iid.v1beta1.MsgAddLinkedResourceResponse)
-    - [MsgAddService](#ixo.iid.v1beta1.MsgAddService)
-    - [MsgAddServiceResponse](#ixo.iid.v1beta1.MsgAddServiceResponse)
-    - [MsgAddVerification](#ixo.iid.v1beta1.MsgAddVerification)
-    - [MsgAddVerificationResponse](#ixo.iid.v1beta1.MsgAddVerificationResponse)
-    - [MsgCreateIidDocument](#ixo.iid.v1beta1.MsgCreateIidDocument)
-    - [MsgCreateIidDocumentResponse](#ixo.iid.v1beta1.MsgCreateIidDocumentResponse)
-    - [MsgDeactivateIID](#ixo.iid.v1beta1.MsgDeactivateIID)
-    - [MsgDeactivateIIDResponse](#ixo.iid.v1beta1.MsgDeactivateIIDResponse)
-    - [MsgDeleteAccordedRight](#ixo.iid.v1beta1.MsgDeleteAccordedRight)
-    - [MsgDeleteAccordedRightResponse](#ixo.iid.v1beta1.MsgDeleteAccordedRightResponse)
-    - [MsgDeleteController](#ixo.iid.v1beta1.MsgDeleteController)
-    - [MsgDeleteControllerResponse](#ixo.iid.v1beta1.MsgDeleteControllerResponse)
-    - [MsgDeleteIidContext](#ixo.iid.v1beta1.MsgDeleteIidContext)
-    - [MsgDeleteIidContextResponse](#ixo.iid.v1beta1.MsgDeleteIidContextResponse)
-    - [MsgDeleteLinkedClaim](#ixo.iid.v1beta1.MsgDeleteLinkedClaim)
-    - [MsgDeleteLinkedClaimResponse](#ixo.iid.v1beta1.MsgDeleteLinkedClaimResponse)
-    - [MsgDeleteLinkedEntity](#ixo.iid.v1beta1.MsgDeleteLinkedEntity)
-    - [MsgDeleteLinkedEntityResponse](#ixo.iid.v1beta1.MsgDeleteLinkedEntityResponse)
-    - [MsgDeleteLinkedResource](#ixo.iid.v1beta1.MsgDeleteLinkedResource)
-    - [MsgDeleteLinkedResourceResponse](#ixo.iid.v1beta1.MsgDeleteLinkedResourceResponse)
-    - [MsgDeleteService](#ixo.iid.v1beta1.MsgDeleteService)
-    - [MsgDeleteServiceResponse](#ixo.iid.v1beta1.MsgDeleteServiceResponse)
-    - [MsgRevokeVerification](#ixo.iid.v1beta1.MsgRevokeVerification)
-    - [MsgRevokeVerificationResponse](#ixo.iid.v1beta1.MsgRevokeVerificationResponse)
-    - [MsgSetVerificationRelationships](#ixo.iid.v1beta1.MsgSetVerificationRelationships)
-    - [MsgSetVerificationRelationshipsResponse](#ixo.iid.v1beta1.MsgSetVerificationRelationshipsResponse)
-    - [MsgUpdateIidDocument](#ixo.iid.v1beta1.MsgUpdateIidDocument)
-    - [MsgUpdateIidDocumentResponse](#ixo.iid.v1beta1.MsgUpdateIidDocumentResponse)
-    - [Verification](#ixo.iid.v1beta1.Verification)
+- [fury/iid/v1beta1/tx.proto](#fury/iid/v1beta1/tx.proto)
+    - [MsgAddAccordedRight](#fury.iid.v1beta1.MsgAddAccordedRight)
+    - [MsgAddAccordedRightResponse](#fury.iid.v1beta1.MsgAddAccordedRightResponse)
+    - [MsgAddController](#fury.iid.v1beta1.MsgAddController)
+    - [MsgAddControllerResponse](#fury.iid.v1beta1.MsgAddControllerResponse)
+    - [MsgAddIidContext](#fury.iid.v1beta1.MsgAddIidContext)
+    - [MsgAddIidContextResponse](#fury.iid.v1beta1.MsgAddIidContextResponse)
+    - [MsgAddLinkedClaim](#fury.iid.v1beta1.MsgAddLinkedClaim)
+    - [MsgAddLinkedClaimResponse](#fury.iid.v1beta1.MsgAddLinkedClaimResponse)
+    - [MsgAddLinkedEntity](#fury.iid.v1beta1.MsgAddLinkedEntity)
+    - [MsgAddLinkedEntityResponse](#fury.iid.v1beta1.MsgAddLinkedEntityResponse)
+    - [MsgAddLinkedResource](#fury.iid.v1beta1.MsgAddLinkedResource)
+    - [MsgAddLinkedResourceResponse](#fury.iid.v1beta1.MsgAddLinkedResourceResponse)
+    - [MsgAddService](#fury.iid.v1beta1.MsgAddService)
+    - [MsgAddServiceResponse](#fury.iid.v1beta1.MsgAddServiceResponse)
+    - [MsgAddVerification](#fury.iid.v1beta1.MsgAddVerification)
+    - [MsgAddVerificationResponse](#fury.iid.v1beta1.MsgAddVerificationResponse)
+    - [MsgCreateIidDocument](#fury.iid.v1beta1.MsgCreateIidDocument)
+    - [MsgCreateIidDocumentResponse](#fury.iid.v1beta1.MsgCreateIidDocumentResponse)
+    - [MsgDeactivateIID](#fury.iid.v1beta1.MsgDeactivateIID)
+    - [MsgDeactivateIIDResponse](#fury.iid.v1beta1.MsgDeactivateIIDResponse)
+    - [MsgDeleteAccordedRight](#fury.iid.v1beta1.MsgDeleteAccordedRight)
+    - [MsgDeleteAccordedRightResponse](#fury.iid.v1beta1.MsgDeleteAccordedRightResponse)
+    - [MsgDeleteController](#fury.iid.v1beta1.MsgDeleteController)
+    - [MsgDeleteControllerResponse](#fury.iid.v1beta1.MsgDeleteControllerResponse)
+    - [MsgDeleteIidContext](#fury.iid.v1beta1.MsgDeleteIidContext)
+    - [MsgDeleteIidContextResponse](#fury.iid.v1beta1.MsgDeleteIidContextResponse)
+    - [MsgDeleteLinkedClaim](#fury.iid.v1beta1.MsgDeleteLinkedClaim)
+    - [MsgDeleteLinkedClaimResponse](#fury.iid.v1beta1.MsgDeleteLinkedClaimResponse)
+    - [MsgDeleteLinkedEntity](#fury.iid.v1beta1.MsgDeleteLinkedEntity)
+    - [MsgDeleteLinkedEntityResponse](#fury.iid.v1beta1.MsgDeleteLinkedEntityResponse)
+    - [MsgDeleteLinkedResource](#fury.iid.v1beta1.MsgDeleteLinkedResource)
+    - [MsgDeleteLinkedResourceResponse](#fury.iid.v1beta1.MsgDeleteLinkedResourceResponse)
+    - [MsgDeleteService](#fury.iid.v1beta1.MsgDeleteService)
+    - [MsgDeleteServiceResponse](#fury.iid.v1beta1.MsgDeleteServiceResponse)
+    - [MsgRevokeVerification](#fury.iid.v1beta1.MsgRevokeVerification)
+    - [MsgRevokeVerificationResponse](#fury.iid.v1beta1.MsgRevokeVerificationResponse)
+    - [MsgSetVerificationRelationships](#fury.iid.v1beta1.MsgSetVerificationRelationships)
+    - [MsgSetVerificationRelationshipsResponse](#fury.iid.v1beta1.MsgSetVerificationRelationshipsResponse)
+    - [MsgUpdateIidDocument](#fury.iid.v1beta1.MsgUpdateIidDocument)
+    - [MsgUpdateIidDocumentResponse](#fury.iid.v1beta1.MsgUpdateIidDocumentResponse)
+    - [Verification](#fury.iid.v1beta1.Verification)
   
-    - [Msg](#ixo.iid.v1beta1.Msg)
+    - [Msg](#fury.iid.v1beta1.Msg)
   
-- [ixo/entity/v1beta1/tx.proto](#ixo/entity/v1beta1/tx.proto)
-    - [MsgCreateEntity](#ixo.entity.v1beta1.MsgCreateEntity)
-    - [MsgCreateEntityAccount](#ixo.entity.v1beta1.MsgCreateEntityAccount)
-    - [MsgCreateEntityAccountResponse](#ixo.entity.v1beta1.MsgCreateEntityAccountResponse)
-    - [MsgCreateEntityResponse](#ixo.entity.v1beta1.MsgCreateEntityResponse)
-    - [MsgGrantEntityAccountAuthz](#ixo.entity.v1beta1.MsgGrantEntityAccountAuthz)
-    - [MsgGrantEntityAccountAuthzResponse](#ixo.entity.v1beta1.MsgGrantEntityAccountAuthzResponse)
-    - [MsgTransferEntity](#ixo.entity.v1beta1.MsgTransferEntity)
-    - [MsgTransferEntityResponse](#ixo.entity.v1beta1.MsgTransferEntityResponse)
-    - [MsgUpdateEntity](#ixo.entity.v1beta1.MsgUpdateEntity)
-    - [MsgUpdateEntityResponse](#ixo.entity.v1beta1.MsgUpdateEntityResponse)
-    - [MsgUpdateEntityVerified](#ixo.entity.v1beta1.MsgUpdateEntityVerified)
-    - [MsgUpdateEntityVerifiedResponse](#ixo.entity.v1beta1.MsgUpdateEntityVerifiedResponse)
+- [fury/entity/v1beta1/tx.proto](#fury/entity/v1beta1/tx.proto)
+    - [MsgCreateEntity](#fury.entity.v1beta1.MsgCreateEntity)
+    - [MsgCreateEntityAccount](#fury.entity.v1beta1.MsgCreateEntityAccount)
+    - [MsgCreateEntityAccountResponse](#fury.entity.v1beta1.MsgCreateEntityAccountResponse)
+    - [MsgCreateEntityResponse](#fury.entity.v1beta1.MsgCreateEntityResponse)
+    - [MsgGrantEntityAccountAuthz](#fury.entity.v1beta1.MsgGrantEntityAccountAuthz)
+    - [MsgGrantEntityAccountAuthzResponse](#fury.entity.v1beta1.MsgGrantEntityAccountAuthzResponse)
+    - [MsgTransferEntity](#fury.entity.v1beta1.MsgTransferEntity)
+    - [MsgTransferEntityResponse](#fury.entity.v1beta1.MsgTransferEntityResponse)
+    - [MsgUpdateEntity](#fury.entity.v1beta1.MsgUpdateEntity)
+    - [MsgUpdateEntityResponse](#fury.entity.v1beta1.MsgUpdateEntityResponse)
+    - [MsgUpdateEntityVerified](#fury.entity.v1beta1.MsgUpdateEntityVerified)
+    - [MsgUpdateEntityVerifiedResponse](#fury.entity.v1beta1.MsgUpdateEntityVerifiedResponse)
   
-    - [Msg](#ixo.entity.v1beta1.Msg)
+    - [Msg](#fury.entity.v1beta1.Msg)
   
-- [ixo/iid/v1beta1/event.proto](#ixo/iid/v1beta1/event.proto)
-    - [IidDocumentCreatedEvent](#ixo.iid.v1beta1.IidDocumentCreatedEvent)
-    - [IidDocumentUpdatedEvent](#ixo.iid.v1beta1.IidDocumentUpdatedEvent)
+- [fury/iid/v1beta1/event.proto](#fury/iid/v1beta1/event.proto)
+    - [IidDocumentCreatedEvent](#fury.iid.v1beta1.IidDocumentCreatedEvent)
+    - [IidDocumentUpdatedEvent](#fury.iid.v1beta1.IidDocumentUpdatedEvent)
   
-- [ixo/iid/v1beta1/genesis.proto](#ixo/iid/v1beta1/genesis.proto)
-    - [GenesisState](#ixo.iid.v1beta1.GenesisState)
+- [fury/iid/v1beta1/genesis.proto](#fury/iid/v1beta1/genesis.proto)
+    - [GenesisState](#fury.iid.v1beta1.GenesisState)
   
-- [ixo/iid/v1beta1/query.proto](#ixo/iid/v1beta1/query.proto)
-    - [QueryIidDocumentRequest](#ixo.iid.v1beta1.QueryIidDocumentRequest)
-    - [QueryIidDocumentResponse](#ixo.iid.v1beta1.QueryIidDocumentResponse)
-    - [QueryIidDocumentsRequest](#ixo.iid.v1beta1.QueryIidDocumentsRequest)
-    - [QueryIidDocumentsResponse](#ixo.iid.v1beta1.QueryIidDocumentsResponse)
+- [fury/iid/v1beta1/query.proto](#fury/iid/v1beta1/query.proto)
+    - [QueryIidDocumentRequest](#fury.iid.v1beta1.QueryIidDocumentRequest)
+    - [QueryIidDocumentResponse](#fury.iid.v1beta1.QueryIidDocumentResponse)
+    - [QueryIidDocumentsRequest](#fury.iid.v1beta1.QueryIidDocumentsRequest)
+    - [QueryIidDocumentsResponse](#fury.iid.v1beta1.QueryIidDocumentsResponse)
   
-    - [Query](#ixo.iid.v1beta1.Query)
+    - [Query](#fury.iid.v1beta1.Query)
   
-- [ixo/token/v1beta1/token.proto](#ixo/token/v1beta1/token.proto)
-    - [Params](#ixo.token.v1beta1.Params)
-    - [Token](#ixo.token.v1beta1.Token)
-    - [TokenData](#ixo.token.v1beta1.TokenData)
-    - [TokenProperties](#ixo.token.v1beta1.TokenProperties)
-    - [TokensCancelled](#ixo.token.v1beta1.TokensCancelled)
-    - [TokensRetired](#ixo.token.v1beta1.TokensRetired)
+- [fury/token/v1beta1/token.proto](#fury/token/v1beta1/token.proto)
+    - [Params](#fury.token.v1beta1.Params)
+    - [Token](#fury.token.v1beta1.Token)
+    - [TokenData](#fury.token.v1beta1.TokenData)
+    - [TokenProperties](#fury.token.v1beta1.TokenProperties)
+    - [TokensCancelled](#fury.token.v1beta1.TokensCancelled)
+    - [TokensRetired](#fury.token.v1beta1.TokensRetired)
   
-- [ixo/token/v1beta1/authz.proto](#ixo/token/v1beta1/authz.proto)
-    - [MintAuthorization](#ixo.token.v1beta1.MintAuthorization)
-    - [MintConstraints](#ixo.token.v1beta1.MintConstraints)
+- [fury/token/v1beta1/authz.proto](#fury/token/v1beta1/authz.proto)
+    - [MintAuthorization](#fury.token.v1beta1.MintAuthorization)
+    - [MintConstraints](#fury.token.v1beta1.MintConstraints)
   
-- [ixo/token/v1beta1/tx.proto](#ixo/token/v1beta1/tx.proto)
-    - [MintBatch](#ixo.token.v1beta1.MintBatch)
-    - [MsgCancelToken](#ixo.token.v1beta1.MsgCancelToken)
-    - [MsgCancelTokenResponse](#ixo.token.v1beta1.MsgCancelTokenResponse)
-    - [MsgCreateToken](#ixo.token.v1beta1.MsgCreateToken)
-    - [MsgCreateTokenResponse](#ixo.token.v1beta1.MsgCreateTokenResponse)
-    - [MsgMintToken](#ixo.token.v1beta1.MsgMintToken)
-    - [MsgMintTokenResponse](#ixo.token.v1beta1.MsgMintTokenResponse)
-    - [MsgPauseToken](#ixo.token.v1beta1.MsgPauseToken)
-    - [MsgPauseTokenResponse](#ixo.token.v1beta1.MsgPauseTokenResponse)
-    - [MsgRetireToken](#ixo.token.v1beta1.MsgRetireToken)
-    - [MsgRetireTokenResponse](#ixo.token.v1beta1.MsgRetireTokenResponse)
-    - [MsgStopToken](#ixo.token.v1beta1.MsgStopToken)
-    - [MsgStopTokenResponse](#ixo.token.v1beta1.MsgStopTokenResponse)
-    - [MsgTransferToken](#ixo.token.v1beta1.MsgTransferToken)
-    - [MsgTransferTokenResponse](#ixo.token.v1beta1.MsgTransferTokenResponse)
-    - [TokenBatch](#ixo.token.v1beta1.TokenBatch)
+- [fury/token/v1beta1/tx.proto](#fury/token/v1beta1/tx.proto)
+    - [MintBatch](#fury.token.v1beta1.MintBatch)
+    - [MsgCancelToken](#fury.token.v1beta1.MsgCancelToken)
+    - [MsgCancelTokenResponse](#fury.token.v1beta1.MsgCancelTokenResponse)
+    - [MsgCreateToken](#fury.token.v1beta1.MsgCreateToken)
+    - [MsgCreateTokenResponse](#fury.token.v1beta1.MsgCreateTokenResponse)
+    - [MsgMintToken](#fury.token.v1beta1.MsgMintToken)
+    - [MsgMintTokenResponse](#fury.token.v1beta1.MsgMintTokenResponse)
+    - [MsgPauseToken](#fury.token.v1beta1.MsgPauseToken)
+    - [MsgPauseTokenResponse](#fury.token.v1beta1.MsgPauseTokenResponse)
+    - [MsgRetireToken](#fury.token.v1beta1.MsgRetireToken)
+    - [MsgRetireTokenResponse](#fury.token.v1beta1.MsgRetireTokenResponse)
+    - [MsgStopToken](#fury.token.v1beta1.MsgStopToken)
+    - [MsgStopTokenResponse](#fury.token.v1beta1.MsgStopTokenResponse)
+    - [MsgTransferToken](#fury.token.v1beta1.MsgTransferToken)
+    - [MsgTransferTokenResponse](#fury.token.v1beta1.MsgTransferTokenResponse)
+    - [TokenBatch](#fury.token.v1beta1.TokenBatch)
   
-    - [Msg](#ixo.token.v1beta1.Msg)
+    - [Msg](#fury.token.v1beta1.Msg)
   
-- [ixo/token/v1beta1/event.proto](#ixo/token/v1beta1/event.proto)
-    - [TokenCancelledEvent](#ixo.token.v1beta1.TokenCancelledEvent)
-    - [TokenCreatedEvent](#ixo.token.v1beta1.TokenCreatedEvent)
-    - [TokenMintedEvent](#ixo.token.v1beta1.TokenMintedEvent)
-    - [TokenPausedEvent](#ixo.token.v1beta1.TokenPausedEvent)
-    - [TokenRetiredEvent](#ixo.token.v1beta1.TokenRetiredEvent)
-    - [TokenStoppedEvent](#ixo.token.v1beta1.TokenStoppedEvent)
-    - [TokenTransferredEvent](#ixo.token.v1beta1.TokenTransferredEvent)
-    - [TokenUpdatedEvent](#ixo.token.v1beta1.TokenUpdatedEvent)
+- [fury/token/v1beta1/event.proto](#fury/token/v1beta1/event.proto)
+    - [TokenCancelledEvent](#fury.token.v1beta1.TokenCancelledEvent)
+    - [TokenCreatedEvent](#fury.token.v1beta1.TokenCreatedEvent)
+    - [TokenMintedEvent](#fury.token.v1beta1.TokenMintedEvent)
+    - [TokenPausedEvent](#fury.token.v1beta1.TokenPausedEvent)
+    - [TokenRetiredEvent](#fury.token.v1beta1.TokenRetiredEvent)
+    - [TokenStoppedEvent](#fury.token.v1beta1.TokenStoppedEvent)
+    - [TokenTransferredEvent](#fury.token.v1beta1.TokenTransferredEvent)
+    - [TokenUpdatedEvent](#fury.token.v1beta1.TokenUpdatedEvent)
   
-- [ixo/token/v1beta1/genesis.proto](#ixo/token/v1beta1/genesis.proto)
-    - [GenesisState](#ixo.token.v1beta1.GenesisState)
+- [fury/token/v1beta1/genesis.proto](#fury/token/v1beta1/genesis.proto)
+    - [GenesisState](#fury.token.v1beta1.GenesisState)
   
-- [ixo/token/v1beta1/proposal.proto](#ixo/token/v1beta1/proposal.proto)
-    - [SetTokenContractCodes](#ixo.token.v1beta1.SetTokenContractCodes)
+- [fury/token/v1beta1/proposal.proto](#fury/token/v1beta1/proposal.proto)
+    - [SetTokenContractCodes](#fury.token.v1beta1.SetTokenContractCodes)
   
-- [ixo/token/v1beta1/query.proto](#ixo/token/v1beta1/query.proto)
-    - [QueryParamsRequest](#ixo.token.v1beta1.QueryParamsRequest)
-    - [QueryParamsResponse](#ixo.token.v1beta1.QueryParamsResponse)
-    - [QueryTokenDocRequest](#ixo.token.v1beta1.QueryTokenDocRequest)
-    - [QueryTokenDocResponse](#ixo.token.v1beta1.QueryTokenDocResponse)
-    - [QueryTokenListRequest](#ixo.token.v1beta1.QueryTokenListRequest)
-    - [QueryTokenListResponse](#ixo.token.v1beta1.QueryTokenListResponse)
-    - [QueryTokenMetadataRequest](#ixo.token.v1beta1.QueryTokenMetadataRequest)
-    - [QueryTokenMetadataResponse](#ixo.token.v1beta1.QueryTokenMetadataResponse)
-    - [TokenMetadataProperties](#ixo.token.v1beta1.TokenMetadataProperties)
+- [fury/token/v1beta1/query.proto](#fury/token/v1beta1/query.proto)
+    - [QueryParamsRequest](#fury.token.v1beta1.QueryParamsRequest)
+    - [QueryParamsResponse](#fury.token.v1beta1.QueryParamsResponse)
+    - [QueryTokenDocRequest](#fury.token.v1beta1.QueryTokenDocRequest)
+    - [QueryTokenDocResponse](#fury.token.v1beta1.QueryTokenDocResponse)
+    - [QueryTokenListRequest](#fury.token.v1beta1.QueryTokenListRequest)
+    - [QueryTokenListResponse](#fury.token.v1beta1.QueryTokenListResponse)
+    - [QueryTokenMetadataRequest](#fury.token.v1beta1.QueryTokenMetadataRequest)
+    - [QueryTokenMetadataResponse](#fury.token.v1beta1.QueryTokenMetadataResponse)
+    - [TokenMetadataProperties](#fury.token.v1beta1.TokenMetadataProperties)
   
-    - [Query](#ixo.token.v1beta1.Query)
+    - [Query](#fury.token.v1beta1.Query)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="ixo/bonds/v1beta1/bonds.proto"></a>
+<a name="fury/bonds/v1beta1/bonds.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/bonds/v1beta1/bonds.proto
+## fury/bonds/v1beta1/bonds.proto
 
 
 
-<a name="ixo.bonds.v1beta1.BaseOrder"></a>
+<a name="fury.bonds.v1beta1.BaseOrder"></a>
 
 ### BaseOrder
 BaseOrder defines a base order type. It contains all the necessary fields for
@@ -366,7 +366,7 @@ specifying the general details about a buy, sell, or swap order.
 
 
 
-<a name="ixo.bonds.v1beta1.Batch"></a>
+<a name="fury.bonds.v1beta1.Batch"></a>
 
 ### Batch
 Batch holds a collection of outstanding buy, sell, and swap orders on a
@@ -382,16 +382,16 @@ particular bond.
 | total_sell_amount | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  |  |
 | buy_prices | [cosmos.base.v1beta1.DecCoin](#cosmos.base.v1beta1.DecCoin) | repeated |  |
 | sell_prices | [cosmos.base.v1beta1.DecCoin](#cosmos.base.v1beta1.DecCoin) | repeated |  |
-| buys | [BuyOrder](#ixo.bonds.v1beta1.BuyOrder) | repeated |  |
-| sells | [SellOrder](#ixo.bonds.v1beta1.SellOrder) | repeated |  |
-| swaps | [SwapOrder](#ixo.bonds.v1beta1.SwapOrder) | repeated |  |
+| buys | [BuyOrder](#fury.bonds.v1beta1.BuyOrder) | repeated |  |
+| sells | [SellOrder](#fury.bonds.v1beta1.SellOrder) | repeated |  |
+| swaps | [SwapOrder](#fury.bonds.v1beta1.SwapOrder) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.Bond"></a>
+<a name="fury.bonds.v1beta1.Bond"></a>
 
 ### Bond
 Bond defines a token bonding curve type with all of its parameters.
@@ -405,7 +405,7 @@ Bond defines a token bonding curve type with all of its parameters.
 | creator_did | [string](#string) |  |  |
 | controller_did | [string](#string) |  |  |
 | function_type | [string](#string) |  |  |
-| function_parameters | [FunctionParam](#ixo.bonds.v1beta1.FunctionParam) | repeated |  |
+| function_parameters | [FunctionParam](#fury.bonds.v1beta1.FunctionParam) | repeated |  |
 | reserve_tokens | [string](#string) | repeated |  |
 | tx_fee_percentage | [string](#string) |  |  |
 | exit_fee_percentage | [string](#string) |  |  |
@@ -433,7 +433,7 @@ Bond defines a token bonding curve type with all of its parameters.
 
 
 
-<a name="ixo.bonds.v1beta1.BondDetails"></a>
+<a name="fury.bonds.v1beta1.BondDetails"></a>
 
 ### BondDetails
 BondDetails contains details about the current state of a given bond.
@@ -451,7 +451,7 @@ BondDetails contains details about the current state of a given bond.
 
 
 
-<a name="ixo.bonds.v1beta1.BuyOrder"></a>
+<a name="fury.bonds.v1beta1.BuyOrder"></a>
 
 ### BuyOrder
 BuyOrder defines a type for submitting a buy order on a bond, together with
@@ -460,7 +460,7 @@ the maximum amount of reserve tokens the buyer is willing to pay.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| base_order | [BaseOrder](#ixo.bonds.v1beta1.BaseOrder) |  |  |
+| base_order | [BaseOrder](#fury.bonds.v1beta1.BaseOrder) |  |  |
 | max_prices | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
 
 
@@ -468,7 +468,7 @@ the maximum amount of reserve tokens the buyer is willing to pay.
 
 
 
-<a name="ixo.bonds.v1beta1.FunctionParam"></a>
+<a name="fury.bonds.v1beta1.FunctionParam"></a>
 
 ### FunctionParam
 FunctionParam is a key-value pair used for specifying a specific bond
@@ -485,7 +485,7 @@ parameter.
 
 
 
-<a name="ixo.bonds.v1beta1.Params"></a>
+<a name="fury.bonds.v1beta1.Params"></a>
 
 ### Params
 Params defines the parameters for the bonds module.
@@ -500,7 +500,7 @@ Params defines the parameters for the bonds module.
 
 
 
-<a name="ixo.bonds.v1beta1.SellOrder"></a>
+<a name="fury.bonds.v1beta1.SellOrder"></a>
 
 ### SellOrder
 SellOrder defines a type for submitting a sell order on a bond.
@@ -508,14 +508,14 @@ SellOrder defines a type for submitting a sell order on a bond.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| base_order | [BaseOrder](#ixo.bonds.v1beta1.BaseOrder) |  |  |
+| base_order | [BaseOrder](#fury.bonds.v1beta1.BaseOrder) |  |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.SwapOrder"></a>
+<a name="fury.bonds.v1beta1.SwapOrder"></a>
 
 ### SwapOrder
 SwapOrder defines a type for submitting a swap order between two tokens on a
@@ -524,7 +524,7 @@ bond.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| base_order | [BaseOrder](#ixo.bonds.v1beta1.BaseOrder) |  |  |
+| base_order | [BaseOrder](#fury.bonds.v1beta1.BaseOrder) |  |  |
 | to_token | [string](#string) |  |  |
 
 
@@ -541,14 +541,14 @@ bond.
 
 
 
-<a name="ixo/bonds/v1beta1/genesis.proto"></a>
+<a name="fury/bonds/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/bonds/v1beta1/genesis.proto
+## fury/bonds/v1beta1/genesis.proto
 
 
 
-<a name="ixo.bonds.v1beta1.GenesisState"></a>
+<a name="fury.bonds.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the bonds module&#39;s genesis state.
@@ -556,9 +556,9 @@ GenesisState defines the bonds module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| bonds | [Bond](#ixo.bonds.v1beta1.Bond) | repeated |  |
-| batches | [Batch](#ixo.bonds.v1beta1.Batch) | repeated |  |
-| params | [Params](#ixo.bonds.v1beta1.Params) |  |  |
+| bonds | [Bond](#fury.bonds.v1beta1.Bond) | repeated |  |
+| batches | [Batch](#fury.bonds.v1beta1.Batch) | repeated |  |
+| params | [Params](#fury.bonds.v1beta1.Params) |  |  |
 
 
 
@@ -574,14 +574,14 @@ GenesisState defines the bonds module&#39;s genesis state.
 
 
 
-<a name="ixo/bonds/v1beta1/query.proto"></a>
+<a name="fury/bonds/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/bonds/v1beta1/query.proto
+## fury/bonds/v1beta1/query.proto
 
 
 
-<a name="ixo.bonds.v1beta1.QueryAlphaMaximumsRequest"></a>
+<a name="fury.bonds.v1beta1.QueryAlphaMaximumsRequest"></a>
 
 ### QueryAlphaMaximumsRequest
 QueryAlphaMaximumsRequest is the request type for the Query/AlphaMaximums RPC
@@ -597,7 +597,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryAlphaMaximumsResponse"></a>
+<a name="fury.bonds.v1beta1.QueryAlphaMaximumsResponse"></a>
 
 ### QueryAlphaMaximumsResponse
 QueryAlphaMaximumsResponse is the response type for the Query/AlphaMaximums
@@ -614,7 +614,7 @@ RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryAvailableReserveRequest"></a>
+<a name="fury.bonds.v1beta1.QueryAvailableReserveRequest"></a>
 
 ### QueryAvailableReserveRequest
 QueryAvailableReserveRequest is the request type for the
@@ -630,7 +630,7 @@ Query/AvailableReserve RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryAvailableReserveResponse"></a>
+<a name="fury.bonds.v1beta1.QueryAvailableReserveResponse"></a>
 
 ### QueryAvailableReserveResponse
 QueryAvailableReserveResponse is the response type for the
@@ -646,7 +646,7 @@ Query/AvailableReserve RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBatchRequest"></a>
+<a name="fury.bonds.v1beta1.QueryBatchRequest"></a>
 
 ### QueryBatchRequest
 QueryBatchRequest is the request type for the Query/Batch RPC method.
@@ -661,7 +661,7 @@ QueryBatchRequest is the request type for the Query/Batch RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBatchResponse"></a>
+<a name="fury.bonds.v1beta1.QueryBatchResponse"></a>
 
 ### QueryBatchResponse
 QueryBatchResponse is the response type for the Query/Batch RPC method.
@@ -669,14 +669,14 @@ QueryBatchResponse is the response type for the Query/Batch RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| batch | [Batch](#ixo.bonds.v1beta1.Batch) |  |  |
+| batch | [Batch](#fury.bonds.v1beta1.Batch) |  |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBondRequest"></a>
+<a name="fury.bonds.v1beta1.QueryBondRequest"></a>
 
 ### QueryBondRequest
 QueryBondRequest is the request type for the Query/Bond RPC method.
@@ -691,7 +691,7 @@ QueryBondRequest is the request type for the Query/Bond RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBondResponse"></a>
+<a name="fury.bonds.v1beta1.QueryBondResponse"></a>
 
 ### QueryBondResponse
 QueryBondResponse is the response type for the Query/Bond RPC method.
@@ -699,14 +699,14 @@ QueryBondResponse is the response type for the Query/Bond RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| bond | [Bond](#ixo.bonds.v1beta1.Bond) |  |  |
+| bond | [Bond](#fury.bonds.v1beta1.Bond) |  |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBondsDetailedRequest"></a>
+<a name="fury.bonds.v1beta1.QueryBondsDetailedRequest"></a>
 
 ### QueryBondsDetailedRequest
 QueryBondsDetailedRequest is the request type for the Query/BondsDetailed RPC
@@ -717,7 +717,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBondsDetailedResponse"></a>
+<a name="fury.bonds.v1beta1.QueryBondsDetailedResponse"></a>
 
 ### QueryBondsDetailedResponse
 QueryBondsDetailedResponse is the response type for the Query/BondsDetailed
@@ -726,14 +726,14 @@ RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| bonds_detailed | [BondDetails](#ixo.bonds.v1beta1.BondDetails) | repeated |  |
+| bonds_detailed | [BondDetails](#fury.bonds.v1beta1.BondDetails) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBondsRequest"></a>
+<a name="fury.bonds.v1beta1.QueryBondsRequest"></a>
 
 ### QueryBondsRequest
 QueryBondsRequest is the request type for the Query/Bonds RPC method.
@@ -743,7 +743,7 @@ QueryBondsRequest is the request type for the Query/Bonds RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBondsResponse"></a>
+<a name="fury.bonds.v1beta1.QueryBondsResponse"></a>
 
 ### QueryBondsResponse
 QueryBondsResponse is the response type for the Query/Bonds RPC method.
@@ -758,7 +758,7 @@ QueryBondsResponse is the response type for the Query/Bonds RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBuyPriceRequest"></a>
+<a name="fury.bonds.v1beta1.QueryBuyPriceRequest"></a>
 
 ### QueryBuyPriceRequest
 QueryCustomPriceRequest is the request type for the Query/BuyPrice RPC
@@ -775,7 +775,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryBuyPriceResponse"></a>
+<a name="fury.bonds.v1beta1.QueryBuyPriceResponse"></a>
 
 ### QueryBuyPriceResponse
 QueryCustomPriceResponse is the response type for the Query/BuyPrice RPC
@@ -795,7 +795,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryCurrentPriceRequest"></a>
+<a name="fury.bonds.v1beta1.QueryCurrentPriceRequest"></a>
 
 ### QueryCurrentPriceRequest
 QueryCurrentPriceRequest is the request type for the Query/CurrentPrice RPC
@@ -811,7 +811,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryCurrentPriceResponse"></a>
+<a name="fury.bonds.v1beta1.QueryCurrentPriceResponse"></a>
 
 ### QueryCurrentPriceResponse
 QueryCurrentPriceResponse is the response type for the Query/CurrentPrice RPC
@@ -827,7 +827,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryCurrentReserveRequest"></a>
+<a name="fury.bonds.v1beta1.QueryCurrentReserveRequest"></a>
 
 ### QueryCurrentReserveRequest
 QueryCurrentReserveRequest is the request type for the Query/CurrentReserve
@@ -843,7 +843,7 @@ RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryCurrentReserveResponse"></a>
+<a name="fury.bonds.v1beta1.QueryCurrentReserveResponse"></a>
 
 ### QueryCurrentReserveResponse
 QueryCurrentReserveResponse is the response type for the Query/CurrentReserve
@@ -859,7 +859,7 @@ RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryCustomPriceRequest"></a>
+<a name="fury.bonds.v1beta1.QueryCustomPriceRequest"></a>
 
 ### QueryCustomPriceRequest
 QueryCustomPriceRequest is the request type for the Query/CustomPrice RPC
@@ -876,7 +876,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryCustomPriceResponse"></a>
+<a name="fury.bonds.v1beta1.QueryCustomPriceResponse"></a>
 
 ### QueryCustomPriceResponse
 QueryCustomPriceResponse is the response type for the Query/CustomPrice RPC
@@ -892,7 +892,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryLastBatchRequest"></a>
+<a name="fury.bonds.v1beta1.QueryLastBatchRequest"></a>
 
 ### QueryLastBatchRequest
 QueryLastBatchRequest is the request type for the Query/LastBatch RPC method.
@@ -907,7 +907,7 @@ QueryLastBatchRequest is the request type for the Query/LastBatch RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryLastBatchResponse"></a>
+<a name="fury.bonds.v1beta1.QueryLastBatchResponse"></a>
 
 ### QueryLastBatchResponse
 QueryLastBatchResponse is the response type for the Query/LastBatch RPC
@@ -916,14 +916,14 @@ method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| last_batch | [Batch](#ixo.bonds.v1beta1.Batch) |  |  |
+| last_batch | [Batch](#fury.bonds.v1beta1.Batch) |  |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.QueryParamsRequest"></a>
+<a name="fury.bonds.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 QueryParamsRequest is the request type for the Query/Params RPC method.
@@ -933,7 +933,7 @@ QueryParamsRequest is the request type for the Query/Params RPC method.
 
 
 
-<a name="ixo.bonds.v1beta1.QueryParamsResponse"></a>
+<a name="fury.bonds.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 QueryParamsResponse is the response type for the Query/Params RPC method.
@@ -941,14 +941,14 @@ QueryParamsResponse is the response type for the Query/Params RPC method.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| params | [Params](#ixo.bonds.v1beta1.Params) |  |  |
+| params | [Params](#fury.bonds.v1beta1.Params) |  |  |
 
 
 
 
 
 
-<a name="ixo.bonds.v1beta1.QuerySellReturnRequest"></a>
+<a name="fury.bonds.v1beta1.QuerySellReturnRequest"></a>
 
 ### QuerySellReturnRequest
 QuerySellReturnRequest is the request type for the Query/SellReturn RPC
@@ -965,7 +965,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QuerySellReturnResponse"></a>
+<a name="fury.bonds.v1beta1.QuerySellReturnResponse"></a>
 
 ### QuerySellReturnResponse
 QuerySellReturnResponse is the response type for the Query/SellReturn RPC
@@ -986,7 +986,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QuerySwapReturnRequest"></a>
+<a name="fury.bonds.v1beta1.QuerySwapReturnRequest"></a>
 
 ### QuerySwapReturnRequest
 QuerySwapReturnRequest is the request type for the Query/SwapReturn RPC
@@ -1004,7 +1004,7 @@ method.
 
 
 
-<a name="ixo.bonds.v1beta1.QuerySwapReturnResponse"></a>
+<a name="fury.bonds.v1beta1.QuerySwapReturnResponse"></a>
 
 ### QuerySwapReturnResponse
 QuerySwapReturnResponse is the response type for the Query/SwapReturn RPC
@@ -1027,40 +1027,40 @@ method.
  
 
 
-<a name="ixo.bonds.v1beta1.Query"></a>
+<a name="fury.bonds.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Bonds | [QueryBondsRequest](#ixo.bonds.v1beta1.QueryBondsRequest) | [QueryBondsResponse](#ixo.bonds.v1beta1.QueryBondsResponse) | Bonds returns all existing bonds. |
-| BondsDetailed | [QueryBondsDetailedRequest](#ixo.bonds.v1beta1.QueryBondsDetailedRequest) | [QueryBondsDetailedResponse](#ixo.bonds.v1beta1.QueryBondsDetailedResponse) | BondsDetailed returns a list of all existing bonds with some details about their current state. |
-| Params | [QueryParamsRequest](#ixo.bonds.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#ixo.bonds.v1beta1.QueryParamsResponse) | Params queries the paramaters of x/bonds module. |
-| Bond | [QueryBondRequest](#ixo.bonds.v1beta1.QueryBondRequest) | [QueryBondResponse](#ixo.bonds.v1beta1.QueryBondResponse) | Bond queries info of a specific bond. |
-| Batch | [QueryBatchRequest](#ixo.bonds.v1beta1.QueryBatchRequest) | [QueryBatchResponse](#ixo.bonds.v1beta1.QueryBatchResponse) | Batch queries info of a specific bond&#39;s current batch. |
-| LastBatch | [QueryLastBatchRequest](#ixo.bonds.v1beta1.QueryLastBatchRequest) | [QueryLastBatchResponse](#ixo.bonds.v1beta1.QueryLastBatchResponse) | LastBatch queries info of a specific bond&#39;s last batch. |
-| CurrentPrice | [QueryCurrentPriceRequest](#ixo.bonds.v1beta1.QueryCurrentPriceRequest) | [QueryCurrentPriceResponse](#ixo.bonds.v1beta1.QueryCurrentPriceResponse) | CurrentPrice queries the current price/s of a specific bond. |
-| CurrentReserve | [QueryCurrentReserveRequest](#ixo.bonds.v1beta1.QueryCurrentReserveRequest) | [QueryCurrentReserveResponse](#ixo.bonds.v1beta1.QueryCurrentReserveResponse) | CurrentReserve queries the current balance/s of the reserve pool for a specific bond. |
-| AvailableReserve | [QueryAvailableReserveRequest](#ixo.bonds.v1beta1.QueryAvailableReserveRequest) | [QueryAvailableReserveResponse](#ixo.bonds.v1beta1.QueryAvailableReserveResponse) | AvailableReserve queries current available balance/s of the reserve pool for a specific bond. |
-| CustomPrice | [QueryCustomPriceRequest](#ixo.bonds.v1beta1.QueryCustomPriceRequest) | [QueryCustomPriceResponse](#ixo.bonds.v1beta1.QueryCustomPriceResponse) | CustomPrice queries price/s of a specific bond at a specific supply. |
-| BuyPrice | [QueryBuyPriceRequest](#ixo.bonds.v1beta1.QueryBuyPriceRequest) | [QueryBuyPriceResponse](#ixo.bonds.v1beta1.QueryBuyPriceResponse) | BuyPrice queries price/s of buying an amount of tokens from a specific bond. |
-| SellReturn | [QuerySellReturnRequest](#ixo.bonds.v1beta1.QuerySellReturnRequest) | [QuerySellReturnResponse](#ixo.bonds.v1beta1.QuerySellReturnResponse) | SellReturn queries return/s on selling an amount of tokens of a specific bond. |
-| SwapReturn | [QuerySwapReturnRequest](#ixo.bonds.v1beta1.QuerySwapReturnRequest) | [QuerySwapReturnResponse](#ixo.bonds.v1beta1.QuerySwapReturnResponse) | SwapReturn queries return/s on swapping an amount of tokens to another token of a specific bond. |
-| AlphaMaximums | [QueryAlphaMaximumsRequest](#ixo.bonds.v1beta1.QueryAlphaMaximumsRequest) | [QueryAlphaMaximumsResponse](#ixo.bonds.v1beta1.QueryAlphaMaximumsResponse) | AlphaMaximums queries alpha maximums for a specific augmented bonding curve. |
+| Bonds | [QueryBondsRequest](#fury.bonds.v1beta1.QueryBondsRequest) | [QueryBondsResponse](#fury.bonds.v1beta1.QueryBondsResponse) | Bonds returns all existing bonds. |
+| BondsDetailed | [QueryBondsDetailedRequest](#fury.bonds.v1beta1.QueryBondsDetailedRequest) | [QueryBondsDetailedResponse](#fury.bonds.v1beta1.QueryBondsDetailedResponse) | BondsDetailed returns a list of all existing bonds with some details about their current state. |
+| Params | [QueryParamsRequest](#fury.bonds.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.bonds.v1beta1.QueryParamsResponse) | Params queries the paramaters of x/bonds module. |
+| Bond | [QueryBondRequest](#fury.bonds.v1beta1.QueryBondRequest) | [QueryBondResponse](#fury.bonds.v1beta1.QueryBondResponse) | Bond queries info of a specific bond. |
+| Batch | [QueryBatchRequest](#fury.bonds.v1beta1.QueryBatchRequest) | [QueryBatchResponse](#fury.bonds.v1beta1.QueryBatchResponse) | Batch queries info of a specific bond&#39;s current batch. |
+| LastBatch | [QueryLastBatchRequest](#fury.bonds.v1beta1.QueryLastBatchRequest) | [QueryLastBatchResponse](#fury.bonds.v1beta1.QueryLastBatchResponse) | LastBatch queries info of a specific bond&#39;s last batch. |
+| CurrentPrice | [QueryCurrentPriceRequest](#fury.bonds.v1beta1.QueryCurrentPriceRequest) | [QueryCurrentPriceResponse](#fury.bonds.v1beta1.QueryCurrentPriceResponse) | CurrentPrice queries the current price/s of a specific bond. |
+| CurrentReserve | [QueryCurrentReserveRequest](#fury.bonds.v1beta1.QueryCurrentReserveRequest) | [QueryCurrentReserveResponse](#fury.bonds.v1beta1.QueryCurrentReserveResponse) | CurrentReserve queries the current balance/s of the reserve pool for a specific bond. |
+| AvailableReserve | [QueryAvailableReserveRequest](#fury.bonds.v1beta1.QueryAvailableReserveRequest) | [QueryAvailableReserveResponse](#fury.bonds.v1beta1.QueryAvailableReserveResponse) | AvailableReserve queries current available balance/s of the reserve pool for a specific bond. |
+| CustomPrice | [QueryCustomPriceRequest](#fury.bonds.v1beta1.QueryCustomPriceRequest) | [QueryCustomPriceResponse](#fury.bonds.v1beta1.QueryCustomPriceResponse) | CustomPrice queries price/s of a specific bond at a specific supply. |
+| BuyPrice | [QueryBuyPriceRequest](#fury.bonds.v1beta1.QueryBuyPriceRequest) | [QueryBuyPriceResponse](#fury.bonds.v1beta1.QueryBuyPriceResponse) | BuyPrice queries price/s of buying an amount of tokens from a specific bond. |
+| SellReturn | [QuerySellReturnRequest](#fury.bonds.v1beta1.QuerySellReturnRequest) | [QuerySellReturnResponse](#fury.bonds.v1beta1.QuerySellReturnResponse) | SellReturn queries return/s on selling an amount of tokens of a specific bond. |
+| SwapReturn | [QuerySwapReturnRequest](#fury.bonds.v1beta1.QuerySwapReturnRequest) | [QuerySwapReturnResponse](#fury.bonds.v1beta1.QuerySwapReturnResponse) | SwapReturn queries return/s on swapping an amount of tokens to another token of a specific bond. |
+| AlphaMaximums | [QueryAlphaMaximumsRequest](#fury.bonds.v1beta1.QueryAlphaMaximumsRequest) | [QueryAlphaMaximumsResponse](#fury.bonds.v1beta1.QueryAlphaMaximumsResponse) | AlphaMaximums queries alpha maximums for a specific augmented bonding curve. |
 
  
 
 
 
-<a name="ixo/bonds/v1beta1/tx.proto"></a>
+<a name="fury/bonds/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/bonds/v1beta1/tx.proto
+## fury/bonds/v1beta1/tx.proto
 
 
 
-<a name="ixo.bonds.v1beta1.MsgBuy"></a>
+<a name="fury.bonds.v1beta1.MsgBuy"></a>
 
 ### MsgBuy
 MsgBuy defines a message for buying from a bond.
@@ -1079,7 +1079,7 @@ MsgBuy defines a message for buying from a bond.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgBuyResponse"></a>
+<a name="fury.bonds.v1beta1.MsgBuyResponse"></a>
 
 ### MsgBuyResponse
 MsgBuyResponse defines the Msg/Buy response type.
@@ -1089,7 +1089,7 @@ MsgBuyResponse defines the Msg/Buy response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgCreateBond"></a>
+<a name="fury.bonds.v1beta1.MsgCreateBond"></a>
 
 ### MsgCreateBond
 MsgCreateBond defines a message for creating a new bond.
@@ -1102,7 +1102,7 @@ MsgCreateBond defines a message for creating a new bond.
 | name | [string](#string) |  |  |
 | description | [string](#string) |  |  |
 | function_type | [string](#string) |  |  |
-| function_parameters | [FunctionParam](#ixo.bonds.v1beta1.FunctionParam) | repeated |  |
+| function_parameters | [FunctionParam](#fury.bonds.v1beta1.FunctionParam) | repeated |  |
 | creator_did | [string](#string) |  |  |
 | controller_did | [string](#string) |  |  |
 | oracle_did | [string](#string) |  |  |
@@ -1127,7 +1127,7 @@ MsgCreateBond defines a message for creating a new bond.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgCreateBondResponse"></a>
+<a name="fury.bonds.v1beta1.MsgCreateBondResponse"></a>
 
 ### MsgCreateBondResponse
 MsgCreateBondResponse defines the Msg/CreateBond response type.
@@ -1137,7 +1137,7 @@ MsgCreateBondResponse defines the Msg/CreateBond response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgEditBond"></a>
+<a name="fury.bonds.v1beta1.MsgEditBond"></a>
 
 ### MsgEditBond
 MsgEditBond defines a message for editing an existing bond.
@@ -1159,7 +1159,7 @@ MsgEditBond defines a message for editing an existing bond.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgEditBondResponse"></a>
+<a name="fury.bonds.v1beta1.MsgEditBondResponse"></a>
 
 ### MsgEditBondResponse
 MsgEditBondResponse defines the Msg/EditBond response type.
@@ -1169,7 +1169,7 @@ MsgEditBondResponse defines the Msg/EditBond response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgMakeOutcomePayment"></a>
+<a name="fury.bonds.v1beta1.MsgMakeOutcomePayment"></a>
 
 ### MsgMakeOutcomePayment
 MsgMakeOutcomePayment defines a message for making an outcome payment to a
@@ -1188,7 +1188,7 @@ bond.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgMakeOutcomePaymentResponse"></a>
+<a name="fury.bonds.v1beta1.MsgMakeOutcomePaymentResponse"></a>
 
 ### MsgMakeOutcomePaymentResponse
 MsgMakeOutcomePaymentResponse defines the Msg/MakeOutcomePayment response
@@ -1199,7 +1199,7 @@ type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgSell"></a>
+<a name="fury.bonds.v1beta1.MsgSell"></a>
 
 ### MsgSell
 MsgSell defines a message for selling from a bond.
@@ -1217,7 +1217,7 @@ MsgSell defines a message for selling from a bond.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgSellResponse"></a>
+<a name="fury.bonds.v1beta1.MsgSellResponse"></a>
 
 ### MsgSellResponse
 MsgSellResponse defines the Msg/Sell response type.
@@ -1227,7 +1227,7 @@ MsgSellResponse defines the Msg/Sell response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgSetNextAlpha"></a>
+<a name="fury.bonds.v1beta1.MsgSetNextAlpha"></a>
 
 ### MsgSetNextAlpha
 MsgSetNextAlpha defines a message for editing a bond&#39;s alpha parameter.
@@ -1246,7 +1246,7 @@ MsgSetNextAlpha defines a message for editing a bond&#39;s alpha parameter.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgSetNextAlphaResponse"></a>
+<a name="fury.bonds.v1beta1.MsgSetNextAlphaResponse"></a>
 
 ### MsgSetNextAlphaResponse
 
@@ -1256,7 +1256,7 @@ MsgSetNextAlpha defines a message for editing a bond&#39;s alpha parameter.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgSwap"></a>
+<a name="fury.bonds.v1beta1.MsgSwap"></a>
 
 ### MsgSwap
 MsgSwap defines a message for swapping from one reserve bond token to
@@ -1276,7 +1276,7 @@ another.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgSwapResponse"></a>
+<a name="fury.bonds.v1beta1.MsgSwapResponse"></a>
 
 ### MsgSwapResponse
 MsgSwapResponse defines the Msg/Swap response type.
@@ -1286,7 +1286,7 @@ MsgSwapResponse defines the Msg/Swap response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgUpdateBondState"></a>
+<a name="fury.bonds.v1beta1.MsgUpdateBondState"></a>
 
 ### MsgUpdateBondState
 MsgUpdateBondState defines a message for updating a bond&#39;s current state.
@@ -1304,7 +1304,7 @@ MsgUpdateBondState defines a message for updating a bond&#39;s current state.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgUpdateBondStateResponse"></a>
+<a name="fury.bonds.v1beta1.MsgUpdateBondStateResponse"></a>
 
 ### MsgUpdateBondStateResponse
 MsgUpdateBondStateResponse defines the Msg/UpdateBondState response type.
@@ -1314,7 +1314,7 @@ MsgUpdateBondStateResponse defines the Msg/UpdateBondState response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgWithdrawReserve"></a>
+<a name="fury.bonds.v1beta1.MsgWithdrawReserve"></a>
 
 ### MsgWithdrawReserve
 MsgWithdrawReserve defines a message for withdrawing reserve from a bond.
@@ -1332,7 +1332,7 @@ MsgWithdrawReserve defines a message for withdrawing reserve from a bond.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgWithdrawReserveResponse"></a>
+<a name="fury.bonds.v1beta1.MsgWithdrawReserveResponse"></a>
 
 ### MsgWithdrawReserveResponse
 MsgWithdrawReserveResponse defines the Msg/WithdrawReserve response type.
@@ -1342,7 +1342,7 @@ MsgWithdrawReserveResponse defines the Msg/WithdrawReserve response type.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgWithdrawShare"></a>
+<a name="fury.bonds.v1beta1.MsgWithdrawShare"></a>
 
 ### MsgWithdrawShare
 MsgWithdrawShare defines a message for withdrawing a share from a bond that
@@ -1360,7 +1360,7 @@ is in the SETTLE stage.
 
 
 
-<a name="ixo.bonds.v1beta1.MsgWithdrawShareResponse"></a>
+<a name="fury.bonds.v1beta1.MsgWithdrawShareResponse"></a>
 
 ### MsgWithdrawShareResponse
 MsgWithdrawShareResponse defines the Msg/WithdrawShare response type.
@@ -1376,36 +1376,36 @@ MsgWithdrawShareResponse defines the Msg/WithdrawShare response type.
  
 
 
-<a name="ixo.bonds.v1beta1.Msg"></a>
+<a name="fury.bonds.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the bonds Msg service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateBond | [MsgCreateBond](#ixo.bonds.v1beta1.MsgCreateBond) | [MsgCreateBondResponse](#ixo.bonds.v1beta1.MsgCreateBondResponse) | CreateBond defines a method for creating a bond. |
-| EditBond | [MsgEditBond](#ixo.bonds.v1beta1.MsgEditBond) | [MsgEditBondResponse](#ixo.bonds.v1beta1.MsgEditBondResponse) | EditBond defines a method for editing a bond. |
-| SetNextAlpha | [MsgSetNextAlpha](#ixo.bonds.v1beta1.MsgSetNextAlpha) | [MsgSetNextAlphaResponse](#ixo.bonds.v1beta1.MsgSetNextAlphaResponse) | SetNextAlpha defines a method for editing a bond&#39;s alpha parameter. |
-| UpdateBondState | [MsgUpdateBondState](#ixo.bonds.v1beta1.MsgUpdateBondState) | [MsgUpdateBondStateResponse](#ixo.bonds.v1beta1.MsgUpdateBondStateResponse) | UpdateBondState defines a method for updating a bond&#39;s current state. |
-| Buy | [MsgBuy](#ixo.bonds.v1beta1.MsgBuy) | [MsgBuyResponse](#ixo.bonds.v1beta1.MsgBuyResponse) | Buy defines a method for buying from a bond. |
-| Sell | [MsgSell](#ixo.bonds.v1beta1.MsgSell) | [MsgSellResponse](#ixo.bonds.v1beta1.MsgSellResponse) | Sell defines a method for selling from a bond. |
-| Swap | [MsgSwap](#ixo.bonds.v1beta1.MsgSwap) | [MsgSwapResponse](#ixo.bonds.v1beta1.MsgSwapResponse) | Swap defines a method for swapping from one reserve bond token to another. |
-| MakeOutcomePayment | [MsgMakeOutcomePayment](#ixo.bonds.v1beta1.MsgMakeOutcomePayment) | [MsgMakeOutcomePaymentResponse](#ixo.bonds.v1beta1.MsgMakeOutcomePaymentResponse) | MakeOutcomePayment defines a method for making an outcome payment to a bond. |
-| WithdrawShare | [MsgWithdrawShare](#ixo.bonds.v1beta1.MsgWithdrawShare) | [MsgWithdrawShareResponse](#ixo.bonds.v1beta1.MsgWithdrawShareResponse) | WithdrawShare defines a method for withdrawing a share from a bond that is in the SETTLE stage. |
-| WithdrawReserve | [MsgWithdrawReserve](#ixo.bonds.v1beta1.MsgWithdrawReserve) | [MsgWithdrawReserveResponse](#ixo.bonds.v1beta1.MsgWithdrawReserveResponse) | WithdrawReserve defines a method for withdrawing reserve from a bond. |
+| CreateBond | [MsgCreateBond](#fury.bonds.v1beta1.MsgCreateBond) | [MsgCreateBondResponse](#fury.bonds.v1beta1.MsgCreateBondResponse) | CreateBond defines a method for creating a bond. |
+| EditBond | [MsgEditBond](#fury.bonds.v1beta1.MsgEditBond) | [MsgEditBondResponse](#fury.bonds.v1beta1.MsgEditBondResponse) | EditBond defines a method for editing a bond. |
+| SetNextAlpha | [MsgSetNextAlpha](#fury.bonds.v1beta1.MsgSetNextAlpha) | [MsgSetNextAlphaResponse](#fury.bonds.v1beta1.MsgSetNextAlphaResponse) | SetNextAlpha defines a method for editing a bond&#39;s alpha parameter. |
+| UpdateBondState | [MsgUpdateBondState](#fury.bonds.v1beta1.MsgUpdateBondState) | [MsgUpdateBondStateResponse](#fury.bonds.v1beta1.MsgUpdateBondStateResponse) | UpdateBondState defines a method for updating a bond&#39;s current state. |
+| Buy | [MsgBuy](#fury.bonds.v1beta1.MsgBuy) | [MsgBuyResponse](#fury.bonds.v1beta1.MsgBuyResponse) | Buy defines a method for buying from a bond. |
+| Sell | [MsgSell](#fury.bonds.v1beta1.MsgSell) | [MsgSellResponse](#fury.bonds.v1beta1.MsgSellResponse) | Sell defines a method for selling from a bond. |
+| Swap | [MsgSwap](#fury.bonds.v1beta1.MsgSwap) | [MsgSwapResponse](#fury.bonds.v1beta1.MsgSwapResponse) | Swap defines a method for swapping from one reserve bond token to another. |
+| MakeOutcomePayment | [MsgMakeOutcomePayment](#fury.bonds.v1beta1.MsgMakeOutcomePayment) | [MsgMakeOutcomePaymentResponse](#fury.bonds.v1beta1.MsgMakeOutcomePaymentResponse) | MakeOutcomePayment defines a method for making an outcome payment to a bond. |
+| WithdrawShare | [MsgWithdrawShare](#fury.bonds.v1beta1.MsgWithdrawShare) | [MsgWithdrawShareResponse](#fury.bonds.v1beta1.MsgWithdrawShareResponse) | WithdrawShare defines a method for withdrawing a share from a bond that is in the SETTLE stage. |
+| WithdrawReserve | [MsgWithdrawReserve](#fury.bonds.v1beta1.MsgWithdrawReserve) | [MsgWithdrawReserveResponse](#fury.bonds.v1beta1.MsgWithdrawReserveResponse) | WithdrawReserve defines a method for withdrawing reserve from a bond. |
 
  
 
 
 
-<a name="ixo/claims/v1beta1/claims.proto"></a>
+<a name="fury/claims/v1beta1/claims.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/claims.proto
+## fury/claims/v1beta1/claims.proto
 
 
 
-<a name="ixo.claims.v1beta1.Claim"></a>
+<a name="fury.claims.v1beta1.Claim"></a>
 
 ### Claim
 
@@ -1418,15 +1418,15 @@ Msg defines the bonds Msg service.
 | agent_address | [string](#string) |  |  |
 | submission_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | submissionDate is the date and time that the claim was submitted on-chain |
 | claim_id | [string](#string) |  | claimID is the unique identifier of the claim in the cid hash format |
-| evaluation | [Evaluation](#ixo.claims.v1beta1.Evaluation) |  | evaluation is the result of one or more claim evaluations |
-| payments_status | [ClaimPayments](#ixo.claims.v1beta1.ClaimPayments) |  |  |
+| evaluation | [Evaluation](#fury.claims.v1beta1.Evaluation) |  | evaluation is the result of one or more claim evaluations |
+| payments_status | [ClaimPayments](#fury.claims.v1beta1.ClaimPayments) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.ClaimPayments"></a>
+<a name="fury.claims.v1beta1.ClaimPayments"></a>
 
 ### ClaimPayments
 
@@ -1434,17 +1434,17 @@ Msg defines the bonds Msg service.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| submission | [PaymentStatus](#ixo.claims.v1beta1.PaymentStatus) |  |  |
-| evaluation | [PaymentStatus](#ixo.claims.v1beta1.PaymentStatus) |  |  |
-| approval | [PaymentStatus](#ixo.claims.v1beta1.PaymentStatus) |  |  |
-| rejection | [PaymentStatus](#ixo.claims.v1beta1.PaymentStatus) |  | PaymentStatus penalty = 5; |
+| submission | [PaymentStatus](#fury.claims.v1beta1.PaymentStatus) |  |  |
+| evaluation | [PaymentStatus](#fury.claims.v1beta1.PaymentStatus) |  |  |
+| approval | [PaymentStatus](#fury.claims.v1beta1.PaymentStatus) |  |  |
+| rejection | [PaymentStatus](#fury.claims.v1beta1.PaymentStatus) |  | PaymentStatus penalty = 5; |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.Collection"></a>
+<a name="fury.claims.v1beta1.Collection"></a>
 
 ### Collection
 
@@ -1464,8 +1464,8 @@ Msg defines the bonds Msg service.
 | approved | [uint64](#uint64) |  | approved is the number of claims that have been evaluated and approved (internally calculated) |
 | rejected | [uint64](#uint64) |  | rejected is the number of claims that have been evaluated and rejected (internally calculated) |
 | disputed | [uint64](#uint64) |  | disputed is the number of claims that have disputed status (internally calculated) |
-| state | [CollectionState](#ixo.claims.v1beta1.CollectionState) |  | state is the current state of this Collection (open, paused, closed) |
-| payments | [Payments](#ixo.claims.v1beta1.Payments) |  | payments is the amount paid for claim submission, evaluation, approval, or rejection |
+| state | [CollectionState](#fury.claims.v1beta1.CollectionState) |  | state is the current state of this Collection (open, paused, closed) |
+| payments | [Payments](#fury.claims.v1beta1.Payments) |  | payments is the amount paid for claim submission, evaluation, approval, or rejection |
 | signer | [string](#string) |  | signer address |
 
 
@@ -1473,7 +1473,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.Contract1155Payment"></a>
+<a name="fury.claims.v1beta1.Contract1155Payment"></a>
 
 ### Contract1155Payment
 
@@ -1490,7 +1490,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.Dispute"></a>
+<a name="fury.claims.v1beta1.Dispute"></a>
 
 ### Dispute
 
@@ -1500,14 +1500,14 @@ Msg defines the bonds Msg service.
 | ----- | ---- | ----- | ----------- |
 | subject_id | [string](#string) |  |  |
 | type | [int32](#int32) |  | type is expressed as an integer, interpreted by the client |
-| data | [DisputeData](#ixo.claims.v1beta1.DisputeData) |  |  |
+| data | [DisputeData](#fury.claims.v1beta1.DisputeData) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.DisputeData"></a>
+<a name="fury.claims.v1beta1.DisputeData"></a>
 
 ### DisputeData
 
@@ -1525,7 +1525,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.Evaluation"></a>
+<a name="fury.claims.v1beta1.Evaluation"></a>
 
 ### Evaluation
 
@@ -1538,7 +1538,7 @@ Msg defines the bonds Msg service.
 | oracle | [string](#string) |  | oracle is the DID of the Oracle entity that evaluates the claim |
 | agent_did | [string](#string) |  | agent is the DID of the agent that submits the evaluation |
 | agent_address | [string](#string) |  |  |
-| status | [EvaluationStatus](#ixo.claims.v1beta1.EvaluationStatus) |  | status is the evaluation status expressed as an integer (2=approved, 3=rejected, ...) |
+| status | [EvaluationStatus](#fury.claims.v1beta1.EvaluationStatus) |  | status is the evaluation status expressed as an integer (2=approved, 3=rejected, ...) |
 | reason | [uint32](#uint32) |  | reason is the code expressed as an integer, for why the evaluation result was given (codes defined by evaluator) |
 | verification_proof | [string](#string) |  | verificationProof is the cid of the evaluation Verfiable Credential |
 | evaluation_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | evaluationDate is the date and time that the claim evaluation was submitted on-chain |
@@ -1549,7 +1549,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.Params"></a>
+<a name="fury.claims.v1beta1.Params"></a>
 
 ### Params
 
@@ -1558,7 +1558,7 @@ Msg defines the bonds Msg service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | collection_sequence | [uint64](#uint64) |  |  |
-| ixo_account | [string](#string) |  |  |
+| fury_account | [string](#string) |  |  |
 | network_fee_percentage | [string](#string) |  |  |
 | node_fee_percentage | [string](#string) |  |  |
 
@@ -1567,7 +1567,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.Payment"></a>
+<a name="fury.claims.v1beta1.Payment"></a>
 
 ### Payment
 
@@ -1577,7 +1577,7 @@ Msg defines the bonds Msg service.
 | ----- | ---- | ----- | ----------- |
 | account | [string](#string) |  | account is the entity account address from which the payment will be made |
 | amount | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
-| contract_1155_payment | [Contract1155Payment](#ixo.claims.v1beta1.Contract1155Payment) |  | if empty(nil) then no contract payment, not allowed for Evaluation Payment |
+| contract_1155_payment | [Contract1155Payment](#fury.claims.v1beta1.Contract1155Payment) |  | if empty(nil) then no contract payment, not allowed for Evaluation Payment |
 | timeout_ns | [google.protobuf.Duration](#google.protobuf.Duration) |  | timeout after claim/evaluation to create authZ for payment, if 0 then immidiate direct payment |
 
 
@@ -1585,7 +1585,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.Payments"></a>
+<a name="fury.claims.v1beta1.Payments"></a>
 
 ### Payments
 
@@ -1593,10 +1593,10 @@ Msg defines the bonds Msg service.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| submission | [Payment](#ixo.claims.v1beta1.Payment) |  |  |
-| evaluation | [Payment](#ixo.claims.v1beta1.Payment) |  |  |
-| approval | [Payment](#ixo.claims.v1beta1.Payment) |  |  |
-| rejection | [Payment](#ixo.claims.v1beta1.Payment) |  | Payment penalty = 5; |
+| submission | [Payment](#fury.claims.v1beta1.Payment) |  |  |
+| evaluation | [Payment](#fury.claims.v1beta1.Payment) |  |  |
+| approval | [Payment](#fury.claims.v1beta1.Payment) |  |  |
+| rejection | [Payment](#fury.claims.v1beta1.Payment) |  | Payment penalty = 5; |
 
 
 
@@ -1605,7 +1605,7 @@ Msg defines the bonds Msg service.
  
 
 
-<a name="ixo.claims.v1beta1.CollectionState"></a>
+<a name="fury.claims.v1beta1.CollectionState"></a>
 
 ### CollectionState
 
@@ -1618,7 +1618,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.EvaluationStatus"></a>
+<a name="fury.claims.v1beta1.EvaluationStatus"></a>
 
 ### EvaluationStatus
 
@@ -1632,7 +1632,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.PaymentStatus"></a>
+<a name="fury.claims.v1beta1.PaymentStatus"></a>
 
 ### PaymentStatus
 
@@ -1649,7 +1649,7 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo.claims.v1beta1.PaymentType"></a>
+<a name="fury.claims.v1beta1.PaymentType"></a>
 
 ### PaymentType
 
@@ -1670,14 +1670,14 @@ Msg defines the bonds Msg service.
 
 
 
-<a name="ixo/claims/v1beta1/cosmos.proto"></a>
+<a name="fury/claims/v1beta1/cosmos.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/cosmos.proto
+## fury/claims/v1beta1/cosmos.proto
 
 
 
-<a name="ixo.claims.v1beta1.Input"></a>
+<a name="fury.claims.v1beta1.Input"></a>
 
 ### Input
 Input models transaction input.
@@ -1693,7 +1693,7 @@ Input models transaction input.
 
 
 
-<a name="ixo.claims.v1beta1.Output"></a>
+<a name="fury.claims.v1beta1.Output"></a>
 
 ### Output
 Output models transaction outputs.
@@ -1718,14 +1718,14 @@ Output models transaction outputs.
 
 
 
-<a name="ixo/claims/v1beta1/authz.proto"></a>
+<a name="fury/claims/v1beta1/authz.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/authz.proto
+## fury/claims/v1beta1/authz.proto
 
 
 
-<a name="ixo.claims.v1beta1.EvaluateClaimAuthorization"></a>
+<a name="fury.claims.v1beta1.EvaluateClaimAuthorization"></a>
 
 ### EvaluateClaimAuthorization
 
@@ -1734,14 +1734,14 @@ Output models transaction outputs.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | admin | [string](#string) |  | address of admin |
-| constraints | [EvaluateClaimConstraints](#ixo.claims.v1beta1.EvaluateClaimConstraints) | repeated |  |
+| constraints | [EvaluateClaimConstraints](#fury.claims.v1beta1.EvaluateClaimConstraints) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.EvaluateClaimConstraints"></a>
+<a name="fury.claims.v1beta1.EvaluateClaimConstraints"></a>
 
 ### EvaluateClaimConstraints
 
@@ -1760,7 +1760,7 @@ Output models transaction outputs.
 
 
 
-<a name="ixo.claims.v1beta1.SubmitClaimAuthorization"></a>
+<a name="fury.claims.v1beta1.SubmitClaimAuthorization"></a>
 
 ### SubmitClaimAuthorization
 
@@ -1769,14 +1769,14 @@ Output models transaction outputs.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | admin | [string](#string) |  | address of admin |
-| constraints | [SubmitClaimConstraints](#ixo.claims.v1beta1.SubmitClaimConstraints) | repeated |  |
+| constraints | [SubmitClaimConstraints](#fury.claims.v1beta1.SubmitClaimConstraints) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.SubmitClaimConstraints"></a>
+<a name="fury.claims.v1beta1.SubmitClaimConstraints"></a>
 
 ### SubmitClaimConstraints
 
@@ -1792,7 +1792,7 @@ Output models transaction outputs.
 
 
 
-<a name="ixo.claims.v1beta1.WithdrawPaymentAuthorization"></a>
+<a name="fury.claims.v1beta1.WithdrawPaymentAuthorization"></a>
 
 ### WithdrawPaymentAuthorization
 
@@ -1801,14 +1801,14 @@ Output models transaction outputs.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | admin | [string](#string) |  | address of admin |
-| constraints | [WithdrawPaymentConstraints](#ixo.claims.v1beta1.WithdrawPaymentConstraints) | repeated |  |
+| constraints | [WithdrawPaymentConstraints](#fury.claims.v1beta1.WithdrawPaymentConstraints) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.WithdrawPaymentConstraints"></a>
+<a name="fury.claims.v1beta1.WithdrawPaymentConstraints"></a>
 
 ### WithdrawPaymentConstraints
 
@@ -1817,10 +1817,10 @@ Output models transaction outputs.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | claim_id | [string](#string) |  | claim_id the withdrawal is for |
-| inputs | [Input](#ixo.claims.v1beta1.Input) | repeated | Inputs to the multisend tx to run to withdraw payment |
-| outputs | [Output](#ixo.claims.v1beta1.Output) | repeated | Outputs for the multisend tx to run to withdraw payment |
-| payment_type | [PaymentType](#ixo.claims.v1beta1.PaymentType) |  | payment type to keep track what payment is for and mark claim payment accordingly |
-| contract_1155_payment | [Contract1155Payment](#ixo.claims.v1beta1.Contract1155Payment) |  | if empty(nil) then no contract payment |
+| inputs | [Input](#fury.claims.v1beta1.Input) | repeated | Inputs to the multisend tx to run to withdraw payment |
+| outputs | [Output](#fury.claims.v1beta1.Output) | repeated | Outputs for the multisend tx to run to withdraw payment |
+| payment_type | [PaymentType](#fury.claims.v1beta1.PaymentType) |  | payment type to keep track what payment is for and mark claim payment accordingly |
+| contract_1155_payment | [Contract1155Payment](#fury.claims.v1beta1.Contract1155Payment) |  | if empty(nil) then no contract payment |
 | toAddress | [string](#string) |  | for contract payment |
 | fromAddress | [string](#string) |  | for contract payment |
 | release_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | date that grantee can execute authorization, calculated from created date plus the timeout on Collection payments, if null then none |
@@ -1839,14 +1839,14 @@ Output models transaction outputs.
 
 
 
-<a name="ixo/claims/v1beta1/event.proto"></a>
+<a name="fury/claims/v1beta1/event.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/event.proto
+## fury/claims/v1beta1/event.proto
 
 
 
-<a name="ixo.claims.v1beta1.ClaimDisputedEvent"></a>
+<a name="fury.claims.v1beta1.ClaimDisputedEvent"></a>
 
 ### ClaimDisputedEvent
 ClaimDisputedEvent is an event triggered on a Claim dispute
@@ -1854,14 +1854,14 @@ ClaimDisputedEvent is an event triggered on a Claim dispute
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| dispute | [Dispute](#ixo.claims.v1beta1.Dispute) |  |  |
+| dispute | [Dispute](#fury.claims.v1beta1.Dispute) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.ClaimEvaluatedEvent"></a>
+<a name="fury.claims.v1beta1.ClaimEvaluatedEvent"></a>
 
 ### ClaimEvaluatedEvent
 ClaimEvaluatedEvent is an event triggered on a Claim evaluation
@@ -1869,14 +1869,14 @@ ClaimEvaluatedEvent is an event triggered on a Claim evaluation
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| evaluation | [Evaluation](#ixo.claims.v1beta1.Evaluation) |  |  |
+| evaluation | [Evaluation](#fury.claims.v1beta1.Evaluation) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.ClaimSubmittedEvent"></a>
+<a name="fury.claims.v1beta1.ClaimSubmittedEvent"></a>
 
 ### ClaimSubmittedEvent
 CollectionCreatedEvent is an event triggered on a Claim submission
@@ -1884,14 +1884,14 @@ CollectionCreatedEvent is an event triggered on a Claim submission
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| claim | [Claim](#ixo.claims.v1beta1.Claim) |  |  |
+| claim | [Claim](#fury.claims.v1beta1.Claim) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.ClaimUpdatedEvent"></a>
+<a name="fury.claims.v1beta1.ClaimUpdatedEvent"></a>
 
 ### ClaimUpdatedEvent
 ClaimUpdatedEvent is an event triggered on a Claim update
@@ -1899,14 +1899,14 @@ ClaimUpdatedEvent is an event triggered on a Claim update
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| claim | [Claim](#ixo.claims.v1beta1.Claim) |  |  |
+| claim | [Claim](#fury.claims.v1beta1.Claim) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.CollectionCreatedEvent"></a>
+<a name="fury.claims.v1beta1.CollectionCreatedEvent"></a>
 
 ### CollectionCreatedEvent
 CollectionCreatedEvent is an event triggered on a Collection creation
@@ -1914,14 +1914,14 @@ CollectionCreatedEvent is an event triggered on a Collection creation
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| collection | [Collection](#ixo.claims.v1beta1.Collection) |  |  |
+| collection | [Collection](#fury.claims.v1beta1.Collection) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.CollectionUpdatedEvent"></a>
+<a name="fury.claims.v1beta1.CollectionUpdatedEvent"></a>
 
 ### CollectionUpdatedEvent
 CollectionUpdatedEvent is an event triggered on a Collection update
@@ -1929,14 +1929,14 @@ CollectionUpdatedEvent is an event triggered on a Collection update
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| collection | [Collection](#ixo.claims.v1beta1.Collection) |  |  |
+| collection | [Collection](#fury.claims.v1beta1.Collection) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.PaymentWithdrawCreatedEvent"></a>
+<a name="fury.claims.v1beta1.PaymentWithdrawCreatedEvent"></a>
 
 ### PaymentWithdrawCreatedEvent
 ClaimDisputedEvent is an event triggered on a Claim dispute
@@ -1944,14 +1944,14 @@ ClaimDisputedEvent is an event triggered on a Claim dispute
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| withdraw | [WithdrawPaymentConstraints](#ixo.claims.v1beta1.WithdrawPaymentConstraints) |  |  |
+| withdraw | [WithdrawPaymentConstraints](#fury.claims.v1beta1.WithdrawPaymentConstraints) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.PaymentWithdrawnEvent"></a>
+<a name="fury.claims.v1beta1.PaymentWithdrawnEvent"></a>
 
 ### PaymentWithdrawnEvent
 ClaimDisputedEvent is an event triggered on a Claim dispute
@@ -1959,7 +1959,7 @@ ClaimDisputedEvent is an event triggered on a Claim dispute
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| withdraw | [WithdrawPaymentConstraints](#ixo.claims.v1beta1.WithdrawPaymentConstraints) |  |  |
+| withdraw | [WithdrawPaymentConstraints](#fury.claims.v1beta1.WithdrawPaymentConstraints) |  |  |
 
 
 
@@ -1975,14 +1975,14 @@ ClaimDisputedEvent is an event triggered on a Claim dispute
 
 
 
-<a name="ixo/claims/v1beta1/genesis.proto"></a>
+<a name="fury/claims/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/genesis.proto
+## fury/claims/v1beta1/genesis.proto
 
 
 
-<a name="ixo.claims.v1beta1.GenesisState"></a>
+<a name="fury.claims.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the claims module&#39;s genesis state.
@@ -1990,10 +1990,10 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| params | [Params](#ixo.claims.v1beta1.Params) |  |  |
-| collections | [Collection](#ixo.claims.v1beta1.Collection) | repeated |  |
-| claims | [Claim](#ixo.claims.v1beta1.Claim) | repeated |  |
-| disputes | [Dispute](#ixo.claims.v1beta1.Dispute) | repeated |  |
+| params | [Params](#fury.claims.v1beta1.Params) |  |  |
+| collections | [Collection](#fury.claims.v1beta1.Collection) | repeated |  |
+| claims | [Claim](#fury.claims.v1beta1.Claim) | repeated |  |
+| disputes | [Dispute](#fury.claims.v1beta1.Dispute) | repeated |  |
 
 
 
@@ -2009,14 +2009,14 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo/claims/v1beta1/query.proto"></a>
+<a name="fury/claims/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/query.proto
+## fury/claims/v1beta1/query.proto
 
 
 
-<a name="ixo.claims.v1beta1.QueryClaimListRequest"></a>
+<a name="fury.claims.v1beta1.QueryClaimListRequest"></a>
 
 ### QueryClaimListRequest
 
@@ -2031,7 +2031,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryClaimListResponse"></a>
+<a name="fury.claims.v1beta1.QueryClaimListResponse"></a>
 
 ### QueryClaimListResponse
 
@@ -2039,7 +2039,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| claims | [Claim](#ixo.claims.v1beta1.Claim) | repeated |  |
+| claims | [Claim](#fury.claims.v1beta1.Claim) | repeated |  |
 | pagination | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -2047,7 +2047,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryClaimRequest"></a>
+<a name="fury.claims.v1beta1.QueryClaimRequest"></a>
 
 ### QueryClaimRequest
 
@@ -2062,7 +2062,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryClaimResponse"></a>
+<a name="fury.claims.v1beta1.QueryClaimResponse"></a>
 
 ### QueryClaimResponse
 
@@ -2070,14 +2070,14 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| claim | [Claim](#ixo.claims.v1beta1.Claim) |  |  |
+| claim | [Claim](#fury.claims.v1beta1.Claim) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.QueryCollectionListRequest"></a>
+<a name="fury.claims.v1beta1.QueryCollectionListRequest"></a>
 
 ### QueryCollectionListRequest
 
@@ -2092,7 +2092,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryCollectionListResponse"></a>
+<a name="fury.claims.v1beta1.QueryCollectionListResponse"></a>
 
 ### QueryCollectionListResponse
 
@@ -2100,7 +2100,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| collections | [Collection](#ixo.claims.v1beta1.Collection) | repeated |  |
+| collections | [Collection](#fury.claims.v1beta1.Collection) | repeated |  |
 | pagination | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -2108,7 +2108,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryCollectionRequest"></a>
+<a name="fury.claims.v1beta1.QueryCollectionRequest"></a>
 
 ### QueryCollectionRequest
 
@@ -2123,7 +2123,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryCollectionResponse"></a>
+<a name="fury.claims.v1beta1.QueryCollectionResponse"></a>
 
 ### QueryCollectionResponse
 
@@ -2131,14 +2131,14 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| collection | [Collection](#ixo.claims.v1beta1.Collection) |  |  |
+| collection | [Collection](#fury.claims.v1beta1.Collection) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.QueryDisputeListRequest"></a>
+<a name="fury.claims.v1beta1.QueryDisputeListRequest"></a>
 
 ### QueryDisputeListRequest
 
@@ -2153,7 +2153,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryDisputeListResponse"></a>
+<a name="fury.claims.v1beta1.QueryDisputeListResponse"></a>
 
 ### QueryDisputeListResponse
 
@@ -2161,7 +2161,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| disputes | [Dispute](#ixo.claims.v1beta1.Dispute) | repeated |  |
+| disputes | [Dispute](#fury.claims.v1beta1.Dispute) | repeated |  |
 | pagination | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -2169,7 +2169,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryDisputeRequest"></a>
+<a name="fury.claims.v1beta1.QueryDisputeRequest"></a>
 
 ### QueryDisputeRequest
 
@@ -2184,7 +2184,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryDisputeResponse"></a>
+<a name="fury.claims.v1beta1.QueryDisputeResponse"></a>
 
 ### QueryDisputeResponse
 
@@ -2192,14 +2192,14 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| dispute | [Dispute](#ixo.claims.v1beta1.Dispute) |  |  |
+| dispute | [Dispute](#fury.claims.v1beta1.Dispute) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.QueryParamsRequest"></a>
+<a name="fury.claims.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 
@@ -2209,7 +2209,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 
 
-<a name="ixo.claims.v1beta1.QueryParamsResponse"></a>
+<a name="fury.claims.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 
@@ -2217,7 +2217,7 @@ GenesisState defines the claims module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| params | [Params](#ixo.claims.v1beta1.Params) |  | params holds all the parameters of this module. |
+| params | [Params](#fury.claims.v1beta1.Params) |  | params holds all the parameters of this module. |
 
 
 
@@ -2230,33 +2230,33 @@ GenesisState defines the claims module&#39;s genesis state.
  
 
 
-<a name="ixo.claims.v1beta1.Query"></a>
+<a name="fury.claims.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Params | [QueryParamsRequest](#ixo.claims.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#ixo.claims.v1beta1.QueryParamsResponse) | Parameters queries the parameters of the module. |
-| Collection | [QueryCollectionRequest](#ixo.claims.v1beta1.QueryCollectionRequest) | [QueryCollectionResponse](#ixo.claims.v1beta1.QueryCollectionResponse) |  |
-| CollectionList | [QueryCollectionListRequest](#ixo.claims.v1beta1.QueryCollectionListRequest) | [QueryCollectionListResponse](#ixo.claims.v1beta1.QueryCollectionListResponse) |  |
-| Claim | [QueryClaimRequest](#ixo.claims.v1beta1.QueryClaimRequest) | [QueryClaimResponse](#ixo.claims.v1beta1.QueryClaimResponse) |  |
-| ClaimList | [QueryClaimListRequest](#ixo.claims.v1beta1.QueryClaimListRequest) | [QueryClaimListResponse](#ixo.claims.v1beta1.QueryClaimListResponse) |  |
-| Dispute | [QueryDisputeRequest](#ixo.claims.v1beta1.QueryDisputeRequest) | [QueryDisputeResponse](#ixo.claims.v1beta1.QueryDisputeResponse) |  |
-| DisputeList | [QueryDisputeListRequest](#ixo.claims.v1beta1.QueryDisputeListRequest) | [QueryDisputeListResponse](#ixo.claims.v1beta1.QueryDisputeListResponse) |  |
+| Params | [QueryParamsRequest](#fury.claims.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.claims.v1beta1.QueryParamsResponse) | Parameters queries the parameters of the module. |
+| Collection | [QueryCollectionRequest](#fury.claims.v1beta1.QueryCollectionRequest) | [QueryCollectionResponse](#fury.claims.v1beta1.QueryCollectionResponse) |  |
+| CollectionList | [QueryCollectionListRequest](#fury.claims.v1beta1.QueryCollectionListRequest) | [QueryCollectionListResponse](#fury.claims.v1beta1.QueryCollectionListResponse) |  |
+| Claim | [QueryClaimRequest](#fury.claims.v1beta1.QueryClaimRequest) | [QueryClaimResponse](#fury.claims.v1beta1.QueryClaimResponse) |  |
+| ClaimList | [QueryClaimListRequest](#fury.claims.v1beta1.QueryClaimListRequest) | [QueryClaimListResponse](#fury.claims.v1beta1.QueryClaimListResponse) |  |
+| Dispute | [QueryDisputeRequest](#fury.claims.v1beta1.QueryDisputeRequest) | [QueryDisputeResponse](#fury.claims.v1beta1.QueryDisputeResponse) |  |
+| DisputeList | [QueryDisputeListRequest](#fury.claims.v1beta1.QueryDisputeListRequest) | [QueryDisputeListResponse](#fury.claims.v1beta1.QueryDisputeListResponse) |  |
 
  
 
 
 
-<a name="ixo/claims/v1beta1/tx.proto"></a>
+<a name="fury/claims/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/claims/v1beta1/tx.proto
+## fury/claims/v1beta1/tx.proto
 
 
 
-<a name="ixo.claims.v1beta1.MsgCreateCollection"></a>
+<a name="fury.claims.v1beta1.MsgCreateCollection"></a>
 
 ### MsgCreateCollection
 
@@ -2270,15 +2270,15 @@ Query defines the gRPC querier service.
 | start_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | startDate is the date after which claims may be submitted |
 | end_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | endDate is the date after which no more claims may be submitted (no endDate is allowed) |
 | quota | [uint64](#uint64) |  | quota is the maximum number of claims that may be submitted, 0 is unlimited |
-| state | [CollectionState](#ixo.claims.v1beta1.CollectionState) |  | state is the current state of this Collection (open, paused, closed) |
-| payments | [Payments](#ixo.claims.v1beta1.Payments) |  | payments is the amount paid for claim submission, evaluation, approval, or rejection |
+| state | [CollectionState](#fury.claims.v1beta1.CollectionState) |  | state is the current state of this Collection (open, paused, closed) |
+| payments | [Payments](#fury.claims.v1beta1.Payments) |  | payments is the amount paid for claim submission, evaluation, approval, or rejection |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.MsgCreateCollectionResponse"></a>
+<a name="fury.claims.v1beta1.MsgCreateCollectionResponse"></a>
 
 ### MsgCreateCollectionResponse
 
@@ -2288,7 +2288,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.claims.v1beta1.MsgDisputeClaim"></a>
+<a name="fury.claims.v1beta1.MsgDisputeClaim"></a>
 
 ### MsgDisputeClaim
 Agent laying dispute must be admin for Collection, or controller on
@@ -2301,14 +2301,14 @@ Collection entity, or have authz cap, aka is agent
 | agent_did | [string](#string) |  | agent is the DID of the agent disputing the claim, agent detials wont be saved in kvStore |
 | agent_address | [string](#string) |  |  |
 | dispute_type | [int32](#int32) |  | type is expressed as an integer, interpreted by the client |
-| data | [DisputeData](#ixo.claims.v1beta1.DisputeData) |  |  |
+| data | [DisputeData](#fury.claims.v1beta1.DisputeData) |  |  |
 
 
 
 
 
 
-<a name="ixo.claims.v1beta1.MsgDisputeClaimResponse"></a>
+<a name="fury.claims.v1beta1.MsgDisputeClaimResponse"></a>
 
 ### MsgDisputeClaimResponse
 
@@ -2318,7 +2318,7 @@ Collection entity, or have authz cap, aka is agent
 
 
 
-<a name="ixo.claims.v1beta1.MsgEvaluateClaim"></a>
+<a name="fury.claims.v1beta1.MsgEvaluateClaim"></a>
 
 ### MsgEvaluateClaim
 
@@ -2332,7 +2332,7 @@ Collection entity, or have authz cap, aka is agent
 | agent_did | [string](#string) |  | agent is the DID of the agent that submits the evaluation |
 | agent_address | [string](#string) |  |  |
 | admin_address | [string](#string) |  | admin address used to sign this message, validated against Collection Admin |
-| status | [EvaluationStatus](#ixo.claims.v1beta1.EvaluationStatus) |  | status is the evaluation status expressed as an integer (2=approved, 3=rejected, ...) |
+| status | [EvaluationStatus](#fury.claims.v1beta1.EvaluationStatus) |  | status is the evaluation status expressed as an integer (2=approved, 3=rejected, ...) |
 | reason | [uint32](#uint32) |  | reason is the code expressed as an integer, for why the evaluation result was given (codes defined by evaluator) |
 | verification_proof | [string](#string) |  | verificationProof is the cid of the evaluation Verfiable Credential |
 | amount | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | custom amount specified by evaluator for claim approval, if empty list then use default by Collection |
@@ -2342,7 +2342,7 @@ Collection entity, or have authz cap, aka is agent
 
 
 
-<a name="ixo.claims.v1beta1.MsgEvaluateClaimResponse"></a>
+<a name="fury.claims.v1beta1.MsgEvaluateClaimResponse"></a>
 
 ### MsgEvaluateClaimResponse
 
@@ -2352,7 +2352,7 @@ Collection entity, or have authz cap, aka is agent
 
 
 
-<a name="ixo.claims.v1beta1.MsgSubmitClaim"></a>
+<a name="fury.claims.v1beta1.MsgSubmitClaim"></a>
 
 ### MsgSubmitClaim
 
@@ -2371,7 +2371,7 @@ Collection entity, or have authz cap, aka is agent
 
 
 
-<a name="ixo.claims.v1beta1.MsgSubmitClaimResponse"></a>
+<a name="fury.claims.v1beta1.MsgSubmitClaimResponse"></a>
 
 ### MsgSubmitClaimResponse
 
@@ -2381,7 +2381,7 @@ Collection entity, or have authz cap, aka is agent
 
 
 
-<a name="ixo.claims.v1beta1.MsgWithdrawPayment"></a>
+<a name="fury.claims.v1beta1.MsgWithdrawPayment"></a>
 
 ### MsgWithdrawPayment
 
@@ -2390,10 +2390,10 @@ Collection entity, or have authz cap, aka is agent
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | claim_id | [string](#string) |  | claim_id the withdrawal is for |
-| inputs | [Input](#ixo.claims.v1beta1.Input) | repeated | Inputs to the multisend tx to run to withdraw payment |
-| outputs | [Output](#ixo.claims.v1beta1.Output) | repeated | Outputs for the multisend tx to run to withdraw payment |
-| payment_type | [PaymentType](#ixo.claims.v1beta1.PaymentType) |  | payment type to keep track what payment is for and mark claim payment accordingly |
-| contract_1155_payment | [Contract1155Payment](#ixo.claims.v1beta1.Contract1155Payment) |  | if empty(nil) then no contract payment |
+| inputs | [Input](#fury.claims.v1beta1.Input) | repeated | Inputs to the multisend tx to run to withdraw payment |
+| outputs | [Output](#fury.claims.v1beta1.Output) | repeated | Outputs for the multisend tx to run to withdraw payment |
+| payment_type | [PaymentType](#fury.claims.v1beta1.PaymentType) |  | payment type to keep track what payment is for and mark claim payment accordingly |
+| contract_1155_payment | [Contract1155Payment](#fury.claims.v1beta1.Contract1155Payment) |  | if empty(nil) then no contract payment |
 | toAddress | [string](#string) |  | for contract payment |
 | fromAddress | [string](#string) |  | for contract payment |
 | release_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | date that grantee can execute authorization, calculated from created date plus the timeout on Collection payments |
@@ -2404,7 +2404,7 @@ Collection entity, or have authz cap, aka is agent
 
 
 
-<a name="ixo.claims.v1beta1.MsgWithdrawPaymentResponse"></a>
+<a name="fury.claims.v1beta1.MsgWithdrawPaymentResponse"></a>
 
 ### MsgWithdrawPaymentResponse
 
@@ -2420,31 +2420,31 @@ Collection entity, or have authz cap, aka is agent
  
 
 
-<a name="ixo.claims.v1beta1.Msg"></a>
+<a name="fury.claims.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the Msg service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateCollection | [MsgCreateCollection](#ixo.claims.v1beta1.MsgCreateCollection) | [MsgCreateCollectionResponse](#ixo.claims.v1beta1.MsgCreateCollectionResponse) |  |
-| SubmitClaim | [MsgSubmitClaim](#ixo.claims.v1beta1.MsgSubmitClaim) | [MsgSubmitClaimResponse](#ixo.claims.v1beta1.MsgSubmitClaimResponse) |  |
-| EvaluateClaim | [MsgEvaluateClaim](#ixo.claims.v1beta1.MsgEvaluateClaim) | [MsgEvaluateClaimResponse](#ixo.claims.v1beta1.MsgEvaluateClaimResponse) |  |
-| DisputeClaim | [MsgDisputeClaim](#ixo.claims.v1beta1.MsgDisputeClaim) | [MsgDisputeClaimResponse](#ixo.claims.v1beta1.MsgDisputeClaimResponse) |  |
-| WithdrawPayment | [MsgWithdrawPayment](#ixo.claims.v1beta1.MsgWithdrawPayment) | [MsgWithdrawPaymentResponse](#ixo.claims.v1beta1.MsgWithdrawPaymentResponse) |  |
+| CreateCollection | [MsgCreateCollection](#fury.claims.v1beta1.MsgCreateCollection) | [MsgCreateCollectionResponse](#fury.claims.v1beta1.MsgCreateCollectionResponse) |  |
+| SubmitClaim | [MsgSubmitClaim](#fury.claims.v1beta1.MsgSubmitClaim) | [MsgSubmitClaimResponse](#fury.claims.v1beta1.MsgSubmitClaimResponse) |  |
+| EvaluateClaim | [MsgEvaluateClaim](#fury.claims.v1beta1.MsgEvaluateClaim) | [MsgEvaluateClaimResponse](#fury.claims.v1beta1.MsgEvaluateClaimResponse) |  |
+| DisputeClaim | [MsgDisputeClaim](#fury.claims.v1beta1.MsgDisputeClaim) | [MsgDisputeClaimResponse](#fury.claims.v1beta1.MsgDisputeClaimResponse) |  |
+| WithdrawPayment | [MsgWithdrawPayment](#fury.claims.v1beta1.MsgWithdrawPayment) | [MsgWithdrawPaymentResponse](#fury.claims.v1beta1.MsgWithdrawPaymentResponse) |  |
 
  
 
 
 
-<a name="ixo/entity/v1beta1/cosmos.proto"></a>
+<a name="fury/entity/v1beta1/cosmos.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/cosmos.proto
+## fury/entity/v1beta1/cosmos.proto
 
 
 
-<a name="ixo.entity.v1beta1.Grant"></a>
+<a name="fury.entity.v1beta1.Grant"></a>
 
 ### Grant
 Grant gives permissions to execute
@@ -2470,14 +2470,14 @@ the provide method with expiration time.
 
 
 
-<a name="ixo/iid/v1beta1/types.proto"></a>
+<a name="fury/iid/v1beta1/types.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/iid/v1beta1/types.proto
+## fury/iid/v1beta1/types.proto
 
 
 
-<a name="ixo.iid.v1beta1.AccordedRight"></a>
+<a name="fury.iid.v1beta1.AccordedRight"></a>
 
 ### AccordedRight
 
@@ -2496,7 +2496,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.Context"></a>
+<a name="fury.iid.v1beta1.Context"></a>
 
 ### Context
 
@@ -2512,7 +2512,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.IidMetadata"></a>
+<a name="fury.iid.v1beta1.IidMetadata"></a>
 
 ### IidMetadata
 
@@ -2530,7 +2530,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.LinkedClaim"></a>
+<a name="fury.iid.v1beta1.LinkedClaim"></a>
 
 ### LinkedClaim
 
@@ -2551,7 +2551,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.LinkedEntity"></a>
+<a name="fury.iid.v1beta1.LinkedEntity"></a>
 
 ### LinkedEntity
 
@@ -2569,7 +2569,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.LinkedResource"></a>
+<a name="fury.iid.v1beta1.LinkedResource"></a>
 
 ### LinkedResource
 
@@ -2591,7 +2591,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.Service"></a>
+<a name="fury.iid.v1beta1.Service"></a>
 
 ### Service
 
@@ -2608,7 +2608,7 @@ the provide method with expiration time.
 
 
 
-<a name="ixo.iid.v1beta1.VerificationMethod"></a>
+<a name="fury.iid.v1beta1.VerificationMethod"></a>
 
 ### VerificationMethod
 
@@ -2638,14 +2638,14 @@ the provide method with expiration time.
 
 
 
-<a name="ixo/iid/v1beta1/iid.proto"></a>
+<a name="fury/iid/v1beta1/iid.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/iid/v1beta1/iid.proto
+## fury/iid/v1beta1/iid.proto
 
 
 
-<a name="ixo.iid.v1beta1.IidDocument"></a>
+<a name="fury.iid.v1beta1.IidDocument"></a>
 
 ### IidDocument
 type entity account
@@ -2654,22 +2654,22 @@ relationship entity account
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| context | [Context](#ixo.iid.v1beta1.Context) | repeated | @context is spec for did document. |
+| context | [Context](#fury.iid.v1beta1.Context) | repeated | @context is spec for did document. |
 | id | [string](#string) |  | id represents the id for the did document. |
 | controller | [string](#string) | repeated | A DID controller is an entity that is authorized to make changes to a DID document. cfr. https://www.w3.org/TR/did-core/#did-controller |
-| verificationMethod | [VerificationMethod](#ixo.iid.v1beta1.VerificationMethod) | repeated | A DID document can express verification methods, such as cryptographic public keys, which can be used to authenticate or authorize interactions with the DID subject or associated parties. https://www.w3.org/TR/did-core/#verification-methods |
-| service | [Service](#ixo.iid.v1beta1.Service) | repeated | Services are used in DID documents to express ways of communicating with the DID subject or associated entities. https://www.w3.org/TR/did-core/#services |
+| verificationMethod | [VerificationMethod](#fury.iid.v1beta1.VerificationMethod) | repeated | A DID document can express verification methods, such as cryptographic public keys, which can be used to authenticate or authorize interactions with the DID subject or associated parties. https://www.w3.org/TR/did-core/#verification-methods |
+| service | [Service](#fury.iid.v1beta1.Service) | repeated | Services are used in DID documents to express ways of communicating with the DID subject or associated entities. https://www.w3.org/TR/did-core/#services |
 | authentication | [string](#string) | repeated | NOTE: below this line there are the relationships Authentication represents public key associated with the did document. cfr. https://www.w3.org/TR/did-core/#authentication |
 | assertionMethod | [string](#string) | repeated | Used to specify how the DID subject is expected to express claims, such as for the purposes of issuing a Verifiable Credential. cfr. https://www.w3.org/TR/did-core/#assertion |
 | keyAgreement | [string](#string) | repeated | used to specify how an entity can generate encryption material in order to transmit confidential information intended for the DID subject. https://www.w3.org/TR/did-core/#key-agreement |
 | capabilityInvocation | [string](#string) | repeated | Used to specify a verification method that might be used by the DID subject to invoke a cryptographic capability, such as the authorization to update the DID Document. https://www.w3.org/TR/did-core/#capability-invocation |
 | capabilityDelegation | [string](#string) | repeated | Used to specify a mechanism that might be used by the DID subject to delegate a cryptographic capability to another party. https://www.w3.org/TR/did-core/#capability-delegation |
-| linkedResource | [LinkedResource](#ixo.iid.v1beta1.LinkedResource) | repeated |  |
-| linkedClaim | [LinkedClaim](#ixo.iid.v1beta1.LinkedClaim) | repeated |  |
-| accordedRight | [AccordedRight](#ixo.iid.v1beta1.AccordedRight) | repeated |  |
-| linkedEntity | [LinkedEntity](#ixo.iid.v1beta1.LinkedEntity) | repeated |  |
+| linkedResource | [LinkedResource](#fury.iid.v1beta1.LinkedResource) | repeated |  |
+| linkedClaim | [LinkedClaim](#fury.iid.v1beta1.LinkedClaim) | repeated |  |
+| accordedRight | [AccordedRight](#fury.iid.v1beta1.AccordedRight) | repeated |  |
+| linkedEntity | [LinkedEntity](#fury.iid.v1beta1.LinkedEntity) | repeated |  |
 | alsoKnownAs | [string](#string) |  |  |
-| metadata | [IidMetadata](#ixo.iid.v1beta1.IidMetadata) |  | Metadata concerning the IidDocument such as versionId, created, updated and deactivated |
+| metadata | [IidMetadata](#fury.iid.v1beta1.IidMetadata) |  | Metadata concerning the IidDocument such as versionId, created, updated and deactivated |
 
 
 
@@ -2685,14 +2685,14 @@ relationship entity account
 
 
 
-<a name="ixo/entity/v1beta1/entity.proto"></a>
+<a name="fury/entity/v1beta1/entity.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/entity.proto
+## fury/entity/v1beta1/entity.proto
 
 
 
-<a name="ixo.entity.v1beta1.Entity"></a>
+<a name="fury.entity.v1beta1.Entity"></a>
 
 ### Entity
 
@@ -2708,15 +2708,15 @@ relationship entity account
 | relayer_node | [string](#string) |  | Address of the operator through which the Entity was created |
 | credentials | [string](#string) | repeated | Credentials of the enitity to be verified |
 | entity_verified | [bool](#bool) |  | Used as check whether the credentials of entity is verified |
-| metadata | [EntityMetadata](#ixo.entity.v1beta1.EntityMetadata) |  | Metadata concerning the Entity such as versionId, created, updated and deactivated |
-| accounts | [EntityAccount](#ixo.entity.v1beta1.EntityAccount) | repeated | module accounts created for entity |
+| metadata | [EntityMetadata](#fury.entity.v1beta1.EntityMetadata) |  | Metadata concerning the Entity such as versionId, created, updated and deactivated |
+| accounts | [EntityAccount](#fury.entity.v1beta1.EntityAccount) | repeated | module accounts created for entity |
 
 
 
 
 
 
-<a name="ixo.entity.v1beta1.EntityAccount"></a>
+<a name="fury.entity.v1beta1.EntityAccount"></a>
 
 ### EntityAccount
 
@@ -2732,7 +2732,7 @@ relationship entity account
 
 
 
-<a name="ixo.entity.v1beta1.EntityMetadata"></a>
+<a name="fury.entity.v1beta1.EntityMetadata"></a>
 
 ### EntityMetadata
 EntityMetadata defines metadata associated to a entity
@@ -2749,7 +2749,7 @@ EntityMetadata defines metadata associated to a entity
 
 
 
-<a name="ixo.entity.v1beta1.Params"></a>
+<a name="fury.entity.v1beta1.Params"></a>
 
 ### Params
 
@@ -2775,14 +2775,14 @@ EntityMetadata defines metadata associated to a entity
 
 
 
-<a name="ixo/entity/v1beta1/event.proto"></a>
+<a name="fury/entity/v1beta1/event.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/event.proto
+## fury/entity/v1beta1/event.proto
 
 
 
-<a name="ixo.entity.v1beta1.EntityAccountAuthzCreatedEvent"></a>
+<a name="fury.entity.v1beta1.EntityAccountAuthzCreatedEvent"></a>
 
 ### EntityAccountAuthzCreatedEvent
 EntityAccountCreatedEvent is an event triggered on a entity account creation
@@ -2795,14 +2795,14 @@ EntityAccountCreatedEvent is an event triggered on a entity account creation
 | account_name | [string](#string) |  |  |
 | granter | [string](#string) |  |  |
 | grantee | [string](#string) |  |  |
-| grant | [Grant](#ixo.entity.v1beta1.Grant) |  |  |
+| grant | [Grant](#fury.entity.v1beta1.Grant) |  |  |
 
 
 
 
 
 
-<a name="ixo.entity.v1beta1.EntityAccountCreatedEvent"></a>
+<a name="fury.entity.v1beta1.EntityAccountCreatedEvent"></a>
 
 ### EntityAccountCreatedEvent
 EntityAccountCreatedEvent is an event triggered on a entity account creation
@@ -2820,7 +2820,7 @@ EntityAccountCreatedEvent is an event triggered on a entity account creation
 
 
 
-<a name="ixo.entity.v1beta1.EntityCreatedEvent"></a>
+<a name="fury.entity.v1beta1.EntityCreatedEvent"></a>
 
 ### EntityCreatedEvent
 EntityCreatedEvent is an event triggered on a Entity creation
@@ -2828,7 +2828,7 @@ EntityCreatedEvent is an event triggered on a Entity creation
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entity | [Entity](#ixo.entity.v1beta1.Entity) |  |  |
+| entity | [Entity](#fury.entity.v1beta1.Entity) |  |  |
 | signer | [string](#string) |  |  |
 
 
@@ -2836,7 +2836,7 @@ EntityCreatedEvent is an event triggered on a Entity creation
 
 
 
-<a name="ixo.entity.v1beta1.EntityTransferredEvent"></a>
+<a name="fury.entity.v1beta1.EntityTransferredEvent"></a>
 
 ### EntityTransferredEvent
 EntityTransferredEvent is an event triggered on a entity transfer
@@ -2853,7 +2853,7 @@ EntityTransferredEvent is an event triggered on a entity transfer
 
 
 
-<a name="ixo.entity.v1beta1.EntityUpdatedEvent"></a>
+<a name="fury.entity.v1beta1.EntityUpdatedEvent"></a>
 
 ### EntityUpdatedEvent
 EntityUpdatedEvent is an event triggered on a entity document update
@@ -2861,7 +2861,7 @@ EntityUpdatedEvent is an event triggered on a entity document update
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entity | [Entity](#ixo.entity.v1beta1.Entity) |  |  |
+| entity | [Entity](#fury.entity.v1beta1.Entity) |  |  |
 | signer | [string](#string) |  |  |
 
 
@@ -2869,7 +2869,7 @@ EntityUpdatedEvent is an event triggered on a entity document update
 
 
 
-<a name="ixo.entity.v1beta1.EntityVerifiedUpdatedEvent"></a>
+<a name="fury.entity.v1beta1.EntityVerifiedUpdatedEvent"></a>
 
 ### EntityVerifiedUpdatedEvent
 EntityVerifiedUpdatedEvent is an event triggered on a entity verified
@@ -2896,14 +2896,14 @@ document update
 
 
 
-<a name="ixo/entity/v1beta1/genesis.proto"></a>
+<a name="fury/entity/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/genesis.proto
+## fury/entity/v1beta1/genesis.proto
 
 
 
-<a name="ixo.entity.v1beta1.GenesisState"></a>
+<a name="fury.entity.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the project module&#39;s genesis state.
@@ -2911,8 +2911,8 @@ GenesisState defines the project module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entities | [Entity](#ixo.entity.v1beta1.Entity) | repeated |  |
-| params | [Params](#ixo.entity.v1beta1.Params) |  |  |
+| entities | [Entity](#fury.entity.v1beta1.Entity) | repeated |  |
+| params | [Params](#fury.entity.v1beta1.Params) |  |  |
 
 
 
@@ -2928,14 +2928,14 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo/entity/v1beta1/proposal.proto"></a>
+<a name="fury/entity/v1beta1/proposal.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/proposal.proto
+## fury/entity/v1beta1/proposal.proto
 
 
 
-<a name="ixo.entity.v1beta1.InitializeNftContract"></a>
+<a name="fury.entity.v1beta1.InitializeNftContract"></a>
 
 ### InitializeNftContract
 
@@ -2960,14 +2960,14 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo/entity/v1beta1/query.proto"></a>
+<a name="fury/entity/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/query.proto
+## fury/entity/v1beta1/query.proto
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityIidDocumentRequest"></a>
+<a name="fury.entity.v1beta1.QueryEntityIidDocumentRequest"></a>
 
 ### QueryEntityIidDocumentRequest
 
@@ -2982,7 +2982,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityIidDocumentResponse"></a>
+<a name="fury.entity.v1beta1.QueryEntityIidDocumentResponse"></a>
 
 ### QueryEntityIidDocumentResponse
 
@@ -2990,14 +2990,14 @@ GenesisState defines the project module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| iidDocument | [ixo.iid.v1beta1.IidDocument](#ixo.iid.v1beta1.IidDocument) |  |  |
+| iidDocument | [fury.iid.v1beta1.IidDocument](#fury.iid.v1beta1.IidDocument) |  |  |
 
 
 
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityListRequest"></a>
+<a name="fury.entity.v1beta1.QueryEntityListRequest"></a>
 
 ### QueryEntityListRequest
 
@@ -3012,7 +3012,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityListResponse"></a>
+<a name="fury.entity.v1beta1.QueryEntityListResponse"></a>
 
 ### QueryEntityListResponse
 
@@ -3020,7 +3020,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entities | [Entity](#ixo.entity.v1beta1.Entity) | repeated |  |
+| entities | [Entity](#fury.entity.v1beta1.Entity) | repeated |  |
 | pagination | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
 
 
@@ -3028,7 +3028,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityMetadataRequest"></a>
+<a name="fury.entity.v1beta1.QueryEntityMetadataRequest"></a>
 
 ### QueryEntityMetadataRequest
 
@@ -3043,7 +3043,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityMetadataResponse"></a>
+<a name="fury.entity.v1beta1.QueryEntityMetadataResponse"></a>
 
 ### QueryEntityMetadataResponse
 
@@ -3051,14 +3051,14 @@ GenesisState defines the project module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entity | [Entity](#ixo.entity.v1beta1.Entity) |  |  |
+| entity | [Entity](#fury.entity.v1beta1.Entity) |  |  |
 
 
 
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityRequest"></a>
+<a name="fury.entity.v1beta1.QueryEntityRequest"></a>
 
 ### QueryEntityRequest
 
@@ -3073,7 +3073,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityResponse"></a>
+<a name="fury.entity.v1beta1.QueryEntityResponse"></a>
 
 ### QueryEntityResponse
 
@@ -3081,15 +3081,15 @@ GenesisState defines the project module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| entity | [Entity](#ixo.entity.v1beta1.Entity) |  |  |
-| iidDocument | [ixo.iid.v1beta1.IidDocument](#ixo.iid.v1beta1.IidDocument) |  |  |
+| entity | [Entity](#fury.entity.v1beta1.Entity) |  |  |
+| iidDocument | [fury.iid.v1beta1.IidDocument](#fury.iid.v1beta1.IidDocument) |  |  |
 
 
 
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityVerifiedRequest"></a>
+<a name="fury.entity.v1beta1.QueryEntityVerifiedRequest"></a>
 
 ### QueryEntityVerifiedRequest
 
@@ -3104,7 +3104,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryEntityVerifiedResponse"></a>
+<a name="fury.entity.v1beta1.QueryEntityVerifiedResponse"></a>
 
 ### QueryEntityVerifiedResponse
 
@@ -3119,7 +3119,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryParamsRequest"></a>
+<a name="fury.entity.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 
@@ -3129,7 +3129,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 
 
-<a name="ixo.entity.v1beta1.QueryParamsResponse"></a>
+<a name="fury.entity.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 
@@ -3137,7 +3137,7 @@ GenesisState defines the project module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| params | [Params](#ixo.entity.v1beta1.Params) |  | params holds all the parameters of this module. |
+| params | [Params](#fury.entity.v1beta1.Params) |  | params holds all the parameters of this module. |
 
 
 
@@ -3150,32 +3150,32 @@ GenesisState defines the project module&#39;s genesis state.
  
 
 
-<a name="ixo.entity.v1beta1.Query"></a>
+<a name="fury.entity.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Params | [QueryParamsRequest](#ixo.entity.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#ixo.entity.v1beta1.QueryParamsResponse) |  |
-| Entity | [QueryEntityRequest](#ixo.entity.v1beta1.QueryEntityRequest) | [QueryEntityResponse](#ixo.entity.v1beta1.QueryEntityResponse) |  |
-| EntityMetaData | [QueryEntityMetadataRequest](#ixo.entity.v1beta1.QueryEntityMetadataRequest) | [QueryEntityMetadataResponse](#ixo.entity.v1beta1.QueryEntityMetadataResponse) |  |
-| EntityIidDocument | [QueryEntityIidDocumentRequest](#ixo.entity.v1beta1.QueryEntityIidDocumentRequest) | [QueryEntityIidDocumentResponse](#ixo.entity.v1beta1.QueryEntityIidDocumentResponse) |  |
-| EntityVerified | [QueryEntityVerifiedRequest](#ixo.entity.v1beta1.QueryEntityVerifiedRequest) | [QueryEntityVerifiedResponse](#ixo.entity.v1beta1.QueryEntityVerifiedResponse) |  |
-| EntityList | [QueryEntityListRequest](#ixo.entity.v1beta1.QueryEntityListRequest) | [QueryEntityListResponse](#ixo.entity.v1beta1.QueryEntityListResponse) |  |
+| Params | [QueryParamsRequest](#fury.entity.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.entity.v1beta1.QueryParamsResponse) |  |
+| Entity | [QueryEntityRequest](#fury.entity.v1beta1.QueryEntityRequest) | [QueryEntityResponse](#fury.entity.v1beta1.QueryEntityResponse) |  |
+| EntityMetaData | [QueryEntityMetadataRequest](#fury.entity.v1beta1.QueryEntityMetadataRequest) | [QueryEntityMetadataResponse](#fury.entity.v1beta1.QueryEntityMetadataResponse) |  |
+| EntityIidDocument | [QueryEntityIidDocumentRequest](#fury.entity.v1beta1.QueryEntityIidDocumentRequest) | [QueryEntityIidDocumentResponse](#fury.entity.v1beta1.QueryEntityIidDocumentResponse) |  |
+| EntityVerified | [QueryEntityVerifiedRequest](#fury.entity.v1beta1.QueryEntityVerifiedRequest) | [QueryEntityVerifiedResponse](#fury.entity.v1beta1.QueryEntityVerifiedResponse) |  |
+| EntityList | [QueryEntityListRequest](#fury.entity.v1beta1.QueryEntityListRequest) | [QueryEntityListResponse](#fury.entity.v1beta1.QueryEntityListResponse) |  |
 
  
 
 
 
-<a name="ixo/iid/v1beta1/tx.proto"></a>
+<a name="fury/iid/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/iid/v1beta1/tx.proto
+## fury/iid/v1beta1/tx.proto
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddAccordedRight"></a>
+<a name="fury.iid.v1beta1.MsgAddAccordedRight"></a>
 
 ### MsgAddAccordedRight
 
@@ -3184,7 +3184,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
-| accordedRight | [AccordedRight](#ixo.iid.v1beta1.AccordedRight) |  | the Accorded right to add |
+| accordedRight | [AccordedRight](#fury.iid.v1beta1.AccordedRight) |  | the Accorded right to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3192,7 +3192,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddAccordedRightResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddAccordedRightResponse"></a>
 
 ### MsgAddAccordedRightResponse
 
@@ -3202,7 +3202,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddController"></a>
+<a name="fury.iid.v1beta1.MsgAddController"></a>
 
 ### MsgAddController
 
@@ -3219,7 +3219,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddControllerResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddControllerResponse"></a>
 
 ### MsgAddControllerResponse
 
@@ -3229,7 +3229,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddIidContext"></a>
+<a name="fury.iid.v1beta1.MsgAddIidContext"></a>
 
 ### MsgAddIidContext
 
@@ -3238,7 +3238,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
-| context | [Context](#ixo.iid.v1beta1.Context) |  | the context to add |
+| context | [Context](#fury.iid.v1beta1.Context) |  | the context to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3246,7 +3246,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddIidContextResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddIidContextResponse"></a>
 
 ### MsgAddIidContextResponse
 
@@ -3256,7 +3256,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddLinkedClaim"></a>
+<a name="fury.iid.v1beta1.MsgAddLinkedClaim"></a>
 
 ### MsgAddLinkedClaim
 
@@ -3265,7 +3265,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
-| linkedClaim | [LinkedClaim](#ixo.iid.v1beta1.LinkedClaim) |  | the claim to add |
+| linkedClaim | [LinkedClaim](#fury.iid.v1beta1.LinkedClaim) |  | the claim to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3273,7 +3273,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddLinkedClaimResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddLinkedClaimResponse"></a>
 
 ### MsgAddLinkedClaimResponse
 
@@ -3283,7 +3283,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddLinkedEntity"></a>
+<a name="fury.iid.v1beta1.MsgAddLinkedEntity"></a>
 
 ### MsgAddLinkedEntity
 
@@ -3292,7 +3292,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the iid |
-| linkedEntity | [LinkedEntity](#ixo.iid.v1beta1.LinkedEntity) |  | the entity to add |
+| linkedEntity | [LinkedEntity](#fury.iid.v1beta1.LinkedEntity) |  | the entity to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3300,7 +3300,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddLinkedEntityResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddLinkedEntityResponse"></a>
 
 ### MsgAddLinkedEntityResponse
 
@@ -3310,7 +3310,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddLinkedResource"></a>
+<a name="fury.iid.v1beta1.MsgAddLinkedResource"></a>
 
 ### MsgAddLinkedResource
 
@@ -3319,7 +3319,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
-| linkedResource | [LinkedResource](#ixo.iid.v1beta1.LinkedResource) |  | the verification to add |
+| linkedResource | [LinkedResource](#fury.iid.v1beta1.LinkedResource) |  | the verification to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3327,7 +3327,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddLinkedResourceResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddLinkedResourceResponse"></a>
 
 ### MsgAddLinkedResourceResponse
 
@@ -3337,7 +3337,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddService"></a>
+<a name="fury.iid.v1beta1.MsgAddService"></a>
 
 ### MsgAddService
 
@@ -3346,7 +3346,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
-| service_data | [Service](#ixo.iid.v1beta1.Service) |  | the service data to add |
+| service_data | [Service](#fury.iid.v1beta1.Service) |  | the service data to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3354,7 +3354,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddServiceResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddServiceResponse"></a>
 
 ### MsgAddServiceResponse
 
@@ -3364,7 +3364,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddVerification"></a>
+<a name="fury.iid.v1beta1.MsgAddVerification"></a>
 
 ### MsgAddVerification
 
@@ -3373,7 +3373,7 @@ Query defines the gRPC querier service.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
-| verification | [Verification](#ixo.iid.v1beta1.Verification) |  | the verification to add |
+| verification | [Verification](#fury.iid.v1beta1.Verification) |  | the verification to add |
 | signer | [string](#string) |  | address of the account signing the message |
 
 
@@ -3381,7 +3381,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgAddVerificationResponse"></a>
+<a name="fury.iid.v1beta1.MsgAddVerificationResponse"></a>
 
 ### MsgAddVerificationResponse
 
@@ -3391,7 +3391,7 @@ Query defines the gRPC querier service.
 
 
 
-<a name="ixo.iid.v1beta1.MsgCreateIidDocument"></a>
+<a name="fury.iid.v1beta1.MsgCreateIidDocument"></a>
 
 ### MsgCreateIidDocument
 MsgCreateDidDocument defines a SDK message for creating a new did.
@@ -3401,22 +3401,22 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
 | controllers | [string](#string) | repeated | the list of controller DIDs |
-| context | [Context](#ixo.iid.v1beta1.Context) | repeated |  |
-| verifications | [Verification](#ixo.iid.v1beta1.Verification) | repeated | the list of verification methods and relationships |
-| services | [Service](#ixo.iid.v1beta1.Service) | repeated |  |
-| accordedRight | [AccordedRight](#ixo.iid.v1beta1.AccordedRight) | repeated |  |
-| linkedResource | [LinkedResource](#ixo.iid.v1beta1.LinkedResource) | repeated |  |
-| linkedEntity | [LinkedEntity](#ixo.iid.v1beta1.LinkedEntity) | repeated |  |
+| context | [Context](#fury.iid.v1beta1.Context) | repeated |  |
+| verifications | [Verification](#fury.iid.v1beta1.Verification) | repeated | the list of verification methods and relationships |
+| services | [Service](#fury.iid.v1beta1.Service) | repeated |  |
+| accordedRight | [AccordedRight](#fury.iid.v1beta1.AccordedRight) | repeated |  |
+| linkedResource | [LinkedResource](#fury.iid.v1beta1.LinkedResource) | repeated |  |
+| linkedEntity | [LinkedEntity](#fury.iid.v1beta1.LinkedEntity) | repeated |  |
 | alsoKnownAs | [string](#string) |  |  |
 | signer | [string](#string) |  | address of the account signing the message |
-| linkedClaim | [LinkedClaim](#ixo.iid.v1beta1.LinkedClaim) | repeated |  |
+| linkedClaim | [LinkedClaim](#fury.iid.v1beta1.LinkedClaim) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.iid.v1beta1.MsgCreateIidDocumentResponse"></a>
+<a name="fury.iid.v1beta1.MsgCreateIidDocumentResponse"></a>
 
 ### MsgCreateIidDocumentResponse
 
@@ -3426,7 +3426,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeactivateIID"></a>
+<a name="fury.iid.v1beta1.MsgDeactivateIID"></a>
 
 ### MsgDeactivateIID
 
@@ -3443,7 +3443,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeactivateIIDResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeactivateIIDResponse"></a>
 
 ### MsgDeactivateIIDResponse
 
@@ -3453,7 +3453,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteAccordedRight"></a>
+<a name="fury.iid.v1beta1.MsgDeleteAccordedRight"></a>
 
 ### MsgDeleteAccordedRight
 
@@ -3470,7 +3470,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteAccordedRightResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteAccordedRightResponse"></a>
 
 ### MsgDeleteAccordedRightResponse
 
@@ -3480,7 +3480,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteController"></a>
+<a name="fury.iid.v1beta1.MsgDeleteController"></a>
 
 ### MsgDeleteController
 
@@ -3497,7 +3497,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteControllerResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteControllerResponse"></a>
 
 ### MsgDeleteControllerResponse
 
@@ -3507,7 +3507,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteIidContext"></a>
+<a name="fury.iid.v1beta1.MsgDeleteIidContext"></a>
 
 ### MsgDeleteIidContext
 
@@ -3524,7 +3524,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteIidContextResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteIidContextResponse"></a>
 
 ### MsgDeleteIidContextResponse
 
@@ -3534,7 +3534,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteLinkedClaim"></a>
+<a name="fury.iid.v1beta1.MsgDeleteLinkedClaim"></a>
 
 ### MsgDeleteLinkedClaim
 
@@ -3551,7 +3551,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteLinkedClaimResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteLinkedClaimResponse"></a>
 
 ### MsgDeleteLinkedClaimResponse
 
@@ -3561,7 +3561,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteLinkedEntity"></a>
+<a name="fury.iid.v1beta1.MsgDeleteLinkedEntity"></a>
 
 ### MsgDeleteLinkedEntity
 
@@ -3578,7 +3578,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteLinkedEntityResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteLinkedEntityResponse"></a>
 
 ### MsgDeleteLinkedEntityResponse
 
@@ -3588,7 +3588,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteLinkedResource"></a>
+<a name="fury.iid.v1beta1.MsgDeleteLinkedResource"></a>
 
 ### MsgDeleteLinkedResource
 
@@ -3605,7 +3605,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteLinkedResourceResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteLinkedResourceResponse"></a>
 
 ### MsgDeleteLinkedResourceResponse
 
@@ -3615,7 +3615,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteService"></a>
+<a name="fury.iid.v1beta1.MsgDeleteService"></a>
 
 ### MsgDeleteService
 
@@ -3632,7 +3632,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgDeleteServiceResponse"></a>
+<a name="fury.iid.v1beta1.MsgDeleteServiceResponse"></a>
 
 ### MsgDeleteServiceResponse
 
@@ -3642,7 +3642,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgRevokeVerification"></a>
+<a name="fury.iid.v1beta1.MsgRevokeVerification"></a>
 
 ### MsgRevokeVerification
 
@@ -3659,7 +3659,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgRevokeVerificationResponse"></a>
+<a name="fury.iid.v1beta1.MsgRevokeVerificationResponse"></a>
 
 ### MsgRevokeVerificationResponse
 
@@ -3669,7 +3669,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgSetVerificationRelationships"></a>
+<a name="fury.iid.v1beta1.MsgSetVerificationRelationships"></a>
 
 ### MsgSetVerificationRelationships
 
@@ -3687,7 +3687,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgSetVerificationRelationshipsResponse"></a>
+<a name="fury.iid.v1beta1.MsgSetVerificationRelationshipsResponse"></a>
 
 ### MsgSetVerificationRelationshipsResponse
 
@@ -3697,7 +3697,7 @@ MsgCreateDidDocument defines a SDK message for creating a new did.
 
 
 
-<a name="ixo.iid.v1beta1.MsgUpdateIidDocument"></a>
+<a name="fury.iid.v1beta1.MsgUpdateIidDocument"></a>
 
 ### MsgUpdateIidDocument
 Updates the entity with all the fields, so if field empty will be updated
@@ -3708,22 +3708,22 @@ with default go type, aka never null
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | the did |
 | controllers | [string](#string) | repeated | the list of controller DIDs |
-| context | [Context](#ixo.iid.v1beta1.Context) | repeated |  |
-| verifications | [Verification](#ixo.iid.v1beta1.Verification) | repeated | the list of verification methods and relationships |
-| services | [Service](#ixo.iid.v1beta1.Service) | repeated |  |
-| accordedRight | [AccordedRight](#ixo.iid.v1beta1.AccordedRight) | repeated |  |
-| linkedResource | [LinkedResource](#ixo.iid.v1beta1.LinkedResource) | repeated |  |
-| linkedEntity | [LinkedEntity](#ixo.iid.v1beta1.LinkedEntity) | repeated |  |
+| context | [Context](#fury.iid.v1beta1.Context) | repeated |  |
+| verifications | [Verification](#fury.iid.v1beta1.Verification) | repeated | the list of verification methods and relationships |
+| services | [Service](#fury.iid.v1beta1.Service) | repeated |  |
+| accordedRight | [AccordedRight](#fury.iid.v1beta1.AccordedRight) | repeated |  |
+| linkedResource | [LinkedResource](#fury.iid.v1beta1.LinkedResource) | repeated |  |
+| linkedEntity | [LinkedEntity](#fury.iid.v1beta1.LinkedEntity) | repeated |  |
 | alsoKnownAs | [string](#string) |  |  |
 | signer | [string](#string) |  | address of the account signing the message |
-| linkedClaim | [LinkedClaim](#ixo.iid.v1beta1.LinkedClaim) | repeated |  |
+| linkedClaim | [LinkedClaim](#fury.iid.v1beta1.LinkedClaim) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.iid.v1beta1.MsgUpdateIidDocumentResponse"></a>
+<a name="fury.iid.v1beta1.MsgUpdateIidDocumentResponse"></a>
 
 ### MsgUpdateIidDocumentResponse
 
@@ -3733,7 +3733,7 @@ with default go type, aka never null
 
 
 
-<a name="ixo.iid.v1beta1.Verification"></a>
+<a name="fury.iid.v1beta1.Verification"></a>
 
 ### Verification
 Verification is a message that allows to assign a verification method
@@ -3745,7 +3745,7 @@ to one or more verification relationships
 | relationships | [string](#string) | repeated | verificationRelationships defines which relationships are allowed to use the verification method
 
 relationships that the method is allowed into. |
-| method | [VerificationMethod](#ixo.iid.v1beta1.VerificationMethod) |  | public key associated with the did document. |
+| method | [VerificationMethod](#fury.iid.v1beta1.VerificationMethod) |  | public key associated with the did document. |
 | context | [string](#string) | repeated | additional contexts (json ld schemas) |
 
 
@@ -3759,46 +3759,46 @@ relationships that the method is allowed into. |
  
 
 
-<a name="ixo.iid.v1beta1.Msg"></a>
+<a name="fury.iid.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the identity Msg service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateIidDocument | [MsgCreateIidDocument](#ixo.iid.v1beta1.MsgCreateIidDocument) | [MsgCreateIidDocumentResponse](#ixo.iid.v1beta1.MsgCreateIidDocumentResponse) | CreateDidDocument defines a method for creating a new identity. |
-| UpdateIidDocument | [MsgUpdateIidDocument](#ixo.iid.v1beta1.MsgUpdateIidDocument) | [MsgUpdateIidDocumentResponse](#ixo.iid.v1beta1.MsgUpdateIidDocumentResponse) | UpdateDidDocument defines a method for updating an identity. |
-| AddVerification | [MsgAddVerification](#ixo.iid.v1beta1.MsgAddVerification) | [MsgAddVerificationResponse](#ixo.iid.v1beta1.MsgAddVerificationResponse) | AddVerificationMethod adds a new verification method |
-| RevokeVerification | [MsgRevokeVerification](#ixo.iid.v1beta1.MsgRevokeVerification) | [MsgRevokeVerificationResponse](#ixo.iid.v1beta1.MsgRevokeVerificationResponse) | RevokeVerification remove the verification method and all associated verification Relations |
-| SetVerificationRelationships | [MsgSetVerificationRelationships](#ixo.iid.v1beta1.MsgSetVerificationRelationships) | [MsgSetVerificationRelationshipsResponse](#ixo.iid.v1beta1.MsgSetVerificationRelationshipsResponse) | SetVerificationRelationships overwrite current verification relationships |
-| AddService | [MsgAddService](#ixo.iid.v1beta1.MsgAddService) | [MsgAddServiceResponse](#ixo.iid.v1beta1.MsgAddServiceResponse) | AddService add a new service |
-| DeleteService | [MsgDeleteService](#ixo.iid.v1beta1.MsgDeleteService) | [MsgDeleteServiceResponse](#ixo.iid.v1beta1.MsgDeleteServiceResponse) | DeleteService delete an existing service |
-| AddController | [MsgAddController](#ixo.iid.v1beta1.MsgAddController) | [MsgAddControllerResponse](#ixo.iid.v1beta1.MsgAddControllerResponse) | AddService add a new service |
-| DeleteController | [MsgDeleteController](#ixo.iid.v1beta1.MsgDeleteController) | [MsgDeleteControllerResponse](#ixo.iid.v1beta1.MsgDeleteControllerResponse) | DeleteService delete an existing service |
-| AddLinkedResource | [MsgAddLinkedResource](#ixo.iid.v1beta1.MsgAddLinkedResource) | [MsgAddLinkedResourceResponse](#ixo.iid.v1beta1.MsgAddLinkedResourceResponse) | Add / Delete Linked Resource |
-| DeleteLinkedResource | [MsgDeleteLinkedResource](#ixo.iid.v1beta1.MsgDeleteLinkedResource) | [MsgDeleteLinkedResourceResponse](#ixo.iid.v1beta1.MsgDeleteLinkedResourceResponse) |  |
-| AddLinkedClaim | [MsgAddLinkedClaim](#ixo.iid.v1beta1.MsgAddLinkedClaim) | [MsgAddLinkedClaimResponse](#ixo.iid.v1beta1.MsgAddLinkedClaimResponse) | Add / Delete Linked Claims |
-| DeleteLinkedClaim | [MsgDeleteLinkedClaim](#ixo.iid.v1beta1.MsgDeleteLinkedClaim) | [MsgDeleteLinkedClaimResponse](#ixo.iid.v1beta1.MsgDeleteLinkedClaimResponse) |  |
-| AddLinkedEntity | [MsgAddLinkedEntity](#ixo.iid.v1beta1.MsgAddLinkedEntity) | [MsgAddLinkedEntityResponse](#ixo.iid.v1beta1.MsgAddLinkedEntityResponse) | Add / Delete Linked Entity |
-| DeleteLinkedEntity | [MsgDeleteLinkedEntity](#ixo.iid.v1beta1.MsgDeleteLinkedEntity) | [MsgDeleteLinkedEntityResponse](#ixo.iid.v1beta1.MsgDeleteLinkedEntityResponse) |  |
-| AddAccordedRight | [MsgAddAccordedRight](#ixo.iid.v1beta1.MsgAddAccordedRight) | [MsgAddAccordedRightResponse](#ixo.iid.v1beta1.MsgAddAccordedRightResponse) | Add / Delete Accorded Right |
-| DeleteAccordedRight | [MsgDeleteAccordedRight](#ixo.iid.v1beta1.MsgDeleteAccordedRight) | [MsgDeleteAccordedRightResponse](#ixo.iid.v1beta1.MsgDeleteAccordedRightResponse) |  |
-| AddIidContext | [MsgAddIidContext](#ixo.iid.v1beta1.MsgAddIidContext) | [MsgAddIidContextResponse](#ixo.iid.v1beta1.MsgAddIidContextResponse) | Add / Delete Context |
-| DeactivateIID | [MsgDeactivateIID](#ixo.iid.v1beta1.MsgDeactivateIID) | [MsgDeactivateIIDResponse](#ixo.iid.v1beta1.MsgDeactivateIIDResponse) |  |
-| DeleteIidContext | [MsgDeleteIidContext](#ixo.iid.v1beta1.MsgDeleteIidContext) | [MsgDeleteIidContextResponse](#ixo.iid.v1beta1.MsgDeleteIidContextResponse) |  |
+| CreateIidDocument | [MsgCreateIidDocument](#fury.iid.v1beta1.MsgCreateIidDocument) | [MsgCreateIidDocumentResponse](#fury.iid.v1beta1.MsgCreateIidDocumentResponse) | CreateDidDocument defines a method for creating a new identity. |
+| UpdateIidDocument | [MsgUpdateIidDocument](#fury.iid.v1beta1.MsgUpdateIidDocument) | [MsgUpdateIidDocumentResponse](#fury.iid.v1beta1.MsgUpdateIidDocumentResponse) | UpdateDidDocument defines a method for updating an identity. |
+| AddVerification | [MsgAddVerification](#fury.iid.v1beta1.MsgAddVerification) | [MsgAddVerificationResponse](#fury.iid.v1beta1.MsgAddVerificationResponse) | AddVerificationMethod adds a new verification method |
+| RevokeVerification | [MsgRevokeVerification](#fury.iid.v1beta1.MsgRevokeVerification) | [MsgRevokeVerificationResponse](#fury.iid.v1beta1.MsgRevokeVerificationResponse) | RevokeVerification remove the verification method and all associated verification Relations |
+| SetVerificationRelationships | [MsgSetVerificationRelationships](#fury.iid.v1beta1.MsgSetVerificationRelationships) | [MsgSetVerificationRelationshipsResponse](#fury.iid.v1beta1.MsgSetVerificationRelationshipsResponse) | SetVerificationRelationships overwrite current verification relationships |
+| AddService | [MsgAddService](#fury.iid.v1beta1.MsgAddService) | [MsgAddServiceResponse](#fury.iid.v1beta1.MsgAddServiceResponse) | AddService add a new service |
+| DeleteService | [MsgDeleteService](#fury.iid.v1beta1.MsgDeleteService) | [MsgDeleteServiceResponse](#fury.iid.v1beta1.MsgDeleteServiceResponse) | DeleteService delete an existing service |
+| AddController | [MsgAddController](#fury.iid.v1beta1.MsgAddController) | [MsgAddControllerResponse](#fury.iid.v1beta1.MsgAddControllerResponse) | AddService add a new service |
+| DeleteController | [MsgDeleteController](#fury.iid.v1beta1.MsgDeleteController) | [MsgDeleteControllerResponse](#fury.iid.v1beta1.MsgDeleteControllerResponse) | DeleteService delete an existing service |
+| AddLinkedResource | [MsgAddLinkedResource](#fury.iid.v1beta1.MsgAddLinkedResource) | [MsgAddLinkedResourceResponse](#fury.iid.v1beta1.MsgAddLinkedResourceResponse) | Add / Delete Linked Resource |
+| DeleteLinkedResource | [MsgDeleteLinkedResource](#fury.iid.v1beta1.MsgDeleteLinkedResource) | [MsgDeleteLinkedResourceResponse](#fury.iid.v1beta1.MsgDeleteLinkedResourceResponse) |  |
+| AddLinkedClaim | [MsgAddLinkedClaim](#fury.iid.v1beta1.MsgAddLinkedClaim) | [MsgAddLinkedClaimResponse](#fury.iid.v1beta1.MsgAddLinkedClaimResponse) | Add / Delete Linked Claims |
+| DeleteLinkedClaim | [MsgDeleteLinkedClaim](#fury.iid.v1beta1.MsgDeleteLinkedClaim) | [MsgDeleteLinkedClaimResponse](#fury.iid.v1beta1.MsgDeleteLinkedClaimResponse) |  |
+| AddLinkedEntity | [MsgAddLinkedEntity](#fury.iid.v1beta1.MsgAddLinkedEntity) | [MsgAddLinkedEntityResponse](#fury.iid.v1beta1.MsgAddLinkedEntityResponse) | Add / Delete Linked Entity |
+| DeleteLinkedEntity | [MsgDeleteLinkedEntity](#fury.iid.v1beta1.MsgDeleteLinkedEntity) | [MsgDeleteLinkedEntityResponse](#fury.iid.v1beta1.MsgDeleteLinkedEntityResponse) |  |
+| AddAccordedRight | [MsgAddAccordedRight](#fury.iid.v1beta1.MsgAddAccordedRight) | [MsgAddAccordedRightResponse](#fury.iid.v1beta1.MsgAddAccordedRightResponse) | Add / Delete Accorded Right |
+| DeleteAccordedRight | [MsgDeleteAccordedRight](#fury.iid.v1beta1.MsgDeleteAccordedRight) | [MsgDeleteAccordedRightResponse](#fury.iid.v1beta1.MsgDeleteAccordedRightResponse) |  |
+| AddIidContext | [MsgAddIidContext](#fury.iid.v1beta1.MsgAddIidContext) | [MsgAddIidContextResponse](#fury.iid.v1beta1.MsgAddIidContextResponse) | Add / Delete Context |
+| DeactivateIID | [MsgDeactivateIID](#fury.iid.v1beta1.MsgDeactivateIID) | [MsgDeactivateIIDResponse](#fury.iid.v1beta1.MsgDeactivateIIDResponse) |  |
+| DeleteIidContext | [MsgDeleteIidContext](#fury.iid.v1beta1.MsgDeleteIidContext) | [MsgDeleteIidContextResponse](#fury.iid.v1beta1.MsgDeleteIidContextResponse) |  |
 
  
 
 
 
-<a name="ixo/entity/v1beta1/tx.proto"></a>
+<a name="fury/entity/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/entity/v1beta1/tx.proto
+## fury/entity/v1beta1/tx.proto
 
 
 
-<a name="ixo.entity.v1beta1.MsgCreateEntity"></a>
+<a name="fury.entity.v1beta1.MsgCreateEntity"></a>
 
 ### MsgCreateEntity
 
@@ -3809,12 +3809,12 @@ Msg defines the identity Msg service.
 | entity_type | [string](#string) |  | An Entity Type as defined by the implementer |
 | entity_status | [int32](#int32) |  | Status of the Entity as defined by the implementer and interpreted by Client applications |
 | controller | [string](#string) | repeated | the list of controller DIDs |
-| context | [ixo.iid.v1beta1.Context](#ixo.iid.v1beta1.Context) | repeated | JSON-LD contexts |
-| verification | [ixo.iid.v1beta1.Verification](#ixo.iid.v1beta1.Verification) | repeated | Verification Methods and Verification Relationships |
-| service | [ixo.iid.v1beta1.Service](#ixo.iid.v1beta1.Service) | repeated | Service endpoints |
-| accorded_right | [ixo.iid.v1beta1.AccordedRight](#ixo.iid.v1beta1.AccordedRight) | repeated | Legal or Electronic Rights and associated Object Capabilities |
-| linked_resource | [ixo.iid.v1beta1.LinkedResource](#ixo.iid.v1beta1.LinkedResource) | repeated | Digital resources associated with the Subject |
-| linked_entity | [ixo.iid.v1beta1.LinkedEntity](#ixo.iid.v1beta1.LinkedEntity) | repeated | DID of a linked Entity and its relationship with the Subject |
+| context | [fury.iid.v1beta1.Context](#fury.iid.v1beta1.Context) | repeated | JSON-LD contexts |
+| verification | [fury.iid.v1beta1.Verification](#fury.iid.v1beta1.Verification) | repeated | Verification Methods and Verification Relationships |
+| service | [fury.iid.v1beta1.Service](#fury.iid.v1beta1.Service) | repeated | Service endpoints |
+| accorded_right | [fury.iid.v1beta1.AccordedRight](#fury.iid.v1beta1.AccordedRight) | repeated | Legal or Electronic Rights and associated Object Capabilities |
+| linked_resource | [fury.iid.v1beta1.LinkedResource](#fury.iid.v1beta1.LinkedResource) | repeated | Digital resources associated with the Subject |
+| linked_entity | [fury.iid.v1beta1.LinkedEntity](#fury.iid.v1beta1.LinkedEntity) | repeated | DID of a linked Entity and its relationship with the Subject |
 | start_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Start Date of the Entity as defined by the implementer and interpreted by Client applications |
 | end_date | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | End Date of the Entity as defined by the implementer and interpreted by Client applications |
 | relayer_node | [string](#string) |  | Address of the operator through which the Entity was created |
@@ -3823,14 +3823,14 @@ Msg defines the identity Msg service.
 | owner_address | [string](#string) |  | The ownersdid address used to sign this transaction. |
 | data | [bytes](#bytes) |  | Extention data |
 | alsoKnownAs | [string](#string) |  |  |
-| linked_claim | [ixo.iid.v1beta1.LinkedClaim](#ixo.iid.v1beta1.LinkedClaim) | repeated | Digital claims associated with the Subject |
+| linked_claim | [fury.iid.v1beta1.LinkedClaim](#fury.iid.v1beta1.LinkedClaim) | repeated | Digital claims associated with the Subject |
 
 
 
 
 
 
-<a name="ixo.entity.v1beta1.MsgCreateEntityAccount"></a>
+<a name="fury.entity.v1beta1.MsgCreateEntityAccount"></a>
 
 ### MsgCreateEntityAccount
 create a module account for an entity, account details will be added as a
@@ -3848,7 +3848,7 @@ linkedEntity on entity iid doc where linkedEntity id is didfragment: did#name
 
 
 
-<a name="ixo.entity.v1beta1.MsgCreateEntityAccountResponse"></a>
+<a name="fury.entity.v1beta1.MsgCreateEntityAccountResponse"></a>
 
 ### MsgCreateEntityAccountResponse
 
@@ -3863,7 +3863,7 @@ linkedEntity on entity iid doc where linkedEntity id is didfragment: did#name
 
 
 
-<a name="ixo.entity.v1beta1.MsgCreateEntityResponse"></a>
+<a name="fury.entity.v1beta1.MsgCreateEntityResponse"></a>
 
 ### MsgCreateEntityResponse
 
@@ -3880,7 +3880,7 @@ linkedEntity on entity iid doc where linkedEntity id is didfragment: did#name
 
 
 
-<a name="ixo.entity.v1beta1.MsgGrantEntityAccountAuthz"></a>
+<a name="fury.entity.v1beta1.MsgGrantEntityAccountAuthz"></a>
 
 ### MsgGrantEntityAccountAuthz
 Create a authz grant from entity account (as grantor) to recipient in msg as
@@ -3892,7 +3892,7 @@ grantee for the specific authorization
 | id | [string](#string) |  | entity id (did) to create account for |
 | name | [string](#string) |  | name of account |
 | grantee_address | [string](#string) |  | the grantee address that will be able to execute the authz authorization |
-| grant | [Grant](#ixo.entity.v1beta1.Grant) |  | grant to be Authorized in authz grant |
+| grant | [Grant](#fury.entity.v1beta1.Grant) |  | grant to be Authorized in authz grant |
 | owner_address | [string](#string) |  | the owner_address used to sign this transaction. |
 
 
@@ -3900,7 +3900,7 @@ grantee for the specific authorization
 
 
 
-<a name="ixo.entity.v1beta1.MsgGrantEntityAccountAuthzResponse"></a>
+<a name="fury.entity.v1beta1.MsgGrantEntityAccountAuthzResponse"></a>
 
 ### MsgGrantEntityAccountAuthzResponse
 
@@ -3910,7 +3910,7 @@ grantee for the specific authorization
 
 
 
-<a name="ixo.entity.v1beta1.MsgTransferEntity"></a>
+<a name="fury.entity.v1beta1.MsgTransferEntity"></a>
 
 ### MsgTransferEntity
 
@@ -3928,7 +3928,7 @@ grantee for the specific authorization
 
 
 
-<a name="ixo.entity.v1beta1.MsgTransferEntityResponse"></a>
+<a name="fury.entity.v1beta1.MsgTransferEntityResponse"></a>
 
 ### MsgTransferEntityResponse
 
@@ -3938,7 +3938,7 @@ grantee for the specific authorization
 
 
 
-<a name="ixo.entity.v1beta1.MsgUpdateEntity"></a>
+<a name="fury.entity.v1beta1.MsgUpdateEntity"></a>
 
 ### MsgUpdateEntity
 Updates the entity with all the fields, so if field empty will be updated
@@ -3960,7 +3960,7 @@ with default go type, aka never null
 
 
 
-<a name="ixo.entity.v1beta1.MsgUpdateEntityResponse"></a>
+<a name="fury.entity.v1beta1.MsgUpdateEntityResponse"></a>
 
 ### MsgUpdateEntityResponse
 
@@ -3970,7 +3970,7 @@ with default go type, aka never null
 
 
 
-<a name="ixo.entity.v1beta1.MsgUpdateEntityVerified"></a>
+<a name="fury.entity.v1beta1.MsgUpdateEntityVerified"></a>
 
 ### MsgUpdateEntityVerified
 Only relayer nodes can update entity field &#39;entityVerified&#39;
@@ -3988,7 +3988,7 @@ Only relayer nodes can update entity field &#39;entityVerified&#39;
 
 
 
-<a name="ixo.entity.v1beta1.MsgUpdateEntityVerifiedResponse"></a>
+<a name="fury.entity.v1beta1.MsgUpdateEntityVerifiedResponse"></a>
 
 ### MsgUpdateEntityVerifiedResponse
 
@@ -4004,32 +4004,32 @@ Only relayer nodes can update entity field &#39;entityVerified&#39;
  
 
 
-<a name="ixo.entity.v1beta1.Msg"></a>
+<a name="fury.entity.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the project Msg service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateEntity | [MsgCreateEntity](#ixo.entity.v1beta1.MsgCreateEntity) | [MsgCreateEntityResponse](#ixo.entity.v1beta1.MsgCreateEntityResponse) | CreateEntity defines a method for creating a entity. |
-| UpdateEntity | [MsgUpdateEntity](#ixo.entity.v1beta1.MsgUpdateEntity) | [MsgUpdateEntityResponse](#ixo.entity.v1beta1.MsgUpdateEntityResponse) | UpdateEntity defines a method for updating a entity |
-| UpdateEntityVerified | [MsgUpdateEntityVerified](#ixo.entity.v1beta1.MsgUpdateEntityVerified) | [MsgUpdateEntityVerifiedResponse](#ixo.entity.v1beta1.MsgUpdateEntityVerifiedResponse) | UpdateEntityVerified defines a method for updating if an entity is verified |
-| TransferEntity | [MsgTransferEntity](#ixo.entity.v1beta1.MsgTransferEntity) | [MsgTransferEntityResponse](#ixo.entity.v1beta1.MsgTransferEntityResponse) | Transfers an entity and its nft to the recipient |
-| CreateEntityAccount | [MsgCreateEntityAccount](#ixo.entity.v1beta1.MsgCreateEntityAccount) | [MsgCreateEntityAccountResponse](#ixo.entity.v1beta1.MsgCreateEntityAccountResponse) | Create a module account for an entity, |
-| GrantEntityAccountAuthz | [MsgGrantEntityAccountAuthz](#ixo.entity.v1beta1.MsgGrantEntityAccountAuthz) | [MsgGrantEntityAccountAuthzResponse](#ixo.entity.v1beta1.MsgGrantEntityAccountAuthzResponse) | Create a authz grant from entity account |
+| CreateEntity | [MsgCreateEntity](#fury.entity.v1beta1.MsgCreateEntity) | [MsgCreateEntityResponse](#fury.entity.v1beta1.MsgCreateEntityResponse) | CreateEntity defines a method for creating a entity. |
+| UpdateEntity | [MsgUpdateEntity](#fury.entity.v1beta1.MsgUpdateEntity) | [MsgUpdateEntityResponse](#fury.entity.v1beta1.MsgUpdateEntityResponse) | UpdateEntity defines a method for updating a entity |
+| UpdateEntityVerified | [MsgUpdateEntityVerified](#fury.entity.v1beta1.MsgUpdateEntityVerified) | [MsgUpdateEntityVerifiedResponse](#fury.entity.v1beta1.MsgUpdateEntityVerifiedResponse) | UpdateEntityVerified defines a method for updating if an entity is verified |
+| TransferEntity | [MsgTransferEntity](#fury.entity.v1beta1.MsgTransferEntity) | [MsgTransferEntityResponse](#fury.entity.v1beta1.MsgTransferEntityResponse) | Transfers an entity and its nft to the recipient |
+| CreateEntityAccount | [MsgCreateEntityAccount](#fury.entity.v1beta1.MsgCreateEntityAccount) | [MsgCreateEntityAccountResponse](#fury.entity.v1beta1.MsgCreateEntityAccountResponse) | Create a module account for an entity, |
+| GrantEntityAccountAuthz | [MsgGrantEntityAccountAuthz](#fury.entity.v1beta1.MsgGrantEntityAccountAuthz) | [MsgGrantEntityAccountAuthzResponse](#fury.entity.v1beta1.MsgGrantEntityAccountAuthzResponse) | Create a authz grant from entity account |
 
  
 
 
 
-<a name="ixo/iid/v1beta1/event.proto"></a>
+<a name="fury/iid/v1beta1/event.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/iid/v1beta1/event.proto
+## fury/iid/v1beta1/event.proto
 
 
 
-<a name="ixo.iid.v1beta1.IidDocumentCreatedEvent"></a>
+<a name="fury.iid.v1beta1.IidDocumentCreatedEvent"></a>
 
 ### IidDocumentCreatedEvent
 IidDocumentCreatedEvent is triggered when a new IidDocument is created.
@@ -4037,14 +4037,14 @@ IidDocumentCreatedEvent is triggered when a new IidDocument is created.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| iidDocument | [IidDocument](#ixo.iid.v1beta1.IidDocument) |  |  |
+| iidDocument | [IidDocument](#fury.iid.v1beta1.IidDocument) |  |  |
 
 
 
 
 
 
-<a name="ixo.iid.v1beta1.IidDocumentUpdatedEvent"></a>
+<a name="fury.iid.v1beta1.IidDocumentUpdatedEvent"></a>
 
 ### IidDocumentUpdatedEvent
 DidDocumentUpdatedEvent is an event triggered on a DID document update
@@ -4052,7 +4052,7 @@ DidDocumentUpdatedEvent is an event triggered on a DID document update
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| iidDocument | [IidDocument](#ixo.iid.v1beta1.IidDocument) |  |  |
+| iidDocument | [IidDocument](#fury.iid.v1beta1.IidDocument) |  |  |
 
 
 
@@ -4068,14 +4068,14 @@ DidDocumentUpdatedEvent is an event triggered on a DID document update
 
 
 
-<a name="ixo/iid/v1beta1/genesis.proto"></a>
+<a name="fury/iid/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/iid/v1beta1/genesis.proto
+## fury/iid/v1beta1/genesis.proto
 
 
 
-<a name="ixo.iid.v1beta1.GenesisState"></a>
+<a name="fury.iid.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the did module&#39;s genesis state.
@@ -4083,7 +4083,7 @@ GenesisState defines the did module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| iid_docs | [IidDocument](#ixo.iid.v1beta1.IidDocument) | repeated |  |
+| iid_docs | [IidDocument](#fury.iid.v1beta1.IidDocument) | repeated |  |
 
 
 
@@ -4099,14 +4099,14 @@ GenesisState defines the did module&#39;s genesis state.
 
 
 
-<a name="ixo/iid/v1beta1/query.proto"></a>
+<a name="fury/iid/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/iid/v1beta1/query.proto
+## fury/iid/v1beta1/query.proto
 
 
 
-<a name="ixo.iid.v1beta1.QueryIidDocumentRequest"></a>
+<a name="fury.iid.v1beta1.QueryIidDocumentRequest"></a>
 
 ### QueryIidDocumentRequest
 
@@ -4121,7 +4121,7 @@ GenesisState defines the did module&#39;s genesis state.
 
 
 
-<a name="ixo.iid.v1beta1.QueryIidDocumentResponse"></a>
+<a name="fury.iid.v1beta1.QueryIidDocumentResponse"></a>
 
 ### QueryIidDocumentResponse
 
@@ -4129,14 +4129,14 @@ GenesisState defines the did module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| iidDocument | [IidDocument](#ixo.iid.v1beta1.IidDocument) |  |  |
+| iidDocument | [IidDocument](#fury.iid.v1beta1.IidDocument) |  |  |
 
 
 
 
 
 
-<a name="ixo.iid.v1beta1.QueryIidDocumentsRequest"></a>
+<a name="fury.iid.v1beta1.QueryIidDocumentsRequest"></a>
 
 ### QueryIidDocumentsRequest
 
@@ -4151,7 +4151,7 @@ GenesisState defines the did module&#39;s genesis state.
 
 
 
-<a name="ixo.iid.v1beta1.QueryIidDocumentsResponse"></a>
+<a name="fury.iid.v1beta1.QueryIidDocumentsResponse"></a>
 
 ### QueryIidDocumentsResponse
 
@@ -4159,7 +4159,7 @@ GenesisState defines the did module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| iidDocuments | [IidDocument](#ixo.iid.v1beta1.IidDocument) | repeated |  |
+| iidDocuments | [IidDocument](#fury.iid.v1beta1.IidDocument) | repeated |  |
 | pagination | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  | pagination defines the pagination in the response. |
 
 
@@ -4173,28 +4173,28 @@ GenesisState defines the did module&#39;s genesis state.
  
 
 
-<a name="ixo.iid.v1beta1.Query"></a>
+<a name="fury.iid.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| IidDocuments | [QueryIidDocumentsRequest](#ixo.iid.v1beta1.QueryIidDocumentsRequest) | [QueryIidDocumentsResponse](#ixo.iid.v1beta1.QueryIidDocumentsResponse) | IidDocuments queries all iid documents that match the given status. |
-| IidDocument | [QueryIidDocumentRequest](#ixo.iid.v1beta1.QueryIidDocumentRequest) | [QueryIidDocumentResponse](#ixo.iid.v1beta1.QueryIidDocumentResponse) | IidDocument queries a iid documents with an id. |
+| IidDocuments | [QueryIidDocumentsRequest](#fury.iid.v1beta1.QueryIidDocumentsRequest) | [QueryIidDocumentsResponse](#fury.iid.v1beta1.QueryIidDocumentsResponse) | IidDocuments queries all iid documents that match the given status. |
+| IidDocument | [QueryIidDocumentRequest](#fury.iid.v1beta1.QueryIidDocumentRequest) | [QueryIidDocumentResponse](#fury.iid.v1beta1.QueryIidDocumentResponse) | IidDocument queries a iid documents with an id. |
 
  
 
 
 
-<a name="ixo/token/v1beta1/token.proto"></a>
+<a name="fury/token/v1beta1/token.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/token.proto
+## fury/token/v1beta1/token.proto
 
 
 
-<a name="ixo.token.v1beta1.Params"></a>
+<a name="fury.token.v1beta1.Params"></a>
 
 ### Params
 
@@ -4202,14 +4202,14 @@ Query defines the gRPC querier service.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ixo1155_contract_code | [uint64](#uint64) |  |  |
+| fury1155_contract_code | [uint64](#uint64) |  |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.Token"></a>
+<a name="fury.token.v1beta1.Token"></a>
 
 ### Token
 
@@ -4223,20 +4223,20 @@ Query defines the gRPC querier service.
 | name | [string](#string) |  | name is the token name, which must be unique (namespace) |
 | description | [string](#string) |  | description is any arbitrary description |
 | image | [string](#string) |  | image is the image url for the token |
-| type | [string](#string) |  | type is the token type (eg ixo1155) |
+| type | [string](#string) |  | type is the token type (eg fury1155) |
 | cap | [string](#string) |  | cap is the maximum number of tokens with this name that can be minted, 0 is unlimited |
 | supply | [string](#string) |  | how much has already been minted for this Token type, aka the supply |
 | paused | [bool](#bool) |  | stop allowance of token minter temporarily |
 | stopped | [bool](#bool) |  | stop allowance of token minter permanently |
-| retired | [TokensRetired](#ixo.token.v1beta1.TokensRetired) | repeated | tokens that has been retired for this Token with specific name and contract address |
-| cancelled | [TokensCancelled](#ixo.token.v1beta1.TokensCancelled) | repeated | tokens that has been cancelled for this Token with specific name and contract address |
+| retired | [TokensRetired](#fury.token.v1beta1.TokensRetired) | repeated | tokens that has been retired for this Token with specific name and contract address |
+| cancelled | [TokensCancelled](#fury.token.v1beta1.TokensCancelled) | repeated | tokens that has been cancelled for this Token with specific name and contract address |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenData"></a>
+<a name="fury.token.v1beta1.TokenData"></a>
 
 ### TokenData
 
@@ -4257,7 +4257,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.TokenProperties"></a>
+<a name="fury.token.v1beta1.TokenProperties"></a>
 
 ### TokenProperties
 
@@ -4267,16 +4267,16 @@ credential link ***.ipfs |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  |  |
 | index | [string](#string) |  | index is the unique identifier hexstring that identifies the token |
-| name | [string](#string) |  | index is the unique identifier hexstring that identifies the token |
+| name | [string](#string) |  | name is the token name, which is same as Token name |
 | collection | [string](#string) |  | did of collection (eg Supamoto Malawi) |
-| tokenData | [TokenData](#ixo.token.v1beta1.TokenData) | repeated | tokenData is the linkedResources added to tokenMetadata when queried eg (credential link ***.ipfs) |
+| tokenData | [TokenData](#fury.token.v1beta1.TokenData) | repeated | tokenData is the linkedResources added to tokenMetadata when queried eg (credential link ***.ipfs) |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokensCancelled"></a>
+<a name="fury.token.v1beta1.TokensCancelled"></a>
 
 ### TokensCancelled
 
@@ -4294,7 +4294,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.TokensRetired"></a>
+<a name="fury.token.v1beta1.TokensRetired"></a>
 
 ### TokensRetired
 
@@ -4322,14 +4322,14 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo/token/v1beta1/authz.proto"></a>
+<a name="fury/token/v1beta1/authz.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/authz.proto
+## fury/token/v1beta1/authz.proto
 
 
 
-<a name="ixo.token.v1beta1.MintAuthorization"></a>
+<a name="fury.token.v1beta1.MintAuthorization"></a>
 
 ### MintAuthorization
 
@@ -4338,14 +4338,14 @@ credential link ***.ipfs |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | minter | [string](#string) |  | address of minter |
-| constraints | [MintConstraints](#ixo.token.v1beta1.MintConstraints) | repeated |  |
+| constraints | [MintConstraints](#fury.token.v1beta1.MintConstraints) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.MintConstraints"></a>
+<a name="fury.token.v1beta1.MintConstraints"></a>
 
 ### MintConstraints
 
@@ -4358,7 +4358,7 @@ credential link ***.ipfs |
 | name | [string](#string) |  | name is the token name, which must be unique (namespace), will be verified against Token name provided on msgCreateToken |
 | index | [string](#string) |  | index is the unique identifier hexstring that identifies the token |
 | collection | [string](#string) |  | did of collection (eg Supamoto Malawi) |
-| tokenData | [TokenData](#ixo.token.v1beta1.TokenData) | repeated | tokenData is the linkedResources added to tokenMetadata when queried eg (credential link ***.ipfs) |
+| tokenData | [TokenData](#fury.token.v1beta1.TokenData) | repeated | tokenData is the linkedResources added to tokenMetadata when queried eg (credential link ***.ipfs) |
 
 
 
@@ -4374,14 +4374,14 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo/token/v1beta1/tx.proto"></a>
+<a name="fury/token/v1beta1/tx.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/tx.proto
+## fury/token/v1beta1/tx.proto
 
 
 
-<a name="ixo.token.v1beta1.MintBatch"></a>
+<a name="fury.token.v1beta1.MintBatch"></a>
 
 ### MintBatch
 
@@ -4393,14 +4393,14 @@ credential link ***.ipfs |
 | index | [string](#string) |  | index is the unique identifier hexstring that identifies the token |
 | amount | [string](#string) |  | amount is the number of tokens to mint |
 | collection | [string](#string) |  | did of collection (eg Supamoto Malawi) |
-| token_data | [TokenData](#ixo.token.v1beta1.TokenData) | repeated | tokenData is the linkedResources added to tokenMetadata when queried eg (credential link ***.ipfs) |
+| token_data | [TokenData](#fury.token.v1beta1.TokenData) | repeated | tokenData is the linkedResources added to tokenMetadata when queried eg (credential link ***.ipfs) |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.MsgCancelToken"></a>
+<a name="fury.token.v1beta1.MsgCancelToken"></a>
 
 ### MsgCancelToken
 
@@ -4409,7 +4409,7 @@ credential link ***.ipfs |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | owner | [string](#string) |  | address of owner |
-| tokens | [TokenBatch](#ixo.token.v1beta1.TokenBatch) | repeated | tokens to retire, all tokens must be in same smart contract |
+| tokens | [TokenBatch](#fury.token.v1beta1.TokenBatch) | repeated | tokens to retire, all tokens must be in same smart contract |
 | reason | [string](#string) |  | reason is any arbitrary string that specifies the reason for retiring tokens. |
 
 
@@ -4417,7 +4417,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgCancelTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgCancelTokenResponse"></a>
 
 ### MsgCancelTokenResponse
 
@@ -4427,7 +4427,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgCreateToken"></a>
+<a name="fury.token.v1beta1.MsgCreateToken"></a>
 
 ### MsgCreateToken
 
@@ -4440,7 +4440,7 @@ credential link ***.ipfs |
 | name | [string](#string) |  | name is the token name, which must be unique (namespace) |
 | description | [string](#string) |  | description is any arbitrary description |
 | image | [string](#string) |  | image is the image url for the token |
-| token_type | [string](#string) |  | type is the token type (eg ixo1155) |
+| token_type | [string](#string) |  | type is the token type (eg fury1155) |
 | cap | [string](#string) |  | cap is the maximum number of tokens with this name that can be minted, 0 is unlimited |
 
 
@@ -4448,7 +4448,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgCreateTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgCreateTokenResponse"></a>
 
 ### MsgCreateTokenResponse
 
@@ -4458,7 +4458,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgMintToken"></a>
+<a name="fury.token.v1beta1.MsgMintToken"></a>
 
 ### MsgMintToken
 
@@ -4469,14 +4469,14 @@ credential link ***.ipfs |
 | minter | [string](#string) |  | address of minter |
 | contract_address | [string](#string) |  |  |
 | owner | [string](#string) |  | address of owner to mint for |
-| mint_batch | [MintBatch](#ixo.token.v1beta1.MintBatch) | repeated |  |
+| mint_batch | [MintBatch](#fury.token.v1beta1.MintBatch) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.MsgMintTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgMintTokenResponse"></a>
 
 ### MsgMintTokenResponse
 
@@ -4486,7 +4486,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgPauseToken"></a>
+<a name="fury.token.v1beta1.MsgPauseToken"></a>
 
 ### MsgPauseToken
 
@@ -4503,7 +4503,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgPauseTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgPauseTokenResponse"></a>
 
 ### MsgPauseTokenResponse
 
@@ -4513,7 +4513,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgRetireToken"></a>
+<a name="fury.token.v1beta1.MsgRetireToken"></a>
 
 ### MsgRetireToken
 
@@ -4522,7 +4522,7 @@ credential link ***.ipfs |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | owner | [string](#string) |  | address of owner |
-| tokens | [TokenBatch](#ixo.token.v1beta1.TokenBatch) | repeated | tokens to retire, all tokens must be in same smart contract |
+| tokens | [TokenBatch](#fury.token.v1beta1.TokenBatch) | repeated | tokens to retire, all tokens must be in same smart contract |
 | jurisdiction | [string](#string) |  | jurisdiction is the jurisdiction of the token owner. A jurisdiction has the format: &lt;country-code&gt;[-&lt;sub-national-code&gt;[ &lt;postal-code&gt;]] The country-code must be 2 alphabetic characters, the sub-national-code can be 1-3 alphanumeric characters, and the postal-code can be up to 64 alphanumeric characters. Only the country-code is required, while the sub-national-code and postal-code are optional and can be added for increased precision. See the valid format for this below. |
 | reason | [string](#string) |  | reason is any arbitrary string that specifies the reason for retiring tokens. |
 
@@ -4531,7 +4531,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgRetireTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgRetireTokenResponse"></a>
 
 ### MsgRetireTokenResponse
 
@@ -4541,7 +4541,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgStopToken"></a>
+<a name="fury.token.v1beta1.MsgStopToken"></a>
 
 ### MsgStopToken
 
@@ -4557,7 +4557,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgStopTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgStopTokenResponse"></a>
 
 ### MsgStopTokenResponse
 
@@ -4567,7 +4567,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.MsgTransferToken"></a>
+<a name="fury.token.v1beta1.MsgTransferToken"></a>
 
 ### MsgTransferToken
 
@@ -4577,14 +4577,14 @@ credential link ***.ipfs |
 | ----- | ---- | ----- | ----------- |
 | owner | [string](#string) |  | address of owner |
 | recipient | [string](#string) |  | address of receiver |
-| tokens | [TokenBatch](#ixo.token.v1beta1.TokenBatch) | repeated | all tokens must be in same smart contract |
+| tokens | [TokenBatch](#fury.token.v1beta1.TokenBatch) | repeated | all tokens must be in same smart contract |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.MsgTransferTokenResponse"></a>
+<a name="fury.token.v1beta1.MsgTransferTokenResponse"></a>
 
 ### MsgTransferTokenResponse
 
@@ -4594,7 +4594,7 @@ credential link ***.ipfs |
 
 
 
-<a name="ixo.token.v1beta1.TokenBatch"></a>
+<a name="fury.token.v1beta1.TokenBatch"></a>
 
 ### TokenBatch
 
@@ -4616,33 +4616,33 @@ credential link ***.ipfs |
  
 
 
-<a name="ixo.token.v1beta1.Msg"></a>
+<a name="fury.token.v1beta1.Msg"></a>
 
 ### Msg
 Msg defines the project Msg service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateToken | [MsgCreateToken](#ixo.token.v1beta1.MsgCreateToken) | [MsgCreateTokenResponse](#ixo.token.v1beta1.MsgCreateTokenResponse) |  |
-| MintToken | [MsgMintToken](#ixo.token.v1beta1.MsgMintToken) | [MsgMintTokenResponse](#ixo.token.v1beta1.MsgMintTokenResponse) |  |
-| TransferToken | [MsgTransferToken](#ixo.token.v1beta1.MsgTransferToken) | [MsgTransferTokenResponse](#ixo.token.v1beta1.MsgTransferTokenResponse) |  |
-| RetireToken | [MsgRetireToken](#ixo.token.v1beta1.MsgRetireToken) | [MsgRetireTokenResponse](#ixo.token.v1beta1.MsgRetireTokenResponse) |  |
-| CancelToken | [MsgCancelToken](#ixo.token.v1beta1.MsgCancelToken) | [MsgCancelTokenResponse](#ixo.token.v1beta1.MsgCancelTokenResponse) |  |
-| PauseToken | [MsgPauseToken](#ixo.token.v1beta1.MsgPauseToken) | [MsgPauseTokenResponse](#ixo.token.v1beta1.MsgPauseTokenResponse) |  |
-| StopToken | [MsgStopToken](#ixo.token.v1beta1.MsgStopToken) | [MsgStopTokenResponse](#ixo.token.v1beta1.MsgStopTokenResponse) |  |
+| CreateToken | [MsgCreateToken](#fury.token.v1beta1.MsgCreateToken) | [MsgCreateTokenResponse](#fury.token.v1beta1.MsgCreateTokenResponse) |  |
+| MintToken | [MsgMintToken](#fury.token.v1beta1.MsgMintToken) | [MsgMintTokenResponse](#fury.token.v1beta1.MsgMintTokenResponse) |  |
+| TransferToken | [MsgTransferToken](#fury.token.v1beta1.MsgTransferToken) | [MsgTransferTokenResponse](#fury.token.v1beta1.MsgTransferTokenResponse) |  |
+| RetireToken | [MsgRetireToken](#fury.token.v1beta1.MsgRetireToken) | [MsgRetireTokenResponse](#fury.token.v1beta1.MsgRetireTokenResponse) |  |
+| CancelToken | [MsgCancelToken](#fury.token.v1beta1.MsgCancelToken) | [MsgCancelTokenResponse](#fury.token.v1beta1.MsgCancelTokenResponse) |  |
+| PauseToken | [MsgPauseToken](#fury.token.v1beta1.MsgPauseToken) | [MsgPauseTokenResponse](#fury.token.v1beta1.MsgPauseTokenResponse) |  |
+| StopToken | [MsgStopToken](#fury.token.v1beta1.MsgStopToken) | [MsgStopTokenResponse](#fury.token.v1beta1.MsgStopTokenResponse) |  |
 
  
 
 
 
-<a name="ixo/token/v1beta1/event.proto"></a>
+<a name="fury/token/v1beta1/event.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/event.proto
+## fury/token/v1beta1/event.proto
 
 
 
-<a name="ixo.token.v1beta1.TokenCancelledEvent"></a>
+<a name="fury.token.v1beta1.TokenCancelledEvent"></a>
 
 ### TokenCancelledEvent
 TokenCancelledEvent is an event triggered on a Token cancel execution
@@ -4651,14 +4651,14 @@ TokenCancelledEvent is an event triggered on a Token cancel execution
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | owner | [string](#string) |  | the token owner |
-| tokens | [TokenBatch](#ixo.token.v1beta1.TokenBatch) | repeated |  |
+| tokens | [TokenBatch](#fury.token.v1beta1.TokenBatch) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenCreatedEvent"></a>
+<a name="fury.token.v1beta1.TokenCreatedEvent"></a>
 
 ### TokenCreatedEvent
 TokenCreatedEvent is an event triggered on a Token creation
@@ -4666,14 +4666,14 @@ TokenCreatedEvent is an event triggered on a Token creation
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| token | [Token](#ixo.token.v1beta1.Token) |  |  |
+| token | [Token](#fury.token.v1beta1.Token) |  |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenMintedEvent"></a>
+<a name="fury.token.v1beta1.TokenMintedEvent"></a>
 
 ### TokenMintedEvent
 TokenMintedEvent is an event triggered on a Token mint execution
@@ -4685,14 +4685,14 @@ TokenMintedEvent is an event triggered on a Token mint execution
 | minter | [string](#string) |  | the token minter |
 | owner | [string](#string) |  | the new tokens owner |
 | amount | [string](#string) |  |  |
-| tokenProperties | [TokenProperties](#ixo.token.v1beta1.TokenProperties) |  |  |
+| tokenProperties | [TokenProperties](#fury.token.v1beta1.TokenProperties) |  |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenPausedEvent"></a>
+<a name="fury.token.v1beta1.TokenPausedEvent"></a>
 
 ### TokenPausedEvent
 TokenPausedEvent is an event triggered on a Token pause/unpause execution
@@ -4709,7 +4709,7 @@ TokenPausedEvent is an event triggered on a Token pause/unpause execution
 
 
 
-<a name="ixo.token.v1beta1.TokenRetiredEvent"></a>
+<a name="fury.token.v1beta1.TokenRetiredEvent"></a>
 
 ### TokenRetiredEvent
 TokenRetiredEvent is an event triggered on a Token retire execution
@@ -4718,14 +4718,14 @@ TokenRetiredEvent is an event triggered on a Token retire execution
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | owner | [string](#string) |  | the token owner |
-| tokens | [TokenBatch](#ixo.token.v1beta1.TokenBatch) | repeated |  |
+| tokens | [TokenBatch](#fury.token.v1beta1.TokenBatch) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenStoppedEvent"></a>
+<a name="fury.token.v1beta1.TokenStoppedEvent"></a>
 
 ### TokenStoppedEvent
 TokenStoppedEvent is an event triggered on a Token stopped execution
@@ -4742,7 +4742,7 @@ TokenStoppedEvent is an event triggered on a Token stopped execution
 
 
 
-<a name="ixo.token.v1beta1.TokenTransferredEvent"></a>
+<a name="fury.token.v1beta1.TokenTransferredEvent"></a>
 
 ### TokenTransferredEvent
 TokenTransferedEvent is an event triggered on a Token transfer execution
@@ -4752,14 +4752,14 @@ TokenTransferedEvent is an event triggered on a Token transfer execution
 | ----- | ---- | ----- | ----------- |
 | owner | [string](#string) |  | the old token owner |
 | recipient | [string](#string) |  | the new tokens owner |
-| tokens | [TokenBatch](#ixo.token.v1beta1.TokenBatch) | repeated |  |
+| tokens | [TokenBatch](#fury.token.v1beta1.TokenBatch) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenUpdatedEvent"></a>
+<a name="fury.token.v1beta1.TokenUpdatedEvent"></a>
 
 ### TokenUpdatedEvent
 TokenUpdatedEvent is an event triggered on a Token update
@@ -4767,7 +4767,7 @@ TokenUpdatedEvent is an event triggered on a Token update
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| token | [Token](#ixo.token.v1beta1.Token) |  |  |
+| token | [Token](#fury.token.v1beta1.Token) |  |  |
 
 
 
@@ -4783,14 +4783,14 @@ TokenUpdatedEvent is an event triggered on a Token update
 
 
 
-<a name="ixo/token/v1beta1/genesis.proto"></a>
+<a name="fury/token/v1beta1/genesis.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/genesis.proto
+## fury/token/v1beta1/genesis.proto
 
 
 
-<a name="ixo.token.v1beta1.GenesisState"></a>
+<a name="fury.token.v1beta1.GenesisState"></a>
 
 ### GenesisState
 GenesisState defines the module&#39;s genesis state.
@@ -4798,9 +4798,9 @@ GenesisState defines the module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| params | [Params](#ixo.token.v1beta1.Params) |  |  |
-| tokens | [Token](#ixo.token.v1beta1.Token) | repeated |  |
-| token_properties | [TokenProperties](#ixo.token.v1beta1.TokenProperties) | repeated |  |
+| params | [Params](#fury.token.v1beta1.Params) |  |  |
+| tokens | [Token](#fury.token.v1beta1.Token) | repeated |  |
+| token_properties | [TokenProperties](#fury.token.v1beta1.TokenProperties) | repeated |  |
 
 
 
@@ -4816,14 +4816,14 @@ GenesisState defines the module&#39;s genesis state.
 
 
 
-<a name="ixo/token/v1beta1/proposal.proto"></a>
+<a name="fury/token/v1beta1/proposal.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/proposal.proto
+## fury/token/v1beta1/proposal.proto
 
 
 
-<a name="ixo.token.v1beta1.SetTokenContractCodes"></a>
+<a name="fury.token.v1beta1.SetTokenContractCodes"></a>
 
 ### SetTokenContractCodes
 
@@ -4831,7 +4831,7 @@ GenesisState defines the module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ixo1155_contract_code | [uint64](#uint64) |  |  |
+| fury1155_contract_code | [uint64](#uint64) |  |  |
 
 
 
@@ -4847,14 +4847,14 @@ GenesisState defines the module&#39;s genesis state.
 
 
 
-<a name="ixo/token/v1beta1/query.proto"></a>
+<a name="fury/token/v1beta1/query.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## ixo/token/v1beta1/query.proto
+## fury/token/v1beta1/query.proto
 
 
 
-<a name="ixo.token.v1beta1.QueryParamsRequest"></a>
+<a name="fury.token.v1beta1.QueryParamsRequest"></a>
 
 ### QueryParamsRequest
 
@@ -4864,7 +4864,7 @@ GenesisState defines the module&#39;s genesis state.
 
 
 
-<a name="ixo.token.v1beta1.QueryParamsResponse"></a>
+<a name="fury.token.v1beta1.QueryParamsResponse"></a>
 
 ### QueryParamsResponse
 
@@ -4872,14 +4872,14 @@ GenesisState defines the module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| params | [Params](#ixo.token.v1beta1.Params) |  | params holds all the parameters of this module. |
+| params | [Params](#fury.token.v1beta1.Params) |  | params holds all the parameters of this module. |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.QueryTokenDocRequest"></a>
+<a name="fury.token.v1beta1.QueryTokenDocRequest"></a>
 
 ### QueryTokenDocRequest
 
@@ -4895,7 +4895,7 @@ GenesisState defines the module&#39;s genesis state.
 
 
 
-<a name="ixo.token.v1beta1.QueryTokenDocResponse"></a>
+<a name="fury.token.v1beta1.QueryTokenDocResponse"></a>
 
 ### QueryTokenDocResponse
 
@@ -4903,14 +4903,14 @@ GenesisState defines the module&#39;s genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tokenDoc | [Token](#ixo.token.v1beta1.Token) |  |  |
+| tokenDoc | [Token](#fury.token.v1beta1.Token) |  |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.QueryTokenListRequest"></a>
+<a name="fury.token.v1beta1.QueryTokenListRequest"></a>
 
 ### QueryTokenListRequest
 
@@ -4926,7 +4926,7 @@ GenesisState defines the module&#39;s genesis state.
 
 
 
-<a name="ixo.token.v1beta1.QueryTokenListResponse"></a>
+<a name="fury.token.v1beta1.QueryTokenListResponse"></a>
 
 ### QueryTokenListResponse
 
@@ -4935,14 +4935,14 @@ GenesisState defines the module&#39;s genesis state.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | pagination | [cosmos.base.query.v1beta1.PageResponse](#cosmos.base.query.v1beta1.PageResponse) |  |  |
-| tokenDocs | [Token](#ixo.token.v1beta1.Token) | repeated |  |
+| tokenDocs | [Token](#fury.token.v1beta1.Token) | repeated |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.QueryTokenMetadataRequest"></a>
+<a name="fury.token.v1beta1.QueryTokenMetadataRequest"></a>
 
 ### QueryTokenMetadataRequest
 
@@ -4957,7 +4957,7 @@ GenesisState defines the module&#39;s genesis state.
 
 
 
-<a name="ixo.token.v1beta1.QueryTokenMetadataResponse"></a>
+<a name="fury.token.v1beta1.QueryTokenMetadataResponse"></a>
 
 ### QueryTokenMetadataResponse
 
@@ -4970,14 +4970,14 @@ GenesisState defines the module&#39;s genesis state.
 | decimals | [string](#string) |  |  |
 | image | [string](#string) |  |  |
 | index | [string](#string) |  |  |
-| properties | [TokenMetadataProperties](#ixo.token.v1beta1.TokenMetadataProperties) |  |  |
+| properties | [TokenMetadataProperties](#fury.token.v1beta1.TokenMetadataProperties) |  |  |
 
 
 
 
 
 
-<a name="ixo.token.v1beta1.TokenMetadataProperties"></a>
+<a name="fury.token.v1beta1.TokenMetadataProperties"></a>
 
 ### TokenMetadataProperties
 
@@ -4988,7 +4988,7 @@ GenesisState defines the module&#39;s genesis state.
 | class | [string](#string) |  |  |
 | collection | [string](#string) |  |  |
 | cap | [string](#string) |  |  |
-| linkedResources | [TokenData](#ixo.token.v1beta1.TokenData) | repeated |  |
+| linkedResources | [TokenData](#fury.token.v1beta1.TokenData) | repeated |  |
 
 
 
@@ -5001,17 +5001,17 @@ GenesisState defines the module&#39;s genesis state.
  
 
 
-<a name="ixo.token.v1beta1.Query"></a>
+<a name="fury.token.v1beta1.Query"></a>
 
 ### Query
 Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| Params | [QueryParamsRequest](#ixo.token.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#ixo.token.v1beta1.QueryParamsResponse) |  |
-| TokenList | [QueryTokenListRequest](#ixo.token.v1beta1.QueryTokenListRequest) | [QueryTokenListResponse](#ixo.token.v1beta1.QueryTokenListResponse) |  |
-| TokenDoc | [QueryTokenDocRequest](#ixo.token.v1beta1.QueryTokenDocRequest) | [QueryTokenDocResponse](#ixo.token.v1beta1.QueryTokenDocResponse) |  |
-| TokenMetadata | [QueryTokenMetadataRequest](#ixo.token.v1beta1.QueryTokenMetadataRequest) | [QueryTokenMetadataResponse](#ixo.token.v1beta1.QueryTokenMetadataResponse) |  |
+| Params | [QueryParamsRequest](#fury.token.v1beta1.QueryParamsRequest) | [QueryParamsResponse](#fury.token.v1beta1.QueryParamsResponse) |  |
+| TokenList | [QueryTokenListRequest](#fury.token.v1beta1.QueryTokenListRequest) | [QueryTokenListResponse](#fury.token.v1beta1.QueryTokenListResponse) |  |
+| TokenDoc | [QueryTokenDocRequest](#fury.token.v1beta1.QueryTokenDocRequest) | [QueryTokenDocResponse](#fury.token.v1beta1.QueryTokenDocResponse) |  |
+| TokenMetadata | [QueryTokenMetadataRequest](#fury.token.v1beta1.QueryTokenMetadataRequest) | [QueryTokenMetadataResponse](#fury.token.v1beta1.QueryTokenMetadataResponse) |  |
 
  
 

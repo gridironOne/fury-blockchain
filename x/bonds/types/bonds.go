@@ -8,7 +8,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 type (

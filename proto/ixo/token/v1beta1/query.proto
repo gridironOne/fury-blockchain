@@ -1,27 +1,27 @@
 syntax = "proto3";
-package ixo.token.v1beta1;
+package fury.token.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
-import "ixo/token/v1beta1/token.proto";
+import "fury/token/v1beta1/token.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/token/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/token/types";
 
 // Query defines the gRPC querier service.
 service Query {
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/ixo/token/params";
+    option (google.api.http).get = "/fury/token/params";
   }
   rpc TokenList(QueryTokenListRequest) returns (QueryTokenListResponse) {
-    option (google.api.http).get = "/ixo/token/{minter}";
+    option (google.api.http).get = "/fury/token/{minter}";
   }
   rpc TokenDoc(QueryTokenDocRequest) returns (QueryTokenDocResponse) {
-    option (google.api.http).get = "/ixo/token/{minter}/{contract_address}";
+    option (google.api.http).get = "/fury/token/{minter}/{contract_address}";
   }
   rpc TokenMetadata(QueryTokenMetadataRequest)
       returns (QueryTokenMetadataResponse) {
-    option (google.api.http).get = "/ixo/token/metadata/{id}";
+    option (google.api.http).get = "/fury/token/metadata/{id}";
   }
 }
 

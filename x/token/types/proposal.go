@@ -9,9 +9,9 @@ var (
 	_                                 govtypes.Content = &SetTokenContractCodes{}
 )
 
-func NewSetTokenContract(ixo1155Code uint64) SetTokenContractCodes {
+func NewSetTokenContract(fury1155Code uint64) SetTokenContractCodes {
 	return SetTokenContractCodes{
-		Ixo1155ContractCode: ixo1155Code,
+		Fury1155ContractCode: fury1155Code,
 	}
 }
 
@@ -30,5 +30,5 @@ func (sup *SetTokenContractCodes) ValidateBasic() error { return nil }
 
 func init() {
 	govtypes.RegisterProposalType(ProposalTypeSetTokenContractCodes)
-	govtypes.RegisterProposalTypeCodec(&SetTokenContractCodes{}, "token.ixo.token.v1beta1.SetTokenContractCodes")
+	govtypes.RegisterProposalTypeCodec(&SetTokenContractCodes{}, "token.fury.token.v1beta1.SetTokenContractCodes")
 }

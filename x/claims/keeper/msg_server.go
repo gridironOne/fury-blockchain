@@ -6,9 +6,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/ixofoundation/ixo-blockchain/lib/ixo"
-	"github.com/ixofoundation/ixo-blockchain/x/claims/types"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/lib/fury"
+	"github.com/furyfoundation/fury-blockchain/x/claims/types"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 type msgServer struct {
@@ -359,7 +359,7 @@ func (s msgServer) DisputeClaim(goCtx context.Context, msg *types.MsgDisputeClai
 			case *types.EvaluateClaimAuthorization:
 				// check if there a constraint that has collectionId or claimId of disputed subjectId(claim)
 				for _, con := range k.Constraints {
-					if con.CollectionId == collection.Id || ixo.Contains(con.ClaimIds, claim.ClaimId) {
+					if con.CollectionId == collection.Id || fury.Contains(con.ClaimIds, claim.ClaimId) {
 						isAuthorized = true
 					}
 				}

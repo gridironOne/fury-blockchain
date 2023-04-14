@@ -5,7 +5,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/types"
+	"github.com/furyfoundation/fury-blockchain/x/entity/types"
 	"github.com/spf13/cobra"
 )
 

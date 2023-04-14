@@ -1,10 +1,10 @@
 syntax = "proto3";
-package ixo.token.v1beta1;
+package fury.token.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "ixo/token/v1beta1/token.proto";
+import "fury/token/v1beta1/token.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/token/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/token/types";
 
 // GenesisState defines the module's genesis state.
 message GenesisState {

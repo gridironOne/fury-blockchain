@@ -8,8 +8,8 @@ jobs:
   upgrade-v5:
     uses: cosmos/ibc-go/.github/workflows/e2e-test-workflow-call.yml@main
     with:
-      chain-image: ghcr.io/ixofoundation/ixo-blockchain
-      chain-binary: ixod
+      chain-image: ghcr.io/furyfoundation/fury-blockchain
+      chain-binary: fury
       chain-a-tag: 0.19.3
       chain-b-tag: 0.19.3
       chain-upgrade-tag: debug-v0.19.4.7

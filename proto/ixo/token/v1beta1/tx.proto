@@ -1,12 +1,12 @@
 syntax = "proto3";
-package ixo.token.v1beta1;
+package fury.token.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "ixo/iid/v1beta1/iid.proto";
-import "ixo/token/v1beta1/token.proto";
+import "fury/iid/v1beta1/iid.proto";
+import "fury/token/v1beta1/token.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/token/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/token/types";
 
 // Msg defines the project Msg service.
 service Msg {
@@ -25,14 +25,14 @@ message MsgCreateToken {
   // class is the token protocol entity DID (validated)
   string class = 2
       [ (gogoproto.casttype) =
-            "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment" ];
+            "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment" ];
   // name is the token name, which must be unique (namespace)
   string name = 3;
   // description is any arbitrary description
   string description = 4;
   // image is the image url for the token
   string image = 5;
-  // type is the token type (eg ixo1155)
+  // type is the token type (eg fury1155)
   string token_type = 6;
   // cap is the maximum number of tokens with this name that can be minted, 0 is
   // unlimited

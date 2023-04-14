@@ -1,3 +1,3 @@
 # Protobufs
 
-This is the public protocol buffers API for the [ixo-blockchain](https://github.com/ixofoundation/ixo-blockchain).
+This is the public protocol buffers API for the [fury-blockchain](https://github.com/furyfoundation/fury-blockchain).

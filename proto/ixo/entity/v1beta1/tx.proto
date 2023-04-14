@@ -1,15 +1,15 @@
 syntax = "proto3";
-package ixo.entity.v1beta1;
+package fury.entity.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "ixo/iid/v1beta1/iid.proto";
-import "ixo/iid/v1beta1/tx.proto";
-import "ixo/iid/v1beta1/types.proto";
-import "ixo/entity/v1beta1/entity.proto";
-import "ixo/entity/v1beta1/cosmos.proto";
+import "fury/iid/v1beta1/iid.proto";
+import "fury/iid/v1beta1/tx.proto";
+import "fury/iid/v1beta1/types.proto";
+import "fury/entity/v1beta1/entity.proto";
+import "fury/entity/v1beta1/cosmos.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/entity/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/entity/types";
 
 // Msg defines the project Msg service.
 service Msg {
@@ -43,15 +43,15 @@ message MsgCreateEntity {
   int32 entity_status = 2;
   // the list of controller DIDs
   repeated string controller = 3;
-  repeated ixo.iid.v1beta1.Context context = 4; // JSON-LD contexts
-  repeated ixo.iid.v1beta1.Verification verification =
+  repeated fury.iid.v1beta1.Context context = 4; // JSON-LD contexts
+  repeated fury.iid.v1beta1.Verification verification =
       5; // Verification Methods and Verification Relationships
-  repeated ixo.iid.v1beta1.Service service = 6; // Service endpoints
-  repeated ixo.iid.v1beta1.AccordedRight accorded_right =
+  repeated fury.iid.v1beta1.Service service = 6; // Service endpoints
+  repeated fury.iid.v1beta1.AccordedRight accorded_right =
       7; // Legal or Electronic Rights and associated Object Capabilities
-  repeated ixo.iid.v1beta1.LinkedResource linked_resource =
+  repeated fury.iid.v1beta1.LinkedResource linked_resource =
       8; // Digital resources associated with the Subject
-  repeated ixo.iid.v1beta1.LinkedEntity linked_entity =
+  repeated fury.iid.v1beta1.LinkedEntity linked_entity =
       9; // DID of a linked Entity and its relationship with the Subject
   // Start Date of the Entity as defined by the implementer and interpreted by
   // Client applications
@@ -66,14 +66,14 @@ message MsgCreateEntity {
   repeated string credentials = 13;
   string owner_did = 14 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment"
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment"
   ]; // Owner of the Entity NFT | The ownersdid used to sign this transaction.
   string owner_address =
       15; // The ownersdid address used to sign this transaction.
   bytes data = 16
       [ (gogoproto.casttype) = "encoding/json.RawMessage" ]; // Extention data
   string alsoKnownAs = 17;
-  repeated ixo.iid.v1beta1.LinkedClaim linked_claim =
+  repeated fury.iid.v1beta1.LinkedClaim linked_claim =
       18; // Digital claims associated with the Subject
 }
 
@@ -102,7 +102,7 @@ message MsgUpdateEntity {
   repeated string credentials = 5;
   string controller_did = 6 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment"
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment"
   ]; // The controllerDid used to sign this transaction.
   string controller_address =
       7; // The controllerAddress used to sign this transaction.
@@ -118,7 +118,7 @@ message MsgUpdateEntityVerified {
   bool entity_verified = 2;
   string relayer_node_did = 3 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment"
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment"
   ]; // The relayer node's did used to sign this transaction.
   string relayer_node_address =
       4; // The relayer node's address used to sign this transaction.
@@ -131,12 +131,12 @@ message MsgTransferEntity {
   // The owner_did used to sign this transaction.
   string owner_did = 2
       [ (gogoproto.casttype) =
-            "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment" ];
+            "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment" ];
   // The owner_address used to sign this transaction.
   string owner_address = 3;
   string recipient_did = 4
       [ (gogoproto.casttype) =
-            "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment" ];
+            "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment" ];
 }
 
 message MsgTransferEntityResponse {}

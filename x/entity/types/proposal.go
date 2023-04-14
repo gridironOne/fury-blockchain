@@ -6,7 +6,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	types "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	types "github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 var (
@@ -44,5 +44,5 @@ func (sup *InitializeNftContract) ValidateBasic() error {
 
 func init() {
 	govtypes.RegisterProposalType(ProposalTypeInitializeNftContract)
-	govtypes.RegisterProposalTypeCodec(&InitializeNftContract{}, "entity.ixo.entity.v1beta1.InitializeNftContract")
+	govtypes.RegisterProposalTypeCodec(&InitializeNftContract{}, "entity.fury.entity.v1beta1.InitializeNftContract")
 }

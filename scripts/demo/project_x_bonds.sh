@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
 
-# Must be run from root path inside ixo-blockchain for source to work
+# Must be run from root path inside fury-blockchain for source to work
 source ./scripts/constants.sh
 
 wait_chain_start
 
-yes 'y' | ixod keys delete fee --force > /dev/null 2>&1
-yes $PASSWORD | ixod keys add fee > /dev/null 2>&1
-FEE=$(yes $PASSWORD | ixod keys show fee -a)
-RESERVE_OUT=$(yes $PASSWORD | ixod keys show reserveOut -a)
+yes 'y' | fury keys delete fee --force > /dev/null 2>&1
+yes $PASSWORD | fury keys add fee > /dev/null 2>&1
+FEE=$(yes $PASSWORD | fury keys show fee -a)
+RESERVE_OUT=$(yes $PASSWORD | fury keys show reserveOut -a)
 
-IXO_DID="did:ixo:4XJLBfGtWSGKSz4BeRxdun"
-ORACLE_DID="did:ixo:UKzkhVSHc3qEFva5EY2XHt"
-PROJECT_DID="did:ixo:U7GK8p8rVhJMKhBVRCJJ8c"
-BOND_DID="did:ixo:U7GK8p8rVhJMKhBVRCJJ8c"
+FURY_DID="did:fury:4XJLBfGtWSGKSz4BeRxdun"
+ORACLE_DID="did:fury:UKzkhVSHc3qEFva5EY2XHt"
+PROJECT_DID="did:fury:U7GK8p8rVhJMKhBVRCJJ8c"
+BOND_DID="did:fury:U7GK8p8rVhJMKhBVRCJJ8c"
 
-IXO_DID_FULL='{
-  "did":"did:ixo:4XJLBfGtWSGKSz4BeRxdun",
+FURY_DID_FULL='{
+  "did":"did:fury:4XJLBfGtWSGKSz4BeRxdun",
   "verifyKey":"2vMHhssdhrBCRFiq9vj7TxGYDybW4yYdrYh9JG56RaAt",
   "encryptionPublicKey":"6GBp8qYgjE3ducksUa9Ar26ganhDFcmYfbZE9ezFx5xS",
   "secret":{
@@ -27,7 +27,7 @@ IXO_DID_FULL='{
   }
 }'
 ORACLE_DID_FULL='{
-  "did":"did:ixo:UKzkhVSHc3qEFva5EY2XHt",
+  "did":"did:fury:UKzkhVSHc3qEFva5EY2XHt",
   "verifyKey":"Ftsqjc2pEvGLqBtgvVx69VXLe1dj2mFzoi4kqQNGo3Ej",
   "encryptionPublicKey":"8YScf3mY4eeHoxDT9MRxiuGX5Fw7edWFnwHpgWYSn1si",
   "secret":{
@@ -37,7 +37,7 @@ ORACLE_DID_FULL='{
   }
 }'
 PROJECT_DID_FULL='{
-  "did":"did:ixo:U7GK8p8rVhJMKhBVRCJJ8c",
+  "did":"did:fury:U7GK8p8rVhJMKhBVRCJJ8c",
   "verifyKey":"FmwNAfvV2xEqHwszrVJVBR3JgQ8AFCQEVzo1p6x4L8VW",
   "encryptionPublicKey":"domKpTpjrHQtKUnaFLjCuDLe2oHeS4b1sKt7yU9cq7m",
   "secret":{
@@ -65,9 +65,9 @@ PROJECT_INFO='{
 
 ORACLE_FEE_PAYMENT_TEMPLATE='{
   "id": "payment:template:oracle-fee",
-  "payment_amount": [{"denom":"uixo", "amount":"5000000"}],
-  "payment_minimum": [{"denom":"uixo", "amount":"5000000"}],
-  "payment_maximum": [{"denom":"uixo", "amount":"50000000"}],
+  "payment_amount": [{"denom":"ufury", "amount":"5000000"}],
+  "payment_minimum": [{"denom":"ufury", "amount":"5000000"}],
+  "payment_maximum": [{"denom":"ufury", "amount":"50000000"}],
   "discounts": []
 }'
 FEE_FOR_SERVICE_PAYMENT_TEMPLATE='{
@@ -102,73 +102,73 @@ DID_9=$(echo "$DID_9_FULL" | cut -d \" -f 4)
 DID_10=$(echo "$DID_10_FULL" | cut -d \" -f 4)
 OWNER_DID=$(echo "$OWNER_DID_FULL" | cut -d \" -f 4)
 
-# Ledger oracle and ixo DIDs 
-ixod_tx did add-did-doc "$ORACLE_DID_FULL" --broadcast-mode block
-ixod_tx did add-did-doc "$IXO_DID_FULL" --broadcast-mode block
+# Ledger oracle and fury DIDs 
+fury_tx did add-did-doc "$ORACLE_DID_FULL" --broadcast-mode block
+fury_tx did add-did-doc "$FURY_DID_FULL" --broadcast-mode block
 
 # Fund DID and owner accounts using Miguel's tokens
 echo "Funding DID and owner accounts..."
-ADDR1=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_1_FULL")")
-ADDR2=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_2_FULL")")
-ADDR3=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_3_FULL")")
-ADDR4=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_4_FULL")")
-ADDR5=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_5_FULL")")
-ADDR6=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_6_FULL")")
-ADDR7=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_7_FULL")")
-ADDR8=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_8_FULL")")
-ADDR9=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_9_FULL")")
-ADDR10=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js $DID_10_FULL)")
-OWNER_ADDR=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js "$OWNER_DID_FULL")")
-ixod_tx bank send miguel "$ADDR1" 10000000uixo
-ixod_tx bank send miguel "$ADDR2" 10000000uixo
-ixod_tx bank send miguel "$ADDR3" 10000000uixo
-ixod_tx bank send miguel "$ADDR4" 10000000uixo
-ixod_tx bank send miguel "$ADDR5" 10000000uixo
-ixod_tx bank send miguel "$ADDR6" 10000000uixo
-ixod_tx bank send miguel "$ADDR7" 10000000uixo
-ixod_tx bank send miguel "$ADDR8" 10000000uixo
-ixod_tx bank send miguel "$ADDR9" 10000000uixo
-ixod_tx bank send miguel "$ADDR10" 10000000uixo
-ixod_tx bank send miguel "$OWNER_ADDR" 10000000uixo
+ADDR1=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_1_FULL")")
+ADDR2=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_2_FULL")")
+ADDR3=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_3_FULL")")
+ADDR4=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_4_FULL")")
+ADDR5=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_5_FULL")")
+ADDR6=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_6_FULL")")
+ADDR7=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_7_FULL")")
+ADDR8=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_8_FULL")")
+ADDR9=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$DID_9_FULL")")
+ADDR10=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js $DID_10_FULL)")
+OWNER_ADDR=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js "$OWNER_DID_FULL")")
+fury_tx bank send miguel "$ADDR1" 10000000ufury
+fury_tx bank send miguel "$ADDR2" 10000000ufury
+fury_tx bank send miguel "$ADDR3" 10000000ufury
+fury_tx bank send miguel "$ADDR4" 10000000ufury
+fury_tx bank send miguel "$ADDR5" 10000000ufury
+fury_tx bank send miguel "$ADDR6" 10000000ufury
+fury_tx bank send miguel "$ADDR7" 10000000ufury
+fury_tx bank send miguel "$ADDR8" 10000000ufury
+fury_tx bank send miguel "$ADDR9" 10000000ufury
+fury_tx bank send miguel "$ADDR10" 10000000ufury
+fury_tx bank send miguel "$OWNER_ADDR" 10000000ufury
 
-# Each DID including the owner now has 10IXO for gas fees 
-# DID_1_ADDR=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js $DID_1_FULL)")
-# ixod_q bank balances $DID_1_ADDR
-# OWNER_ADDR=$(ixod q did get-address-from-pubkey "$(node utils/get_pubkey.js $OWNER_DID_FULL)")
-# ixod_q bank balances $OWNER_ADDR
+# Each DID including the owner now has 10FURY for gas fees 
+# DID_1_ADDR=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js $DID_1_FULL)")
+# fury_q bank balances $DID_1_ADDR
+# OWNER_ADDR=$(fury q did get-address-from-pubkey "$(node utils/get_pubkey.js $OWNER_DID_FULL)")
+# fury_q bank balances $OWNER_ADDR
 
 # Ledger the 10 DIDs and owner DID
 echo "Ledgering DIDs..."
-ixod_tx did add-did-doc "$DID_1_FULL"
-ixod_tx did add-did-doc "$DID_2_FULL"
-ixod_tx did add-did-doc "$DID_3_FULL"
-ixod_tx did add-did-doc "$DID_4_FULL"
-ixod_tx did add-did-doc "$DID_5_FULL"
-ixod_tx did add-did-doc "$DID_6_FULL"
-ixod_tx did add-did-doc "$DID_7_FULL"
-ixod_tx did add-did-doc "$DID_8_FULL"
-ixod_tx did add-did-doc "$DID_9_FULL"
-ixod_tx did add-did-doc "$DID_10_FULL"
-ixod_tx did add-did-doc "$OWNER_DID_FULL" --broadcast-mode block
+fury_tx did add-did-doc "$DID_1_FULL"
+fury_tx did add-did-doc "$DID_2_FULL"
+fury_tx did add-did-doc "$DID_3_FULL"
+fury_tx did add-did-doc "$DID_4_FULL"
+fury_tx did add-did-doc "$DID_5_FULL"
+fury_tx did add-did-doc "$DID_6_FULL"
+fury_tx did add-did-doc "$DID_7_FULL"
+fury_tx did add-did-doc "$DID_8_FULL"
+fury_tx did add-did-doc "$DID_9_FULL"
+fury_tx did add-did-doc "$DID_10_FULL"
+fury_tx did add-did-doc "$OWNER_DID_FULL" --broadcast-mode block
 
 
-# Fund ixo DID for gas fees (commented out since ixo DID is funded at genesis)
-# echo "Funding ixo DID..."
-# yes $PASSWORD | ixod_tx bank send miguel "$(ixod_q did get-address-from-did $IXO_DID)" 10000000000uixo --broadcast-mode=block
+# Fund fury DID for gas fees (commented out since fury DID is funded at genesis)
+# echo "Funding fury DID..."
+# yes $PASSWORD | fury_tx bank send miguel "$(fury_q did get-address-from-did $FURY_DID)" 10000000000ufury --broadcast-mode=block
 
 # Fund Owner with 300xGBP (300000000uxgbp)
 echo "Funding Owner DID with 300xGBP using Miguel's tokens..."
-ixod_tx bank send miguel "$OWNER_ADDR" 300000000uxgbp --broadcast-mode block
+fury_tx bank send miguel "$OWNER_ADDR" 300000000uxgbp --broadcast-mode block
 
 # Owner now has 300xGBP to use in the project
 # Side note: we can now query the account using just the DID instead of using get_pubkey.js, since the DID has been registered.
-# FULL_OWNER_ADDR="$(ixod q did get-address-from-did $OWNER_DID)"
+# FULL_OWNER_ADDR="$(fury q did get-address-from-did $OWNER_DID)"
 # OWNER_ADDR=${FULL_OWNER_ADDR##*: }
-# ixod_q bank balances "$OWNER_ADDR"
+# fury_q bank balances "$OWNER_ADDR"
 
 # Create bond
 echo "Creating bond..."
-ixod_tx bonds create-bond \
+fury_tx bonds create-bond \
   --token=uabc \
   --name="ABC" \
   --description="Description about ABC" \
@@ -192,93 +192,93 @@ ixod_tx bonds create-bond \
 
 # Create oracle fee payment template
 echo "Creating oracle fee payment template..."
-CREATOR="$IXO_DID_FULL"
-ixod_tx payments create-payment-template "$ORACLE_FEE_PAYMENT_TEMPLATE" "$CREATOR" --broadcast-mode block
+CREATOR="$FURY_DID_FULL"
+fury_tx payments create-payment-template "$ORACLE_FEE_PAYMENT_TEMPLATE" "$CREATOR" --broadcast-mode block
 
 # Create fee-for-service payment template
 echo "Creating fee-for-service payment template..."
-CREATOR="$IXO_DID_FULL"
-ixod_tx payments create-payment-template "$FEE_FOR_SERVICE_PAYMENT_TEMPLATE" "$CREATOR" --broadcast-mode block
+CREATOR="$FURY_DID_FULL"
+fury_tx payments create-payment-template "$FEE_FOR_SERVICE_PAYMENT_TEMPLATE" "$CREATOR" --broadcast-mode block
 
 # Create project and progress status to PENDING
 SENDER_DID="$OWNER_DID"
 echo "Creating project..."
-ixod_tx project create-project "$SENDER_DID" "$PROJECT_INFO" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-project "$SENDER_DID" "$PROJECT_INFO" "$PROJECT_DID_FULL" --broadcast-mode block
 echo "Updating project to CREATED..."
-ixod_tx project update-project-status "$SENDER_DID" CREATED "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project update-project-status "$SENDER_DID" CREATED "$PROJECT_DID_FULL" --broadcast-mode block
 echo "Updating project to PENDING..."
-ixod_tx project update-project-status "$SENDER_DID" PENDING "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project update-project-status "$SENDER_DID" PENDING "$PROJECT_DID_FULL" --broadcast-mode block
 
-# Fund project with 100xGBP and 1000 IXO (for fees)
-FULL_PROJECT_ADDR="$(ixod q project get-project-accounts $PROJECT_DID)"
+# Fund project with 100xGBP and 1000 FURY (for fees)
+FULL_PROJECT_ADDR="$(fury q project get-project-accounts $PROJECT_DID)"
 PROJECT_ADDR=${FULL_PROJECT_ADDR##*$PROJECT_DID: }
-echo "Funding project with uixo and uxgbp (using Miguel's tokens)..."
-ixod_tx bank send miguel "$PROJECT_ADDR" 100000000uxgbp --broadcast-mode block
-ixod_tx bank send miguel "$PROJECT_ADDR" 1000000000uixo --broadcast-mode block
+echo "Funding project with ufury and uxgbp (using Miguel's tokens)..."
+fury_tx bank send miguel "$PROJECT_ADDR" 100000000uxgbp --broadcast-mode block
+fury_tx bank send miguel "$PROJECT_ADDR" 1000000000ufury --broadcast-mode block
 
 # Progress project status to FUNDED and STARTED
 SENDER_DID="$OWNER_DID"
 echo "Updating project to FUNDED..."
-ixod_tx project update-project-status "$SENDER_DID" FUNDED "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project update-project-status "$SENDER_DID" FUNDED "$PROJECT_DID_FULL" --broadcast-mode block
 echo "Updating project to STARTED..."
-ixod_tx project update-project-status "$SENDER_DID" STARTED "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project update-project-status "$SENDER_DID" STARTED "$PROJECT_DID_FULL" --broadcast-mode block
 
 # Create claims
 echo "Creating claims in project..."
-ixod_tx project create-claim "tx_hash" "$DID_1" "claim1" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_2" "claim2" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_3" "claim3" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_4" "claim4" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_5" "claim5" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_6" "claim6" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_7" "claim7" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_8" "claim8" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_9" "claim9" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-claim "tx_hash" "$DID_10" "claim10" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_1" "claim1" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_2" "claim2" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_3" "claim3" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_4" "claim4" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_5" "claim5" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_6" "claim6" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_7" "claim7" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_8" "claim8" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_9" "claim9" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-claim "tx_hash" "$DID_10" "claim10" "template_id" "$PROJECT_DID_FULL" --broadcast-mode block
 
 
 # Create evaluations
 echo "Creating evaluations in project..."
 STATUS="1"
-ixod_tx project create-evaluation "tx_hash" "$DID_1" "claim1" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_2" "claim2" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_3" "claim3" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_4" "claim4" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_5" "claim5" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_6" "claim6" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_7" "claim7" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_8" "claim8" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_9" "claim9" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
-ixod_tx project create-evaluation "tx_hash" "$DID_10" "claim10" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_1" "claim1" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_2" "claim2" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_3" "claim3" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_4" "claim4" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_5" "claim5" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_6" "claim6" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_7" "claim7" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_8" "claim8" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_9" "claim9" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
+fury_tx project create-evaluation "tx_hash" "$DID_10" "claim10" "$STATUS" "$PROJECT_DID_FULL" --broadcast-mode block
 
 # Each of the 10 DIDs now has 1xGBP (1000000uxgbp)
-# FULL_DID_ADDR="$(ixod q did get-address-from-did $DID_1)"
+# FULL_DID_ADDR="$(fury q did get-address-from-did $DID_1)"
 # DID_ADDR=${FULL_DID_ADDR##*: }
-# ixod_q bank balances "$DID_ADDR"
+# fury_q bank balances "$DID_ADDR"
 
 # Perform bond buys
 echo "DID 1 buys 1ABC..."
-ixod_tx bonds buy 1000000uabc 1000000uxgbp "$BOND_DID" "$DID_1_FULL" --broadcast-mode block
+fury_tx bonds buy 1000000uabc 1000000uxgbp "$BOND_DID" "$DID_1_FULL" --broadcast-mode block
 echo "DID 2 buys 0.26ABC..."
-ixod_tx bonds buy 259921uabc 1000000uxgbp "$BOND_DID" "$DID_2_FULL" --broadcast-mode block
+fury_tx bonds buy 259921uabc 1000000uxgbp "$BOND_DID" "$DID_2_FULL" --broadcast-mode block
 echo "DID 3 buys 0.18ABC..."
-ixod_tx bonds buy 182328uabc 1000000uxgbp "$BOND_DID" "$DID_3_FULL" --broadcast-mode block
+fury_tx bonds buy 182328uabc 1000000uxgbp "$BOND_DID" "$DID_3_FULL" --broadcast-mode block
 echo "DID 4 buys 0.14ABC..."
-ixod_tx bonds buy 145151uabc 1000000uxgbp "$BOND_DID" "$DID_4_FULL" --broadcast-mode block
+fury_tx bonds buy 145151uabc 1000000uxgbp "$BOND_DID" "$DID_4_FULL" --broadcast-mode block
 echo "DID 5 buys 0.12ABC..."
-ixod_tx bonds buy 122574uabc 1000000uxgbp "$BOND_DID" "$DID_5_FULL" --broadcast-mode block
+fury_tx bonds buy 122574uabc 1000000uxgbp "$BOND_DID" "$DID_5_FULL" --broadcast-mode block
 
 # Make outcome payment
 echo "Owner makes outcome payment..."
-ixod_tx bonds make-outcome-payment "$BOND_DID" 100000000 "$OWNER_DID_FULL" --broadcast-mode block
+fury_tx bonds make-outcome-payment "$BOND_DID" 100000000 "$OWNER_DID_FULL" --broadcast-mode block
 
 # Owner updates bond state to SETTLE
-ixod_tx bonds update-bond-state "SETTLE" "$BOND_DID" "$OWNER_DID_FULL"
+fury_tx bonds update-bond-state "SETTLE" "$BOND_DID" "$OWNER_DID_FULL"
 
 # Withdraw reserve shares
 echo "Withdrawing shares (DID 1-5)..."
-ixod_tx bonds withdraw-share "$BOND_DID" "$DID_1_FULL" --broadcast-mode block
-ixod_tx bonds withdraw-share "$BOND_DID" "$DID_2_FULL" --broadcast-mode block
-ixod_tx bonds withdraw-share "$BOND_DID" "$DID_3_FULL" --broadcast-mode block
-ixod_tx bonds withdraw-share "$BOND_DID" "$DID_4_FULL" --broadcast-mode block
-ixod_tx bonds withdraw-share "$BOND_DID" "$DID_5_FULL" --broadcast-mode block
+fury_tx bonds withdraw-share "$BOND_DID" "$DID_1_FULL" --broadcast-mode block
+fury_tx bonds withdraw-share "$BOND_DID" "$DID_2_FULL" --broadcast-mode block
+fury_tx bonds withdraw-share "$BOND_DID" "$DID_3_FULL" --broadcast-mode block
+fury_tx bonds withdraw-share "$BOND_DID" "$DID_4_FULL" --broadcast-mode block
+fury_tx bonds withdraw-share "$BOND_DID" "$DID_5_FULL" --broadcast-mode block

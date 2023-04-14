@@ -8,7 +8,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
-	"github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/x/iid/types"
 	"github.com/spf13/cobra"
 )
 

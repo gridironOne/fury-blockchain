@@ -12,10 +12,10 @@ import (
 	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
 	ibcante "github.com/cosmos/ibc-go/v4/modules/core/ante"
 	ibckeeper "github.com/cosmos/ibc-go/v4/modules/core/keeper"
-	entityante "github.com/ixofoundation/ixo-blockchain/x/entity/ante"
-	entitykeeper "github.com/ixofoundation/ixo-blockchain/x/entity/keeper"
-	iidante "github.com/ixofoundation/ixo-blockchain/x/iid/ante"
-	iidkeeper "github.com/ixofoundation/ixo-blockchain/x/iid/keeper"
+	entityante "github.com/furyfoundation/fury-blockchain/x/entity/ante"
+	entitykeeper "github.com/furyfoundation/fury-blockchain/x/entity/keeper"
+	iidante "github.com/furyfoundation/fury-blockchain/x/iid/ante"
+	iidkeeper "github.com/furyfoundation/fury-blockchain/x/iid/keeper"
 )
 
 // HandlerOptions are the options required for constructing a default SDK AnteHandler.
@@ -32,10 +32,10 @@ type HandlerOptions struct {
 	SigGasConsumer    func(meter sdk.GasMeter, sig txsigning.SignatureV2, params authtypes.Params) error
 }
 
-// IxoAnteHandler returns an AnteHandler that checks and increments sequence
+// FuryAnteHandler returns an AnteHandler that checks and increments sequence
 // numbers, checks signatures & account numbers, and deducts fees from the first
 // signer.
-func IxoAnteHandler(options HandlerOptions) (sdk.AnteHandler, error) {
+func FuryAnteHandler(options HandlerOptions) (sdk.AnteHandler, error) {
 	if options.AccountKeeper == nil {
 		return nil, sdkerrors.Wrap(sdkerrors.ErrLogic, "account keeper is required for ante builder")
 	}
@@ -73,7 +73,7 @@ func IxoAnteHandler(options HandlerOptions) (sdk.AnteHandler, error) {
 		authante.NewSigVerificationDecorator(options.AccountKeeper, options.SignModeHandler),
 		authante.NewIncrementSequenceDecorator(options.AccountKeeper),
 		ibcante.NewAnteDecorator(options.IBCKeeper),
-		// custom ixo handlers
+		// custom fury handlers
 		iidante.NewIidResolutionDecorator(options.IidKeeper),
 		entityante.NewBlockNftContractTransferForEntityDecorator(options.EntityKeeper),
 	}

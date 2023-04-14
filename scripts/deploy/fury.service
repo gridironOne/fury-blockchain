@@ -1,14 +1,14 @@
-# /etc/systemd/system/ixod.service
+# /etc/systemd/system/fury.service
 
 [Unit]
-Description=ixod Node
+Description=fury Node
 After=network.target
 
 [Service]
 Type=simple
-User=ixo
-WorkingDirectory=/home/ixo
-ExecStart=/home/ixo/go/bin/ixod start
+User=fury
+WorkingDirectory=/home/fury
+ExecStart=/home/fury/go/bin/fury start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096

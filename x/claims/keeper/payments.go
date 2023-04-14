@@ -7,8 +7,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/ixofoundation/ixo-blockchain/x/claims/types"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types/contracts/ixo1155"
+	"github.com/furyfoundation/fury-blockchain/x/claims/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/types/contracts/fury1155"
 )
 
 // --------------------------
@@ -73,23 +73,23 @@ func processPayment(ctx sdk.Context, k Keeper, receiver sdk.AccAddress, payment 
 				return sdkerrors.Wrapf(err, "address not found in iid doc for %s", entity.RelayerNode)
 			}
 
-			// Calculate evaluator pay share (totals to 100) for ixo, node, and oracle
+			// Calculate evaluator pay share (totals to 100) for fury, node, and oracle
 			nodeFeePercentage := params.NodeFeePercentage
-			ixoFeePercentage := params.NetworkFeePercentage
+			furyFeePercentage := params.NetworkFeePercentage
 			// check that the 2 preset percentages dont go over 100%
-			if nodeFeePercentage.Add(ixoFeePercentage).GT(types.OneHundred) {
+			if nodeFeePercentage.Add(furyFeePercentage).GT(types.OneHundred) {
 				return types.ErrPaymentPresetPercentagesOverflow
 			}
-			oracleFeePercentage := types.OneHundred.Sub(nodeFeePercentage).Sub(ixoFeePercentage)
+			oracleFeePercentage := types.OneHundred.Sub(nodeFeePercentage).Sub(furyFeePercentage)
 
-			// Get ixo netowrk address
-			ixoAddress, err := sdk.AccAddressFromBech32(params.IxoAccount)
+			// Get fury netowrk address
+			furyAddress, err := sdk.AccAddressFromBech32(params.FuryAccount)
 			if err != nil {
 				return err
 			}
 
 			recipients := types.NewDistribution(
-				types.NewDistributionShare(ixoAddress, ixoFeePercentage),
+				types.NewDistributionShare(furyAddress, furyFeePercentage),
 				types.NewDistributionShare(relayerAddr, nodeFeePercentage),
 				types.NewDistributionShare(receiver, oracleFeePercentage))
 
@@ -172,8 +172,8 @@ func payout(ctx sdk.Context, k Keeper, inputs []banktypes.Input, outputs []bankt
 
 	// pay 1155 contract payment if has one
 	if payment1155 != nil && payment1155.Amount != 0 {
-		encodedTransferMessage, err := ixo1155.Marshal(ixo1155.WasmSendFrom{
-			SendFrom: ixo1155.SendFrom{
+		encodedTransferMessage, err := fury1155.Marshal(fury1155.WasmSendFrom{
+			SendFrom: fury1155.SendFrom{
 				From:     fromAddress.String(),
 				To:       toAddress.String(),
 				Token_id: payment1155.TokenId,
@@ -194,7 +194,7 @@ func payout(ctx sdk.Context, k Keeper, inputs []banktypes.Input, outputs []bankt
 			contractAddress,
 			fromAddress,
 			encodedTransferMessage,
-			sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())),
+			sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())),
 		)
 		if err != nil {
 			return err

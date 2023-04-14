@@ -10,7 +10,7 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	govcli "github.com/cosmos/cosmos-sdk/x/gov/client/cli"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/types"
 	"github.com/spf13/cobra"
 )
 
@@ -39,7 +39,7 @@ func NewTxCmd() *cobra.Command {
 // NewCmdSubmitUpgradeProposal implements a command handler for submitting a software upgrade proposal transaction.
 func NewCmdUpdateTokenParamsProposal() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "update-token-params [ixo1155-code-id] [flags]",
+		Use:   "update-token-params [fury1155-code-id] [flags]",
 		Args:  cobra.ExactArgs(1),
 		Short: "Submit a proposal to update token params",
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -48,12 +48,12 @@ func NewCmdUpdateTokenParamsProposal() *cobra.Command {
 				return err
 			}
 
-			ixo1155CodeId, err := strconv.ParseUint(args[0], 0, 64)
+			fury1155CodeId, err := strconv.ParseUint(args[0], 0, 64)
 			if err != nil {
 				return err
 			}
 
-			content := types.NewSetTokenContract(ixo1155CodeId)
+			content := types.NewSetTokenContract(fury1155CodeId)
 
 			from := clientCtx.GetFromAddress()
 

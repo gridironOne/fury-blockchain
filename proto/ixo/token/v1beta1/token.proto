@@ -1,11 +1,11 @@
 syntax = "proto3";
-package ixo.token.v1beta1;
+package fury.token.v1beta1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/token/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/token/types";
 
-message Params { uint64 ixo1155_contract_code = 1; }
+message Params { uint64 fury1155_contract_code = 1; }
 
 message Token {
   option (gogoproto.equal) = true;
@@ -22,7 +22,7 @@ message Token {
   string description = 5;
   // image is the image url for the token
   string image = 6;
-  // type is the token type (eg ixo1155)
+  // type is the token type (eg fury1155)
   string type = 7;
   // cap is the maximum number of tokens with this name that can be minted, 0 is
   // unlimited

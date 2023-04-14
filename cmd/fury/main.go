@@ -3,11 +3,11 @@ package main
 import (
 	"os"
 
-	"github.com/ixofoundation/ixo-blockchain/cmd/ixod/cmd"
+	"github.com/furyfoundation/fury-blockchain/cmd/fury/cmd"
 
 	"github.com/cosmos/cosmos-sdk/server"
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	"github.com/ixofoundation/ixo-blockchain/app"
+	"github.com/furyfoundation/fury-blockchain/app"
 )
 
 func main() {

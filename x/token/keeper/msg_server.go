@@ -7,9 +7,9 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types/contracts/ixo1155"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/types/contracts/fury1155"
 )
 
 type msgServer struct {
@@ -44,7 +44,7 @@ func (s msgServer) CreateToken(goCtx context.Context, msg *types.MsgCreateToken)
 		return nil, err
 	}
 
-	encodedInitiateMessage, err := ixo1155.Marshal(ixo1155.InstantiateMsg{
+	encodedInitiateMessage, err := fury1155.Marshal(fury1155.InstantiateMsg{
 		Minter: minter.String(),
 	})
 	if err != nil {
@@ -53,12 +53,12 @@ func (s msgServer) CreateToken(goCtx context.Context, msg *types.MsgCreateToken)
 
 	contractAddr, _, err := s.Keeper.WasmKeeper.Instantiate(
 		ctx,
-		params.Ixo1155ContractCode,
+		params.Fury1155ContractCode,
 		minter,
 		minter,
 		encodedInitiateMessage,
-		fmt.Sprintf("%s-ixo1155-contract", msg.Minter),
-		sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())),
+		fmt.Sprintf("%s-fury1155-contract", msg.Minter),
+		sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())),
 	)
 	if err != nil {
 		return nil, err
@@ -150,10 +150,10 @@ func (s msgServer) MintToken(goCtx context.Context, msg *types.MsgMintToken) (*t
 		return nil, sdkerrors.Wrapf(types.ErrTokenAmountIncorrect, "amounts %s plus current supply %s is greater than token cap %s", amounts.String(), token.Supply.String(), token.Cap.String())
 	}
 
-	encodedMintMessage, err := ixo1155.Marshal(ixo1155.WasmMsgBatchMint{
-		BatchMint: ixo1155.BatchMint{
+	encodedMintMessage, err := fury1155.Marshal(fury1155.WasmMsgBatchMint{
+		BatchMint: fury1155.BatchMint{
 			To:    ownerAddress.String(),
-			Batch: types.Map(batches, func(b types.MintBatchData) ixo1155.Batch { return b.GetWasmMintBatch() }),
+			Batch: types.Map(batches, func(b types.MintBatchData) fury1155.Batch { return b.GetWasmMintBatch() }),
 		},
 	})
 	if err != nil {
@@ -165,7 +165,7 @@ func (s msgServer) MintToken(goCtx context.Context, msg *types.MsgMintToken) (*t
 		contractAddress,
 		minterAddress,
 		encodedMintMessage,
-		sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())),
+		sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())),
 	)
 	if err != nil {
 		return nil, err
@@ -233,11 +233,11 @@ func (s msgServer) TransferToken(goCtx context.Context, msg *types.MsgTransferTo
 		return nil, err
 	}
 
-	encodedTransferMessage, err := ixo1155.Marshal(ixo1155.WasmBatchSendFrom{
-		BatchSendFrom: ixo1155.BatchSendFrom{
+	encodedTransferMessage, err := fury1155.Marshal(fury1155.WasmBatchSendFrom{
+		BatchSendFrom: fury1155.BatchSendFrom{
 			From:  ownerAddress.String(),
 			To:    recipientAddress.String(),
-			Batch: types.Map(msg.Tokens, func(b *types.TokenBatch) ixo1155.Batch { return b.GetWasmTransferBatch() }),
+			Batch: types.Map(msg.Tokens, func(b *types.TokenBatch) fury1155.Batch { return b.GetWasmTransferBatch() }),
 		},
 	})
 	if err != nil {
@@ -249,7 +249,7 @@ func (s msgServer) TransferToken(goCtx context.Context, msg *types.MsgTransferTo
 		contractAddress,
 		ownerAddress,
 		encodedTransferMessage,
-		sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())),
+		sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())),
 	)
 	if err != nil {
 		return nil, err
@@ -287,10 +287,10 @@ func (s msgServer) RetireToken(goCtx context.Context, msg *types.MsgRetireToken)
 		return nil, err
 	}
 
-	encodedBurnMessage, err := ixo1155.Marshal(ixo1155.WasmMsgBatchBurn{
-		BatchBurn: ixo1155.BatchBurn{
+	encodedBurnMessage, err := fury1155.Marshal(fury1155.WasmMsgBatchBurn{
+		BatchBurn: fury1155.BatchBurn{
 			From:  ownerAddress.String(),
-			Batch: types.Map(msg.Tokens, func(b *types.TokenBatch) ixo1155.Batch { return b.GetWasmTransferBatch() }),
+			Batch: types.Map(msg.Tokens, func(b *types.TokenBatch) fury1155.Batch { return b.GetWasmTransferBatch() }),
 		},
 	})
 	if err != nil {
@@ -302,7 +302,7 @@ func (s msgServer) RetireToken(goCtx context.Context, msg *types.MsgRetireToken)
 		contractAddress,
 		ownerAddress,
 		encodedBurnMessage,
-		sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())),
+		sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())),
 	)
 	if err != nil {
 		return nil, err
@@ -357,10 +357,10 @@ func (s msgServer) CancelToken(goCtx context.Context, msg *types.MsgCancelToken)
 		return nil, err
 	}
 
-	encodedBurnMessage, err := ixo1155.Marshal(ixo1155.WasmMsgBatchBurn{
-		BatchBurn: ixo1155.BatchBurn{
+	encodedBurnMessage, err := fury1155.Marshal(fury1155.WasmMsgBatchBurn{
+		BatchBurn: fury1155.BatchBurn{
 			From:  ownerAddress.String(),
-			Batch: types.Map(msg.Tokens, func(b *types.TokenBatch) ixo1155.Batch { return b.GetWasmTransferBatch() }),
+			Batch: types.Map(msg.Tokens, func(b *types.TokenBatch) fury1155.Batch { return b.GetWasmTransferBatch() }),
 		},
 	})
 	if err != nil {
@@ -372,7 +372,7 @@ func (s msgServer) CancelToken(goCtx context.Context, msg *types.MsgCancelToken)
 		contractAddress,
 		ownerAddress,
 		encodedBurnMessage,
-		sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())),
+		sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())),
 	)
 	if err != nil {
 		return nil, err

@@ -11,11 +11,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/gorilla/mux"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/client/cli"
+	"github.com/furyfoundation/fury-blockchain/x/entity/client/cli"
 
-	// "github.com/ixofoundation/ixo-blockchain/x/entity/client/rest"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/keeper"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/types"
+	// "github.com/furyfoundation/fury-blockchain/x/entity/client/rest"
+	"github.com/furyfoundation/fury-blockchain/x/entity/keeper"
+	"github.com/furyfoundation/fury-blockchain/x/entity/types"
 	"github.com/spf13/cobra"
 	abci "github.com/tendermint/tendermint/abci/types"
 )

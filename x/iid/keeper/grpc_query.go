@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	"github.com/furyfoundation/fury-blockchain/x/iid/types"
 )
 
 var _ types.QueryServer = Keeper{}

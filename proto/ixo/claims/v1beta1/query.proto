@@ -1,37 +1,37 @@
 syntax = "proto3";
-package ixo.claims.v1beta1;
+package fury.claims.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
-import "ixo/claims/v1beta1/claims.proto";
+import "fury/claims/v1beta1/claims.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/claims/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/claims/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/ixo/claims/params";
+    option (google.api.http).get = "/fury/claims/params";
   }
   rpc Collection(QueryCollectionRequest) returns (QueryCollectionResponse) {
-    option (google.api.http).get = "/ixo/collection/{id}";
+    option (google.api.http).get = "/fury/collection/{id}";
   }
   rpc CollectionList(QueryCollectionListRequest)
       returns (QueryCollectionListResponse) {
-    option (google.api.http).get = "/ixo/collection";
+    option (google.api.http).get = "/fury/collection";
   }
   rpc Claim(QueryClaimRequest) returns (QueryClaimResponse) {
-    option (google.api.http).get = "/ixo/claim/{id}";
+    option (google.api.http).get = "/fury/claim/{id}";
   }
   rpc ClaimList(QueryClaimListRequest) returns (QueryClaimListResponse) {
-    option (google.api.http).get = "/ixo/claim";
+    option (google.api.http).get = "/fury/claim";
   }
   rpc Dispute(QueryDisputeRequest) returns (QueryDisputeResponse) {
-    option (google.api.http).get = "/ixo/dispute/{proof}";
+    option (google.api.http).get = "/fury/dispute/{proof}";
   }
   rpc DisputeList(QueryDisputeListRequest) returns (QueryDisputeListResponse) {
-    option (google.api.http).get = "/ixo/dispute";
+    option (google.api.http).get = "/fury/dispute";
   }
 }
 

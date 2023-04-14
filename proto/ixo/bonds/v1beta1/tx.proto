@@ -1,11 +1,11 @@
 syntax = "proto3";
-package ixo.bonds.v1beta1;
+package fury.bonds.v1beta1;
 
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
-import "ixo/bonds/v1beta1/bonds.proto";
+import "fury/bonds/v1beta1/bonds.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/bonds/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/bonds/types";
 
 // Msg defines the bonds Msg service.
 service Msg {
@@ -50,24 +50,24 @@ message MsgCreateBond {
   string name = 3 [ (gogoproto.moretags) = "yaml:\"name\"" ];
   string description = 4 [ (gogoproto.moretags) = "yaml:\"description\"" ];
   string function_type = 5 [ (gogoproto.moretags) = "yaml:\"function_type\"" ];
-  repeated ixo.bonds.v1beta1.FunctionParam function_parameters = 6 [
+  repeated fury.bonds.v1beta1.FunctionParam function_parameters = 6 [
     (gogoproto.nullable) = false,
     (gogoproto.castrepeated) = "FunctionParams",
     (gogoproto.moretags) = "yaml:\"function_parameters\""
   ];
   string creator_did = 7 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"creator_did\""
   ];
   string controller_did = 8 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"controller_did\""
   ];
   string oracle_did = 9 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"oracle_did\""
   ];
   repeated string reserve_tokens = 10
@@ -139,7 +139,7 @@ message MsgEditBond {
       [ (gogoproto.moretags) = "yaml:\"sanity_margin_percentage\"" ];
   string editor_did = 7 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"editor_did\""
   ];
   string editor_address = 8 [
@@ -166,7 +166,7 @@ message MsgSetNextAlpha {
   ];
   string oracle_did = 4 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"editor_did\""
   ];
   string oracle_address = 5 [
@@ -183,7 +183,7 @@ message MsgUpdateBondState {
   string state = 2 [ (gogoproto.moretags) = "yaml:\"state\"" ];
   string editor_did = 3 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"oracle_did\""
   ];
   string editor_address = 4 [
@@ -199,7 +199,7 @@ message MsgUpdateBondStateResponse {}
 message MsgBuy {
   string buyer_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"buyer_did\""
   ];
   cosmos.base.v1beta1.Coin amount = 2 [
@@ -225,7 +225,7 @@ message MsgBuyResponse {}
 message MsgSell {
   string seller_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"seller_did\""
   ];
   cosmos.base.v1beta1.Coin amount = 2 [
@@ -247,7 +247,7 @@ message MsgSellResponse {}
 message MsgSwap {
   string swapper_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"swapper_did\""
   ];
   string bond_did = 2 [ (gogoproto.moretags) = "yaml:\"bond_did\"" ];
@@ -268,7 +268,7 @@ message MsgSwapResponse {}
 message MsgMakeOutcomePayment {
   string sender_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"sender_did\""
   ];
   string amount = 2 [
@@ -292,7 +292,7 @@ message MsgMakeOutcomePaymentResponse {}
 message MsgWithdrawShare {
   string recipient_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"recipient_did\""
   ];
   string bond_did = 2 [ (gogoproto.moretags) = "yaml:\"bond_did\"" ];
@@ -309,7 +309,7 @@ message MsgWithdrawShareResponse {}
 message MsgWithdrawReserve {
   string withdrawer_did = 1 [
     (gogoproto.casttype) =
-        "github.com/ixofoundation/ixo-blockchain/x/iid/types.DIDFragment",
+        "github.com/furyfoundation/fury-blockchain/x/iid/types.DIDFragment",
     (gogoproto.moretags) = "yaml:\"withdrawer_did\""
   ];
   repeated cosmos.base.v1beta1.Coin amount = 2 [

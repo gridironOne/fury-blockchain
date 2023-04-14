@@ -1,10 +1,10 @@
 syntax = "proto3";
-package ixo.entity.v1beta1;
+package fury.entity.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "ixo/entity/v1beta1/entity.proto";
+import "fury/entity/v1beta1/entity.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/entity/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/entity/types";
 
 // GenesisState defines the project module's genesis state.
 message GenesisState {

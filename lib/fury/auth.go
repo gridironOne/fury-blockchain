@@ -1,4 +1,4 @@
-package ixo
+package fury
 
 import (
 	"fmt"
@@ -15,7 +15,7 @@ import (
 )
 
 // Identical to DefaultSigVerificationGasConsumer, but with ed25519 allowed
-func IxoSigVerificationGasConsumer(
+func FurySigVerificationGasConsumer(
 	meter sdk.GasMeter, sig signing.SignatureV2, params authtypes.Params,
 ) error {
 	pubkey := sig.PubKey

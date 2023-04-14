@@ -9,7 +9,7 @@ import (
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
-	"github.com/ixofoundation/ixo-blockchain/x/claims/types"
+	"github.com/furyfoundation/fury-blockchain/x/claims/types"
 )
 
 // GetTxCmd returns the transaction commands for this module

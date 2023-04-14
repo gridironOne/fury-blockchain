@@ -6,7 +6,7 @@ SDK_PACK := $(shell go list -m github.com/cosmos/cosmos-sdk | sed  's/ /\@/g')
 TM_VERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::') # grab everything after the space in "github.com/tendermint/tendermint v0.34.7"
 DOCKER := $(shell which docker)
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bufbuild/buf
-HTTPS_GIT := https://github.com/ixofoundation/ixo-blockchain.git
+HTTPS_GIT := https://github.com/furyfoundation/fury-blockchain.git
 
 export GO111MODULE = on
 export COSMOS_SDK_TEST_KEYRING = n
@@ -32,11 +32,11 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 # process linker flags
 
 ldflags = \
-    -X github.com/cosmos/cosmos-sdk/version.Name=ixo \
-    -X github.com/cosmos/cosmos-sdk/version.AppName=ixod \
+    -X github.com/cosmos/cosmos-sdk/version.Name=fury \
+    -X github.com/cosmos/cosmos-sdk/version.AppName=fury \
     -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
     -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
-    -X "github.com/ixofoundation/ixo-blockchain/version.BuildTags=$(build_tags_comma_sep)" \
+    -X "github.com/furyfoundation/fury-blockchain/version.BuildTags=$(build_tags_comma_sep)" \
     -X github.com/tendermint/tendermint/version.TMCoreSemVer=$(TM_VERSION)
 
 ifeq ($(WITH_CLEVELDB),yes)
@@ -55,13 +55,13 @@ all: lint install
 
 build: go.sum
 ifeq ($(OS),Windows_NT)
-	go build -mod=readonly $(BUILD_FLAGS) -o build/ixod.exe ./cmd/ixod
+	go build -mod=readonly $(BUILD_FLAGS) -o build/fury.exe ./cmd/fury
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/ixod ./cmd/ixod
+	go build -mod=readonly $(BUILD_FLAGS) -o build/fury ./cmd/fury
 endif
 
 install: go.sum
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/ixod
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/fury
 
 ###############################################################################
 ###                               Go Modules                                ###
@@ -78,7 +78,7 @@ go.sum: go.mod
 draw-deps:
 	@# requires brew install graphviz or apt-get install graphviz
 	go get github.com/RobotsAndPencils/goviz
-	@goviz -i github.com/ixofoundation/ixo-blockchain/cmd/ixod -d 2 | dot -Tpng -o dependency-graph.png
+	@goviz -i github.com/furyfoundation/fury-blockchain/cmd/fury -d 2 | dot -Tpng -o dependency-graph.png
 
 .PHONY: all install go-mod-cache draw-deps build
 

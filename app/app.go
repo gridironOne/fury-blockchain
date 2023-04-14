@@ -103,29 +103,29 @@ import (
 	intertxkeeper "github.com/cosmos/interchain-accounts/x/inter-tx/keeper"
 	intertxtypes "github.com/cosmos/interchain-accounts/x/inter-tx/types"
 	"github.com/gorilla/mux"
-	"github.com/ixofoundation/ixo-blockchain/app/params"
-	"github.com/ixofoundation/ixo-blockchain/lib/ixo"
-	"github.com/ixofoundation/ixo-blockchain/x/bonds"
-	bondskeeper "github.com/ixofoundation/ixo-blockchain/x/bonds/keeper"
-	bondstypes "github.com/ixofoundation/ixo-blockchain/x/bonds/types"
+	"github.com/furyfoundation/fury-blockchain/app/params"
+	"github.com/furyfoundation/fury-blockchain/lib/fury"
+	"github.com/furyfoundation/fury-blockchain/x/bonds"
+	bondskeeper "github.com/furyfoundation/fury-blockchain/x/bonds/keeper"
+	bondstypes "github.com/furyfoundation/fury-blockchain/x/bonds/types"
 
-	entitymodule "github.com/ixofoundation/ixo-blockchain/x/entity"
-	entityclient "github.com/ixofoundation/ixo-blockchain/x/entity/client"
-	entitykeeper "github.com/ixofoundation/ixo-blockchain/x/entity/keeper"
-	entitytypes "github.com/ixofoundation/ixo-blockchain/x/entity/types"
+	entitymodule "github.com/furyfoundation/fury-blockchain/x/entity"
+	entityclient "github.com/furyfoundation/fury-blockchain/x/entity/client"
+	entitykeeper "github.com/furyfoundation/fury-blockchain/x/entity/keeper"
+	entitytypes "github.com/furyfoundation/fury-blockchain/x/entity/types"
 
-	tokenmodule "github.com/ixofoundation/ixo-blockchain/x/token"
-	tokenclient "github.com/ixofoundation/ixo-blockchain/x/token/client"
-	tokenkeeper "github.com/ixofoundation/ixo-blockchain/x/token/keeper"
-	tokentypes "github.com/ixofoundation/ixo-blockchain/x/token/types"
+	tokenmodule "github.com/furyfoundation/fury-blockchain/x/token"
+	tokenclient "github.com/furyfoundation/fury-blockchain/x/token/client"
+	tokenkeeper "github.com/furyfoundation/fury-blockchain/x/token/keeper"
+	tokentypes "github.com/furyfoundation/fury-blockchain/x/token/types"
 
-	claimsmodule "github.com/ixofoundation/ixo-blockchain/x/claims"
-	claimsmodulekeeper "github.com/ixofoundation/ixo-blockchain/x/claims/keeper"
-	claimsmoduletypes "github.com/ixofoundation/ixo-blockchain/x/claims/types"
+	claimsmodule "github.com/furyfoundation/fury-blockchain/x/claims"
+	claimsmodulekeeper "github.com/furyfoundation/fury-blockchain/x/claims/keeper"
+	claimsmoduletypes "github.com/furyfoundation/fury-blockchain/x/claims/types"
 
-	iidmodule "github.com/ixofoundation/ixo-blockchain/x/iid"
-	iidmodulekeeper "github.com/ixofoundation/ixo-blockchain/x/iid/keeper"
-	iidtypes "github.com/ixofoundation/ixo-blockchain/x/iid/types"
+	iidmodule "github.com/furyfoundation/fury-blockchain/x/iid"
+	iidmodulekeeper "github.com/furyfoundation/fury-blockchain/x/iid/keeper"
+	iidtypes "github.com/furyfoundation/fury-blockchain/x/iid/types"
 
 	"github.com/rakyll/statik/fs"
 	"github.com/spf13/cast"
@@ -137,8 +137,8 @@ import (
 )
 
 const (
-	appName              = "IxoApp"
-	Bech32MainPrefix     = "ixo"
+	appName              = "FuryApp"
+	Bech32MainPrefix     = "fury"
 	Bech32PrefixAccAddr  = Bech32MainPrefix
 	Bech32PrefixAccPub   = Bech32MainPrefix + sdk.PrefixPublic
 	Bech32PrefixValAddr  = Bech32MainPrefix + sdk.PrefixValidator + sdk.PrefixOperator
@@ -149,7 +149,7 @@ const (
 
 var (
 	// DefaultNodeHome default home directories for the application daemon
-	DefaultNodeHome = os.ExpandEnv("$HOME/.ixod")
+	DefaultNodeHome = os.ExpandEnv("$HOME/.fury")
 
 	// ModuleBasics defines the module BasicManager which is in charge of setting up basic,
 	// non-dependant module elements, such as codec registration
@@ -191,7 +191,7 @@ var (
 		intertx.AppModuleBasic{},
 		ibcfee.AppModuleBasic{},
 
-		// Custom ixo modules
+		// Custom fury modules
 		iidmodule.AppModuleBasic{},
 		bonds.AppModuleBasic{},
 		entitymodule.AppModuleBasic{},
@@ -213,7 +213,7 @@ var (
 		icatypes.ModuleName:            nil,
 		wasm.ModuleName:                {authtypes.Burner},
 
-		// Custom ixo module accounts
+		// Custom fury module accounts
 		bondstypes.BondsMintBurnAccount:       {authtypes.Minter, authtypes.Burner},
 		bondstypes.BatchesIntermediaryAccount: nil,
 		bondstypes.BondsReserveAccount:        nil,
@@ -251,11 +251,11 @@ func GetEnabledProposals() []wasm.ProposalType {
 }
 
 // Verify app interface at compile time
-var _ simapp.App = (*IxoApp)(nil)
-var _ servertypes.Application = (*IxoApp)(nil)
+var _ simapp.App = (*FuryApp)(nil)
+var _ servertypes.Application = (*FuryApp)(nil)
 
 // Extended ABCI application
-type IxoApp struct {
+type FuryApp struct {
 	*baseapp.BaseApp
 	legacyAmino       *codec.LegacyAmino
 	appCodec          codec.Codec
@@ -300,7 +300,7 @@ type IxoApp struct {
 	ScopedWasmKeeper          capabilitykeeper.ScopedKeeper
 	ScopedIBCFeeKeeper        capabilitykeeper.ScopedKeeper
 
-	// Custom ixo keepers
+	// Custom fury keepers
 
 	IidKeeper    iidmodulekeeper.Keeper
 	EntityKeeper entitykeeper.Keeper
@@ -315,12 +315,12 @@ type IxoApp struct {
 	sm *module.SimulationManager
 }
 
-// NewIxoApp returns a reference to an initialized IxoApp.
-func NewIxoApp(
+// NewFuryApp returns a reference to an initialized FuryApp.
+func NewFuryApp(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, loadLatest bool, skipUpgradeHeights map[int64]bool,
 	homePath string, invCheckPeriod uint, encodingConfig params.EncodingConfig, enabledProposals []wasm.ProposalType,
 	appOpts servertypes.AppOptions, wasmOpts []wasm.Option, baseAppOptions ...func(*baseapp.BaseApp),
-) *IxoApp {
+) *FuryApp {
 
 	appCodec := encodingConfig.Marshaler
 	legacyAmino := encodingConfig.Amino
@@ -343,7 +343,7 @@ func NewIxoApp(
 		icacontrollertypes.StoreKey,
 		intertxtypes.StoreKey,
 		ibcfeetypes.StoreKey,
-		// Custom ixo store keys
+		// Custom fury store keys
 		iidtypes.StoreKey,
 		bondstypes.StoreKey,
 		entitytypes.StoreKey,
@@ -353,7 +353,7 @@ func NewIxoApp(
 	tkeys := sdk.NewTransientStoreKeys(paramstypes.TStoreKey)
 	memKeys := sdk.NewMemoryStoreKeys(capabilitytypes.MemStoreKey)
 
-	app := &IxoApp{
+	app := &FuryApp{
 		BaseApp:           bApp,
 		legacyAmino:       legacyAmino,
 		appCodec:          appCodec,
@@ -473,7 +473,7 @@ func NewIxoApp(
 		wasmOpts...,
 	)
 
-	// add keepers (for custom ixo modules)
+	// add keepers (for custom fury modules)
 	app.IidKeeper = *iidmodulekeeper.NewKeeper(appCodec, keys[iidtypes.StoreKey], keys[iidtypes.MemStoreKey])
 	app.BondsKeeper = bondskeeper.NewKeeper(app.BankKeeper, app.AccountKeeper, app.StakingKeeper, app.IidKeeper,
 		keys[bondstypes.StoreKey], app.getSubspace(bondstypes.ModuleName), app.appCodec)
@@ -565,7 +565,7 @@ func NewIxoApp(
 		transferModule,
 		ibcfee.NewAppModule(app.IBCFeeKeeper),
 
-		// Custom ixo AppModules
+		// Custom fury AppModules
 		iidmodule.NewAppModule(app.appCodec, app.IidKeeper),
 		bonds.NewAppModule(app.BondsKeeper, app.AccountKeeper),
 		entitymodule.NewAppModule(app.EntityKeeper),
@@ -587,7 +587,7 @@ func NewIxoApp(
 		authz.ModuleName, feegrant.ModuleName,
 		icatypes.ModuleName, ibcfeetypes.ModuleName, intertxtypes.ModuleName, wasm.ModuleName,
 
-		// Custom ixo modules
+		// Custom fury modules
 		bondstypes.ModuleName, iidtypes.ModuleName, entitytypes.ModuleName,
 		tokentypes.ModuleName, claimsmoduletypes.ModuleName,
 	)
@@ -601,7 +601,7 @@ func NewIxoApp(
 		capabilitytypes.ModuleName, slashingtypes.ModuleName, ibctransfertypes.ModuleName,
 		authz.ModuleName, feegrant.ModuleName,
 		icatypes.ModuleName, ibcfeetypes.ModuleName, intertxtypes.ModuleName, wasm.ModuleName,
-		// Custom ixo modules
+		// Custom fury modules
 		iidtypes.ModuleName, entitytypes.ModuleName, tokentypes.ModuleName,
 		bondstypes.ModuleName, claimsmoduletypes.ModuleName,
 	)
@@ -619,7 +619,7 @@ func NewIxoApp(
 		upgradetypes.ModuleName, paramstypes.ModuleName, vestingtypes.ModuleName, authz.ModuleName,
 		feegrant.ModuleName, icatypes.ModuleName, ibcfeetypes.ModuleName, intertxtypes.ModuleName, wasm.ModuleName,
 
-		// Custom ixo modules
+		// Custom fury modules
 		iidtypes.ModuleName, bondstypes.ModuleName, tokentypes.ModuleName,
 		entitytypes.ModuleName, claimsmoduletypes.ModuleName,
 	)
@@ -659,7 +659,7 @@ func NewIxoApp(
 	app.MountMemoryStores(memKeys)
 
 	// initialize BaseApp
-	ixoAnteHandler, err := IxoAnteHandler(HandlerOptions{
+	furyAnteHandler, err := FuryAnteHandler(HandlerOptions{
 		AccountKeeper:     app.AccountKeeper,
 		BankKeeper:        app.BankKeeper,
 		FeegrantKeeper:    app.FeeGrantKeeper,
@@ -670,7 +670,7 @@ func NewIxoApp(
 		txCounterStoreKey: keys[wasm.StoreKey],
 
 		SignModeHandler: encodingConfig.TxConfig.SignModeHandler(),
-		SigGasConsumer:  ixo.IxoSigVerificationGasConsumer,
+		SigGasConsumer:  fury.FurySigVerificationGasConsumer,
 	})
 	if err != nil {
 		panic(err)
@@ -678,7 +678,7 @@ func NewIxoApp(
 
 	app.SetInitChainer(app.InitChainer)
 	app.SetBeginBlocker(app.BeginBlocker)
-	app.SetAnteHandler(ixoAnteHandler)
+	app.SetAnteHandler(furyAnteHandler)
 	app.SetEndBlocker(app.EndBlocker)
 
 	if loadLatest {
@@ -698,31 +698,31 @@ func NewIxoApp(
 }
 
 // MakeCodecs constructs the *std.Codec and *codec.LegacyAmino instances used by
-// ixoapp. It is useful for tests and clients who do not want to construct the
-// full ixoapp.
+// furyapp. It is useful for tests and clients who do not want to construct the
+// full furyapp.
 func MakeCodecs() (codec.Codec, *codec.LegacyAmino) {
 	config := MakeTestEncodingConfig()
 	return config.Marshaler, config.Amino
 }
 
 // Name returns the name of the App
-func (app *IxoApp) Name() string { return app.BaseApp.Name() }
+func (app *FuryApp) Name() string { return app.BaseApp.Name() }
 
 // GetBaseApp returns the base app of the application
-func (app *IxoApp) GetBaseApp() *baseapp.BaseApp { return app.BaseApp }
+func (app *FuryApp) GetBaseApp() *baseapp.BaseApp { return app.BaseApp }
 
 // BeginBlocker application updates every begin block
-func (app *IxoApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
+func (app *FuryApp) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
 	return app.mm.BeginBlock(ctx, req)
 }
 
 // EndBlocker application updates every end block
-func (app *IxoApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
+func (app *FuryApp) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
 	return app.mm.EndBlock(ctx, req)
 }
 
 // InitChainer application update at chain initialization
-func (app *IxoApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
+func (app *FuryApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.ResponseInitChain {
 	var genesisState GenesisState
 	if err := tmjson.Unmarshal(req.AppStateBytes, &genesisState); err != nil {
 		panic(err)
@@ -731,12 +731,12 @@ func (app *IxoApp) InitChainer(ctx sdk.Context, req abci.RequestInitChain) abci.
 }
 
 // LoadHeight loads a particular height
-func (app *IxoApp) LoadHeight(height int64) error {
+func (app *FuryApp) LoadHeight(height int64) error {
 	return app.LoadVersion(height)
 }
 
 // ModuleAccountAddrs returns all the app's module account addresses.
-func (app *IxoApp) ModuleAccountAddrs() map[string]bool {
+func (app *FuryApp) ModuleAccountAddrs() map[string]bool {
 	modAccAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		modAccAddrs[authtypes.NewModuleAddress(acc).String()] = true
@@ -746,7 +746,7 @@ func (app *IxoApp) ModuleAccountAddrs() map[string]bool {
 }
 
 // BlockedAddrs returns all the app's module account addresses black listed for receiving tokens.
-func (app *IxoApp) BlockedAddrs() map[string]bool {
+func (app *FuryApp) BlockedAddrs() map[string]bool {
 	blockedAddrs := make(map[string]bool)
 	for acc := range maccPerms {
 		blockedAddrs[authtypes.NewModuleAddress(acc).String()] = !allowedReceivingModAcc[acc]
@@ -755,64 +755,64 @@ func (app *IxoApp) BlockedAddrs() map[string]bool {
 	return blockedAddrs
 }
 
-// LegacyAmino returns IxoApp's amino codec.
+// LegacyAmino returns FuryApp's amino codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *IxoApp) LegacyAmino() *codec.LegacyAmino {
+func (app *FuryApp) LegacyAmino() *codec.LegacyAmino {
 	return app.legacyAmino
 }
 
-// AppCodec returns IxoApp's app codec.
+// AppCodec returns FuryApp's app codec.
 //
 // NOTE: This is solely to be used for testing purposes as it may be desirable
 // for modules to register their own custom testing types.
-func (app *IxoApp) AppCodec() codec.Codec {
+func (app *FuryApp) AppCodec() codec.Codec {
 	return app.appCodec
 }
 
-// InterfaceRegistry returns IxoApp's InterfaceRegistry
-func (app *IxoApp) InterfaceRegistry() types.InterfaceRegistry {
+// InterfaceRegistry returns FuryApp's InterfaceRegistry
+func (app *FuryApp) InterfaceRegistry() types.InterfaceRegistry {
 	return app.interfaceRegistry
 }
 
 // GetKey returns the KVStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *IxoApp) GetKey(storeKey string) *sdk.KVStoreKey {
+func (app *FuryApp) GetKey(storeKey string) *sdk.KVStoreKey {
 	return app.keys[storeKey]
 }
 
 // GetTKey returns the TransientStoreKey for the provided store key.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *IxoApp) GetTKey(storeKey string) *sdk.TransientStoreKey {
+func (app *FuryApp) GetTKey(storeKey string) *sdk.TransientStoreKey {
 	return app.tkeys[storeKey]
 }
 
 // GetMemKey returns the MemStoreKey for the provided mem key.
 //
 // NOTE: This is solely used for testing purposes.
-func (app *IxoApp) GetMemKey(storeKey string) *sdk.MemoryStoreKey {
+func (app *FuryApp) GetMemKey(storeKey string) *sdk.MemoryStoreKey {
 	return app.memKeys[storeKey]
 }
 
 // getSubspace returns a param subspace for a given module name.
 //
 // NOTE: This is solely to be used for testing purposes.
-func (app *IxoApp) getSubspace(moduleName string) paramstypes.Subspace {
+func (app *FuryApp) getSubspace(moduleName string) paramstypes.Subspace {
 	subspace, _ := app.ParamsKeeper.GetSubspace(moduleName)
 	return subspace
 }
 
 // SimulationManager implements the SimulationApp interface
-func (app *IxoApp) SimulationManager() *module.SimulationManager {
+func (app *FuryApp) SimulationManager() *module.SimulationManager {
 	return app.sm
 }
 
 // RegisterAPIRoutes registers all application module routes with the provided
 // API server.
-func (app *IxoApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.APIConfig) {
+func (app *FuryApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.APIConfig) {
 	clientCtx := apiSvr.ClientCtx
 	rpc.RegisterRoutes(clientCtx, apiSvr.Router)
 	// Register legacy tx routes.
@@ -833,12 +833,12 @@ func (app *IxoApp) RegisterAPIRoutes(apiSvr *api.Server, apiConfig srvconfig.API
 }
 
 // RegisterTxService implements the Application.RegisterTxService method.
-func (app *IxoApp) RegisterTxService(clientCtx client.Context) {
+func (app *FuryApp) RegisterTxService(clientCtx client.Context) {
 	authtx.RegisterTxService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.BaseApp.Simulate, app.interfaceRegistry)
 }
 
 // RegisterTendermintService implements the Application.RegisterTendermintService method.
-func (app *IxoApp) RegisterTendermintService(clientCtx client.Context) {
+func (app *FuryApp) RegisterTendermintService(clientCtx client.Context) {
 	tmservice.RegisterTendermintService(app.BaseApp.GRPCQueryRouter(), clientCtx, app.interfaceRegistry)
 }
 
@@ -879,7 +879,7 @@ func initParamsKeeper(appCodec codec.BinaryCodec, legacyAmino *codec.LegacyAmino
 	paramsKeeper.Subspace(icacontrollertypes.SubModuleName)
 	paramsKeeper.Subspace(icahosttypes.SubModuleName)
 	paramsKeeper.Subspace(wasm.ModuleName)
-	// init params keeper and subspaces (for custom ixo modules)
+	// init params keeper and subspaces (for custom fury modules)
 	paramsKeeper.Subspace(iidtypes.ModuleName)
 	paramsKeeper.Subspace(bondstypes.ModuleName)
 	paramsKeeper.Subspace(entitytypes.ModuleName)

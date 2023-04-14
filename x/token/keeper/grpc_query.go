@@ -5,7 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/ixofoundation/ixo-blockchain/x/token/types"
+	"github.com/furyfoundation/fury-blockchain/x/token/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

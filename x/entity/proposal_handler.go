@@ -5,9 +5,9 @@ import (
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/keeper"
-	"github.com/ixofoundation/ixo-blockchain/x/entity/types"
-	nft "github.com/ixofoundation/ixo-blockchain/x/entity/types/contracts"
+	"github.com/furyfoundation/fury-blockchain/x/entity/keeper"
+	"github.com/furyfoundation/fury-blockchain/x/entity/types"
+	nft "github.com/furyfoundation/fury-blockchain/x/entity/types/contracts"
 )
 
 const (
@@ -49,7 +49,7 @@ func handleTokenParameterChangeProposal(ctx sdk.Context, k keeper.Keeper, p *typ
 		return err
 	}
 
-	contractAddr, _, err := k.WasmKeeper.Instantiate(ctx, p.NftContractCodeId, senderAddr, adminAddr, encodedInitiateNftContractMsg, "initiate_entity_nft_contract", sdk.NewCoins(sdk.NewCoin("uixo", sdk.ZeroInt())))
+	contractAddr, _, err := k.WasmKeeper.Instantiate(ctx, p.NftContractCodeId, senderAddr, adminAddr, encodedInitiateNftContractMsg, "initiate_entity_nft_contract", sdk.NewCoins(sdk.NewCoin("ufury", sdk.ZeroInt())))
 	if err != nil {
 		// return nil as still want proposal to pass even though contractCode doest'n exist yet (for entity module bootstrap purposes)
 		// if error it means proposal is just like empty proposal, look into returning error in future

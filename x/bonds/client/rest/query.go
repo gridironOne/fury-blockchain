@@ -8,8 +8,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/rest"
 	"github.com/gorilla/mux"
-	"github.com/ixofoundation/ixo-blockchain/x/bonds/keeper"
-	"github.com/ixofoundation/ixo-blockchain/x/bonds/types"
+	"github.com/furyfoundation/fury-blockchain/x/bonds/keeper"
+	"github.com/furyfoundation/fury-blockchain/x/bonds/types"
 )
 
 func registerQueryRoutes(clientCtx client.Context, r *mux.Router) {

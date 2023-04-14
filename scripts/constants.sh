@@ -1,31 +1,33 @@
 #!/usr/bin/env bash
 
-PASSWORD="12345678"
-GAS_PRICES="0.025uixo"
-CHAIN_ID="pandora-8"
-NODE="https://devnet.ixo.earth:443/rpc/"
+PASSWORD="F@nfuryG#n3sis@fury"
+GAS_PRICES="0.000025uxfury"
+CHAIN_ID="redshift-7"
+NODE="https://rpc.furya.xyz:26657"
 
-USERS=(alice bob charlie miguel francesco shaun fee fee2 fee3 fee4 fee5 reserveOut)
+USERS=(FuryGuardian-1 FuryGuardian-2 genArg genBra genBro genBuf genInd genNY genLA genPSG genSF genStReserve)
 MNEMONICS=(
-  'fall sound heavy fantasy start army shop license insane nuclear emotion execute'
-  'genuine suspect someone trip school order amateur heart cheap similar creek turn'
-  'faith game good hover hope area detect scout easily filter piece measure'
-  'jungle brave person inmate dirt upset try rotate twin fossil grid border'
-  'solution fame hundred price survey quantum swear grass opinion spot image figure'
-  'pool announce mandate pride pill virus remind valid sunny length embrace avoid'
-  'pilot sniff focus engine gym puppy special cat surround decline buzz morning'
-  'perfect topic area embark lawsuit list polar solar special brief gas latin'
-  'soccer walk grain purse ankle chef fade conduct pepper evil expect super'
-  'rare wing climb shadow casino original such fade film rough egg frown'
-  'slush slight giraffe table strong vintage media nut just shoe emerge point'
-  'current little pave couple concert much success wreck price found gadget effort'
+	'dismiss surround benefit alarm crew hood spoil walnut photo promote special champion short uncover time primary core emotion hill lizard ocean room online together'
+	'neglect lucky term swallow rotate mask runway voyage bridge female guilt round panic episode outdoor good below climb high method cushion donor laptop dragon'
+	'noble door shed drift melt catalog mention blush kingdom sheriff churn congress cover danger use blame cloud corn put worth opinion move bulk oyster'
+	'cotton mom coast curious degree green demand place margin express swarm strategy stomach suit fiscal luxury accuse industry horn tortoise ramp neglect noise infant'
+	'valid spike survey stick traffic upper multiply two coyote desert situate twin track foam method inmate survey furnace ugly general engage exist correct seven'
+	'release cushion enable cruise about dutch lazy pond desert sick curious run tribe autumn pulp jaguar hamster result where gravity rich trick foam blanket'
+	'camp ability once yard survey inmate rescue chief clay legend paper echo sadness rebel kitchen accident nut close tell monitor barrel rent letter paddle'
+	'dutch resource claim cliff choose rib path math vibrant drive eyebrow lunar travel kingdom flag crop height album crowd wife embody kitchen remove solve'
+	'sting curve flight gauge rough egg frequent foot toss expire search horse dignity man sketch cabin flower extra dentist because room smile sort surround'
+	'pill mention excite pact audit garment obey claw ice play impulse spirit anger acquire elbow oven office enter hockey often smart save intact gap'
+	'remind latin happy coffee pizza undo apology team crane never glow daughter color lift disease energy abandon wrist payment seed box ankle average hurdle'
+	'spare slow hat sign torch hill scheme carpet tuition swap auction ride dry smooth will cook mandate ten unveil insect december manual wave twelve'
+
+
 )
 
 wait_chain_start() {
-  RET=$(ixod status 2>&1)
+  RET=$(fury status 2>&1)
   if [[ ($RET == Error*) || ($RET == *'"latest_block_height":"0"'*) ]]; then
     while :; do
-      RET=$(ixod status 2>&1)
+      RET=$(fury status 2>&1)
       if [[ ($RET == Error*) || ($RET == *'"latest_block_height":"0"'*) ]]; then
         sleep 1
       else
@@ -37,13 +39,13 @@ wait_chain_start() {
   fi
 }
 
-ixod_tx() {
+fury_tx() {
   # Helper function to broadcast a transaction and supply the necessary args
   # Get module ($1) and specific tx ($2), which forms the tx command
   cmd="$1 $2"
   shift 2
 
-  yes $PASSWORD | ixod tx $cmd \
+  yes $PASSWORD | fury tx $cmd \
     --gas-prices $GAS_PRICES \
     --chain-id $CHAIN_ID \
     --broadcast-mode block \
@@ -53,8 +55,8 @@ ixod_tx() {
   # --node="$NODE" \
 }
 
-ixod_q() {
-  ixod q \
+fury_q() {
+  fury q \
     "$@" \
     --output=json | jq .
   # --node="$NODE" \

@@ -1,12 +1,12 @@
 syntax = "proto3";
-package ixo.token.v1beta1;
+package fury.token.v1beta1;
 
 import "gogoproto/gogo.proto";
-import "ixo/iid/v1beta1/iid.proto";
-import "ixo/token/v1beta1/token.proto";
+import "fury/iid/v1beta1/iid.proto";
+import "fury/token/v1beta1/token.proto";
 import "cosmos_proto/cosmos.proto";
 
-option go_package = "github.com/ixofoundation/ixo-blockchain/x/token/types";
+option go_package = "github.com/furyfoundation/fury-blockchain/x/token/types";
 
 message MintAuthorization {
   option (cosmos_proto.implements_interface) = "Authorization";
